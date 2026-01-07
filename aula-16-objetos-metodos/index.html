@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 16: Objetos com Métodos e This</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 4: Estruturas de Dados</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Métodos: Objetos com Vida Própria</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O que é um Método (Função dentro de um Objeto)</li>
+                            <li>A palavra-chave <code>this</code> (O Contexto)</li>
+                            <li>Como o objeto pode falar sobre si mesmo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Até agora, os nossos objetos eram cadernos estáticos (tinham dados). Mas na vida real, um "Gato" não tem só "cor" e "peso". Ele também "mia", "corre" e "salta".</p>
+
+                    <div class="analogy-box">
+                        <h4>🦸‍♂️ Analogia do Super-Herói</h4>
+                        <p><strong>Propriedades</strong>: Nome (Super-Homem), Capa (Vermelha). São dados (substantivos).</p>
+                        <p><strong>Métodos</strong>: Voar(), Lutar(), Salvar(). São ações (verbos).</p>
+                        <p><strong>This</strong>: Quando o Super-Homem diz "A <strong>minha</strong> capa", ele está a usar o <code>this</code>. "Minha" refere-se a ELE PRÓPRIO.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos dar vida ao código:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Criar um Método</h4>
+                            <pre><code>let cao = {
+    nome: "Boby",
+    ladrar: function() {
+        console.log("Au Au!");
+    }
+};
+
+cao.ladrar(); // "Au Au!"</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Usar o `this`</h4>
+                            <p>O <code>this</code> permite ao objeto aceder aos seus próprios dados.</p>
+                            <pre><code>let pessoa = {
+    nome: "Maria",
+    saudar: function() {
+        // "Eu sou a " + o_meu_próprio_nome
+        console.log("Olá, eu sou a " + this.nome);
+    }
+};
+
+pessoa.saudar(); // "Olá, eu sou a Maria"</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Mas e se mudar o nome?</h4>
+                            <pre><code>pessoa.nome = "Joana";
+pessoa.saudar(); // "Olá, eu sou a Joana"
+// (A função adaptou-se automaticamente porque usou o this!)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Aviso Importante:</strong> NÃO uses Arrow Functions <code>() => {}</code> como métodos se precisares do <code>this</code>. As Arrow Functions não sabem quem é o <code>this</code> (elas são "burras" nesse aspeto). Usa sempre <code>function()</code> normal dentro de objetos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. O que é um "Método" em JavaScript?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Uma variável especial.</div>
+                                <div class="option" data-value="b">Uma função que vive dentro de um objeto.</div>
+                                <div class="option" data-value="c">Um tipo de array.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Para que serve a palavra `this` dentro de um método?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Para referir o próprio objeto dono da função.</div>
+                                <div class="option" data-value="b">Para aceder a variáveis globais.</div>
+                                <div class="option" data-value="c">Não serve para nada.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Devo usar Arrow Functions para métodos com `this`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sim, são mais modernas.</div>
+                                <div class="option" data-value="b">Nunca, porque o `this` não funciona nelas como esperado.</div>
+                                <div class="option" data-value="c">Tanto faz.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>A Conta Bancária Simplificada</strong></p>
+
+                        <p>Cria um objeto <code>conta</code> com:</p>
+                        <p>- Propriedade <code>saldo</code> (começa em 100).</p>
+                        <p>- Método <code>verSaldo()</code> que mostra "Tens X euros."</p>
+                        <p>- Método <code>depositar(valor)</code> que aumenta o saldo.</p>
+
+                        <pre><code>let conta = {
+    saldo: 100,
+    verSaldo: function() { ... },
+    depositar: function(valor) { ... }
+};
+
+conta.depositar(50);
+conta.verSaldo(); // Deverá dizer 150</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let conta = {
+    saldo: 100,
+    verSaldo: function() {
+        console.log("Tens " + this.saldo + " euros.");
+    },
+    depositar: function(valor) {
+        this.saldo = this.saldo + valor;
+        // Ou: this.saldo += valor;
+    }
+};
+
+conta.depositar(50);
+conta.verSaldo(); // "Tens 150 euros."</code></pre>
+                                <p><strong>📌 Explicação:</strong> O segredo foi usar <code>this.saldo</code> para ler e alterar o valor da carteira do próprio objeto.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-15-objetos-intro/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Módulo 5 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>16</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 4)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Difícil</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Entender `this` é um dos conceitos mais difíceis e importantes do JS (especialmente em Programação Orientada a Objetos). Se conseguires explicar o `this` numa entrevista, ganhas muitos pontos!</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>🎉 Completaste o Módulo 4!</h4>
+                    <p>Já sabes guardar dados em listas e objetos.</p>
+                    <p>Próxima paragem: <strong>DOM (Document Object Model)</strong>. Vamos finalmente fazer o JavaScript mexer no HTML da página real!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Um Método não é nada mais que uma Função. A única diferença é que foi criada dentro de um objeto como propriedade. É uma "ação".',
+                    analogy: 'Função solta = Andar na rua. Método = Andar na passadeira do ginásio (está dentro do ginásio).'
+                },
+                2: {
+                    correct: 'a',
+                    explanation: 'O `this` é como dizer "Eu" ou "Meu". É uma referência a si próprio. Sem ele, a função não saberia de que `nome` ou `saldo` estamos a falar.',
+                    analogy: 'Quando dizes "Tenho fome", sabes que é a TUA fome, não a do vizinho.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'As Arrow Functions têm um `this` diferente (o do pai, léxico) e não o do objeto onde estão. Por isso, em métodos de objetos, usamos quase sempre a sintaxe antiga `function() {}` para o `this` funcionar bem.',
+                    analogy: 'As Arrow Functions são amnésicas, não sabem quem são.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

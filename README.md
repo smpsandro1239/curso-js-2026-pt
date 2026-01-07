@@ -39,7 +39,7 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | **13** | [Introdução a Arrays (Listas)](aula-13-arrays-intro/README.md) | ✅ Disponível | `[]`, Índices, `length` |
 | **14** | [Métodos de Arrays](aula-14-arrays-metodos/README.md) | ✅ Disponível | `push`, `pop`, `shift`, `unshift` |
 | **15** | [Objetos (O mundo real)](aula-15-objetos-intro/README.md) | ✅ Disponível | `{ chave: valor }`, Propriedades |
-| **16** | Objetos + Métodos (this) | 🚧 Planeado | Funções dentro de objetos |
+| **16** | [Objetos + Métodos (this)](aula-16-objetos-metodos/README.md) | ✅ Disponível | Funções dentro de objetos |
 
 ### 🟠 Módulo 5: JavaScript no Navegador (DOM)
 *Planeado: Selecionar elementos, Eventos (Click, Input), Criar HTML via JS.*
