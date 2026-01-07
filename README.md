@@ -42,7 +42,12 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | **16** | [Objetos + Métodos (this)](aula-16-objetos-metodos/README.md) | ✅ Disponível | Funções dentro de objetos |
 
 ### 🟠 Módulo 5: JavaScript no Navegador (DOM)
-*Planeado: Selecionar elementos, Eventos (Click, Input), Criar HTML via JS.*
+| Aula | Tópico | Estado | Foco |
+|------|--------|--------|------|
+| **17** | [O que é o DOM? (Seletores)](aula-17-dom-intro/README.md) | ✅ Disponível | `getElementById`, `querySelector` |
+| **18** | Eventos (Clicks e Interação) | 🚧 Planeado | `addEventListener`, `click` |
+| **19** | Obter e Manipular Dados | 🚧 Planeado | `value`, `innerHTML`, Style |
+| **20** | Criar Elementos (Dinâmico) | 🚧 Planeado | `createElement`, `appendChild` |
 
 _(O currículo continuará a crescer com módulos de Assincronismo, APIs e Projetos Reais)_
 
