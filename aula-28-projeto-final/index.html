@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 28: Projeto Final</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-card: #2d3748;
+            --text-main: #f7fafc;
+            --text-sec: #a0aec0;
+            --accent: #4fd1c5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* App Container */
+        .weather-app {
+            background: #1a202c;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            max-width: 800px;
+            margin: 40px auto;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            min-height: 500px;
+        }
+
+        /* Sidebar (Search & History) */
+        .sidebar-app {
+            background: #2d3748;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: none;
+            background: #4a5568;
+            color: white;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .search-box input:focus {
+            background: #718096;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .city-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .city-item {
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            color: var(--text-sec);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .city-item:hover, .city-item.active {
+            background: #4a5568;
+            color: white;
+        }
+
+        /* Main Display */
+        .main-display {
+            padding: 40px;
+            background-image: linear-gradient(135deg, #1a202c 0%, #2c3e50 100%);
+            color: white;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .weather-info h1 {
+            font-size: 3rem;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .weather-info .temp-big {
+            font-size: 5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin: 10px 0;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .detail-card {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .detail-label { font-size: 0.8em; color: var(--text-sec); }
+        .detail-value { font-size: 1.2em; font-weight: bold; margin-top: 5px; }
+
+        /* Loading State */
+        .loading {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+        .loading.show { opacity: 1; pointer-events: all; }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #fff;
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .weather-app { grid-template-columns: 1fr; }
+            .sidebar-app { padding: 20px; }
+            .main-display { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 7: Projeto Final</p>
+                </div>
+                <div class="timer">
+                    <h3>Projeto</h3>
+                    <div class="time-display" id="clock">∞</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="section">
+            <h2 style="text-align: center; margin-bottom: 30px;">🌤️ WeatherDash: A Tua Primeira App Real</h2>
+
+            <div class="weather-app">
+                <!-- Loading Overlay -->
+                <div class="loading" id="loader">
+                    <div class="spinner"></div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar-app">
+                    <div class="search-box">
+                        <input type="text" id="city-input" placeholder="🔍 Procurar cidade..." autocomplete="off">
+                    </div>
+                    <h4 style="color: var(--text-sec); margin-bottom: 15px; border-bottom: 1px solid #444; padding-bottom: 10px;">Cidades Populares</h4>
+                    <ul class="city-list" id="city-list">
+                        <!-- JS vai preencher isto -->
+                    </ul>
+                </div>
+
+                <!-- Main Display -->
+                <div class="main-display" id="main-display">
+                    <div class="weather-info">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <h2 id="city-name" style="margin: 0;">Lisboa</h2>
+                            <span id="date-now" style="background: var(--accent); color: #1a202c; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;">HOJE</span>
+                        </div>
+                        <p id="weather-desc" style="color: var(--text-sec); font-size: 1.2rem;">Céu Limpo</p>
+
+                        <div class="temp-big">
+                            <span id="temp-val">22</span><span style="font-size: 0.5em; color: var(--accent)">°C</span>
+                        </div>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="detail-card">
+                            <div class="detail-label">Vento</div>
+                            <div class="detail-value"><span id="wind-val">15</span> km/h</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">Humidade</div>
+                            <div class="detail-value"><span id="hum-val">45</span>%</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">Sensação</div>
+                            <div class="detail-value"><span id="feels-val">24</span>°C</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📝 Como funciona este código?</h3>
+            <p>Usámos tudo o que aprendeste até agora:</p>
+            <ul style="line-height: 1.8;">
+                <li><strong>Classes</strong>: <code>WeatherApp</code> gere todo o estado e lógica.</li>
+                <li><strong>Async/Await e Fetch</strong>: Para falar com a API da Open-Meteo.</li>
+                <li><strong>DOM</strong>: Para atualizar o HTML dinamicamente.</li>
+                <li><strong>Eventos</strong>: Para detetar a escrita no input e cliques.</li>
+            </ul>
+        </div>
+
+        <div class="lesson-navigation">
+            <a href="../aula-27-classes/index.html" class="nav-btn prev">
+                <span class="arrow">←</span> Aula Anterior
+            </a>
+            <a href="../index.html" class="nav-btn home">
+                <span class="arrow">🏠</span>
+            </a>
+            <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: default;">
+                Fim do Curso <span class="arrow">🎉</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. CONFIGURAÇÃO E DADOS ---
+        const DEFAULT_CITIES = [
+            { name: "Lisboa", lat: 38.71, lon: -9.13 },
+            { name: "Porto", lat: 41.15, lon: -8.62 },
+            { name: "Faro", lat: 37.01, lon: -7.93 },
+            { name: "Funchal", lat: 32.65, lon: -16.90 },
+            { name: "Ponta Delgada", lat: 37.74, lon: -25.67 },
+            { name: "Madrid", lat: 40.41, lon: -3.70 },
+            { name: "Paris", lat: 48.85, lon: 2.35 },
+            { name: "Londres", lat: 51.50, lon: -0.12 },
+        ];
+
+        // --- 2. CLASSE PRINCIPAL ---
+        class WeatherApp {
+            constructor() {
+                // Seletores DOM
+                this.dom = {
+                    input: document.getElementById('city-input'),
+                    list: document.getElementById('city-list'),
+                    loader: document.getElementById('loader'),
+                    // UI Display
+                    city: document.getElementById('city-name'),
+                    desc: document.getElementById('weather-desc'),
+                    temp: document.getElementById('temp-val'),
+                    wind: document.getElementById('wind-val'),
+                    hum: document.getElementById('hum-val'),
+                    feels: document.getElementById('feels-val'),
+                };
+
+                // Estado Inicial
+                this.init();
+            }
+
+            init() {
+                // Renderizar lista inicial
+                this.renderCityList(DEFAULT_CITIES);
+
+                // Carregar primeira cidade
+                this.loadWeather(DEFAULT_CITIES[0]);
+
+                // Event Listeners
+                this.dom.input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') this.searchCity(this.dom.input.value);
+                });
+            }
+
+            // --- LÓGICA DE API (ASYNC/AWAIT) ---
+
+            async searchCity(query) {
+                if (!query) return;
+                this.toggleLoading(true);
+
+                try {
+                    // Geocoding API (Open-Meteo)
+                    const url = `https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=1&language=pt&format=json`;
+                    const res = await fetch(url);
+                    const data = await res.json();
+
+                    if (!data.results || data.results.length === 0) {
+                        throw new Error("Cidade não encontrada.");
+                    }
+
+                    const city = {
+                        name: data.results[0].name,
+                        lat: data.results[0].latitude,
+                        lon: data.results[0].longitude
+                    };
+
+                    await this.loadWeather(city);
+                    this.dom.input.value = ""; // Limpar input
+
+                } catch (error) {
+                    alert("❌ Erro: " + error.message);
+                } finally {
+                    this.toggleLoading(false);
+                }
+            }
+
+            async loadWeather(city) {
+                this.toggleLoading(true);
+
+                try {
+                    // Weather API (Open-Meteo)
+                    // Pede: temperatura, vento, humidade e weathercode
+                    const url = `https://api.open-meteo.com/v1/forecast?latitude=${city.lat}&longitude=${city.lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m`;
+
+                    const res = await fetch(url);
+                    const data = await res.json();
+
+                    this.updateUI(city, data.current);
+
+                } catch (error) {
+                    console.error(error);
+                    alert("Falha ao obter meteorologia.");
+                } finally {
+                    this.toggleLoading(false);
+                }
+            }
+
+            // --- LÓGICA DE UI (DOM) ---
+
+            updateUI(city, current) {
+                this.dom.city.textContent = city.name;
+                this.dom.temp.textContent = Math.round(current.temperature_2m);
+                this.dom.wind.textContent = current.wind_speed_10m;
+                this.dom.hum.textContent = current.relative_humidity_2m;
+                this.dom.feels.textContent = Math.round(current.apparent_temperature);
+
+                this.dom.desc.textContent = this.getWeatherString(current.weather_code);
+            }
+
+            renderCityList(cities) {
+                this.dom.list.innerHTML = "";
+                cities.forEach(city => {
+                    const li = document.createElement('li');
+                    li.className = 'city-item';
+                    li.innerHTML = `<span>${city.name}</span> <small>➡️</small>`;
+                    li.addEventListener('click', () => this.loadWeather(city));
+                    this.dom.list.appendChild(li);
+                });
+            }
+
+            toggleLoading(show) {
+                if (show) this.dom.loader.classList.add('show');
+                else this.dom.loader.classList.remove('show');
+            }
+
+            // Helper para traduzir códigos WMO da API
+            getWeatherString(code) {
+                const codes = {
+                    0: "Céu Limpo ☀️",
+                    1: "Pouco Nublado 🌤️",
+                    2: "Nublado ☁️",
+                    3: "Encoberto ☁️",
+                    45: "Nevoeiro 🌫️",
+                    51: "Chuvisco 🌧️",
+                    61: "Chuva Fraca 🌧️",
+                    63: "Chuva Moderada 🌧️",
+                    65: "Chuva Forte ⛈️",
+                    80: "Aguaceiros 🌦️",
+                    95: "Trovoada ⚡"
+                };
+                return codes[code] || "Desconhecido";
+            }
+        }
+
+        // Iniciar App
+        const app = new WeatherApp();
+    </script>
+</body>
+</html>
