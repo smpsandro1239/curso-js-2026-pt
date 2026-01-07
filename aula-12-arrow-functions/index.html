@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 12: Arrow Functions</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 3: Organização e Reutilização</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Arrow Functions: O JavaScript Moderno</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>A sintaxe moderna das funções: <code>() => {}</code></li>
+                            <li>Como escrever código mais limpo e curto</li>
+                            <li>Quando usar Arrow Functions vs Funções Tradicionais</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Em 2015 (ES6), o JavaScript mudou para sempre. Os programadores estavam cansados de escrever a palavra <code>function</code> a toda a hora. Nasceram as Arrow Functions.</p>
+
+                    <div class="analogy-box">
+                        <h4>✉️ Analogia do SMS vs Carta</h4>
+                        <p><strong>Função Tradicional (Carta)</strong>:</p>
+                        <p><em>"Caro JavaScript, por favor execute esta função..."</em> (Muito formal, muito texto).</p>
+                        <p><strong>Arrow Function (SMS)</strong>:</p>
+                        <p><em>"Faz isto. Tchau."</em> (Rápido, direto ao assunto).</p>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> No mercado de trabalho atual (React, Vue, Node.js), 90% das funções que vais ver são Arrow Functions. É a linguagem padrão dos profissionais modernos.</p>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos emagrecer o nosso código:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Tradicional vs Arrow</h4>
+                            <pre><code>// 👴 Tradicional
+function somar(a, b) {
+    return a + b;
+}
+
+// 🚀 Arrow Function
+const somar = (a, b) => {
+    return a + b;
+}
+
+// 🤯 Arrow Function (Ultra Curta - Retorno Implícito)
+// Se só tiver uma linha, tiramos as chaves e o 'return'!
+const somar = (a, b) => a + b;</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Com um só parâmetro</h4>
+                            <p>Se tivermos apenas um argumento, até os parênteses são opcionais (embora muitos prefiram mantê-los).</p>
+                            <pre><code>// Tradicional
+function dobro(n) {
+    return n * 2;
+}
+
+// Arrow Function
+const dobro = n => n * 2; // Tão limpo! ✨</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">💡</span>
+                        <div>
+                            <strong>Nota Importante:</strong> As Arrow Functions são quase sempre guardadas dentro de uma variável <code>const</code>, para que não sejam apagadas por engano.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual é o símbolo que define uma Arrow Function?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a"><code>-></code></div>
+                                <div class="option" data-value="b"><code>=></code></div>
+                                <div class="option" data-value="c"><code>==></code></div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Quando é que posso omitir a palavra `return`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Nunca.</div>
+                                <div class="option" data-value="b">Quando a função é uma Arrow Function e tem apenas uma linha de código.</div>
+                                <div class="option" data-value="c">Quando a função não devolve nada.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. As Arrow Functions substituem completamente as funções antigas?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sim, usar `function` agora é proibido.</div>
+                                <div class="option" data-value="b">Não, mas são a forma preferida para a maioria dos casos simples e callbacks.</div>
+                                <div class="option" data-value="c">Só funcionam em computadores novos.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Refatorização (Limpeza) de Código</strong></p>
+
+                        <p>Tens aqui uma função antiga e "gorda". A tua tarefa é reescrevê-la como uma Arrow Function moderna numa única linha.</p>
+
+                        <pre><code>function saudacao(nome) {
+    return "Olá " + nome + ", tudo bem?";
+}</code></pre>
+
+                        <p><strong>Objetivo:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Usa <code>const</code>.</li>
+                            <li>Usa a seta <code>=></code>.</li>
+                            <li>Sem chaves <code>{}</code> e sem <code>return</code> explícito.</li>
+                        </ul>
+
+                        <pre><code>// A tua versão moderna aqui:
+const saudacao = ...</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>const saudacao = nome => "Olá " + nome + ", tudo bem?";
+
+console.log(saudacao("Sandro"));</code></pre>
+                                <p><strong>📌 Explicação:</strong> Simples, elegante e faz exatamente a mesma coisa. Bem-vindo ao JavaScript Moderno!</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-11-func-return/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Módulo 4 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>12</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 3)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>45 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Habitua-te a ler código de outros. Vais ver muito isto: <code>lista.map(item => item * 2)</code>. Não te assustes, é apenas uma função anónima a fazer o seu trabalho de forma limpa.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>🎉 Completaste o Módulo 3!</h4>
+                    <p>Já sabes organizar o teu código como um pro.</p>
+                    <p>Próxima paragem: <strong>Estruturas de Dados</strong>. Vamos guardar listas de compras, contactos e muito mais.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'A "Flecha" ou "Seta" (Arrow) é feita com um sinal de igual e um maior que: <code>=></code>. Não confundir com <code>>=</code> (maior ou igual)!',
+                    analogy: 'Aponta para o código que vai ser executado.'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: 'Chama-se "Retorno Implícito". É uma funcionalidade exclusiva das Arrow Functions. Se tirares as chaves <code>{}</code>, o JS assume que queres retornar o resultado daquela linha.',
+                    analogy: 'É como perguntar as horas e alguém só mostrar o relógio em vez de dizer a frase completa.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'As funções tradicionais <code>function</code> ainda são úteis (especialmente pelo contexto do `this`, que aprenderemos mais tarde). Mas para 90% do dia a dia, Arrow Functions são a norma.',
+                    analogy: 'Os carros elétricos (Arrow) são o futuro, mas ainda usas camiões a gasóleo (Function) para cargas pesadas.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

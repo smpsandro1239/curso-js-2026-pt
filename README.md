@@ -31,7 +31,7 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 |------|--------|--------|------|
 | **10** | [Introdução às Funções](aula-10-funcoes-intro/README.md) | ✅ Disponível | `function`, `call()`, Parâmetros |
 | **11** | [Retorno e Escopo (Return/Scope)](aula-11-func-return/README.md) | ✅ Disponível | `return`, Variáveis locais/globais |
-| **12** | Arrow Functions (Moderno) | 🚧 Planeado | `() => {}`, Sintaxe curta |
+| **12** | [Arrow Functions (Moderno)](aula-12-arrow-functions/README.md) | ✅ Disponível | `() => {}`, Sintaxe curta |
 
 ### 🟣 Módulo 4: Estruturas de Dados (Arrays e Objetos)
 *Planeado: Arrays, Métodos de Arrays, Objetos Literais, Referências.*
