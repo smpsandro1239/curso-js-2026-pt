@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 7: Condicionais Avançadas</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 2: O Cérebro do Código</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Condicionais Avançadas: Else If, Switch e Ternários</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>Lidar com múltiplas opções usando <code>else if</code></li>
+                            <li>A estrutura elegante <code>switch</code> para menus e casos fixos</li>
+                            <li>O operador ternário <code>? :</code> para decisões rápidas numa linha</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Nem tudo na vida é "Sim" ou "Não" (preto ou branco). Muitas vezes temos várias opções.</p>
+
+                    <div class="analogy-box">
+                        <h4>🚦 Analogia do Semáforo</h4>
+                        <p>No trânsito, não tens apenas "Pára" e "Anda".</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>SE</strong> (if) estiver Verde 🟢 ➜ Avança.</li>
+                            <li><strong>SENÃO SE</strong> (else if) estiver Amarelo 🟡 ➜ Abranda.</li>
+                            <li><strong>SENÃO</strong> (else) estiver Vermelho 🔴 ➜ Pára.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Imagina um sistema de chat que mostra o estado do utilizador: "Online", "Ausente", "Ocupado" ou "Offline". Um simples <code>if/else</code> não chegaria. Precisamos de verificar várias condições em cadeia.</p>
+
+                    <div class="blockquote-info">
+                        💡 <strong>Sabias que?</strong> O <strong>Operador Ternário</strong> é o favorito dos profissionais para coisas simples. Em vez de escrever 5 linhas de código para definir se um número é par ou ímpar, fazes tudo numa só linha!
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos expandir o nosso leque de decisões:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: A escada `else if`</h4>
+                            <p>Verifica condições sequencialmente. Assim que encontra uma verdadeira, pára.</p>
+                            <pre><code>let hora = 14;
+
+if (hora < 12) {
+    console.log("Bom dia! ☀️");
+} else if (hora < 20) {
+    console.log("Boa tarde! 🌤️"); // Entra aqui porque 14 < 20
+} else {
+    console.log("Boa noite! 🌙");
+}</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: O `switch` (Ideal para casos fixos)</h4>
+                            <p>Quando queres verificar o valor exato de uma variável (como um menu).</p>
+                            <pre><code>let fruto = "Banana";
+
+switch (fruto) {
+    case "Laranja":
+        console.log("Laranjas custam 0.59€");
+        break; // O break é obrigatório para não saltar para o próximo!
+    case "Banana":
+        console.log("Bananas custam 0.99€");
+        break;
+    default:
+        console.log("Desculpe, não temos " + fruto);
+}</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: O Operador Ternário `? :`</h4>
+                            <p>Sintaxe: <code>condição ? valor_se_verdadeiro : valor_se_falso</code></p>
+                            <pre><code>let idade = 20;
+// Se idade >= 18 for verdade, status recebe "Adulto", senão recebe "Menor"
+let status = idade >= 18 ? "Adulto" : "Menor";
+
+console.log(status); // "Adulto"</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Para que serve a palavra `break` no switch?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Para partir o código e gerar um erro.</div>
+                                <div class="option" data-value="b">Para impedir que o código continue a executar os casos seguintes (fall-through).</div>
+                                <div class="option" data-value="c">Serve para fazer uma pausa de 1 segundo.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Quando devo usar `switch` em vez de `else if`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sempre, o switch é mais rápido.</div>
+                                <div class="option" data-value="b">Quando estou a comparar intervalos (ex: idade entre 10 e 20).</div>
+                                <div class="option" data-value="c">Quando tenho valores discretos/fixos para verificar (ex: dias da semana, opções de menu).</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Qual é o resultado de: `true ? 10 : 20`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">10</div>
+                                <div class="option" data-value="b">20</div>
+                                <div class="option" data-value="c">true</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Tradutor de Cores (Switch)</strong></p>
+
+                        <p>Cria um programa que recebe uma cor em inglês ("Red", "Blue", "Green") e a traduz para português.</p>
+                        <p>Usa um <code>switch</code> para fazer a tradução.</p>
+
+                        <p><strong>Requisitos:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Variável <code>corIngles</code></li>
+                            <li>Casos para "Red", "Blue", "Green"</li>
+                            <li>Um <code>default</code> para "Cor desconhecida"</li>
+                        </ul>
+
+                        <pre><code>let corIngles = "Blue";
+
+// Teu switch aqui</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let corIngles = "Blue";
+
+switch (corIngles) {
+    case "Red":
+        console.log("Vermelho");
+        break;
+    case "Blue":
+        console.log("Azul");
+        break;
+    case "Green":
+        console.log("Verde");
+        break;
+    default:
+        console.log("Cor desconhecida");
+}</code></pre>
+                                <p><strong>📌 Explicação:</strong> O switch verifica o valor da variável <code>corIngles</code>. Quando encontra "Blue", executa o código e o <code>break</code> faz com que saia do switch imediatamente, sem testar o resto.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-06-condicionais/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Aula 8 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>7</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 2)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Muitos programadores adoram o ternário, mas não abuses! <br><code>a ? b : c</code> é legível.<br><code>a ? b : c ? d : e</code> é pesadelo. Se a lógica for complexa, usa o bom e velho <code>if/else</code>.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 8: Introdução aos Loops (While)</strong></p>
+                    <p>Cansado de copiar e colar código? Vamos aprender a fazer o computador repetir tarefas automaticamente.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Se te esqueceres do <code>break</code>, o JavaScript continua a executar todos os casos abaixo, mesmo que não correspondam! Isso chama-se "Fall-through" e geralmente é um erro.',
+                    analogy: 'É como um elevador que não para no andar que pediste e continua a descer.'
+                },
+                2: {
+                    correct: 'c',
+                    explanation: 'O <code>switch</code> é perfeito para mapear valores específicos (ex: código de erro 404, 500, 200). Para condições complexas como "maior que" ou "contém", o <code>else if</code> é melhor.',
+                    analogy: 'Switch é como escolher um botão num comando. If/Else é como responder a um inquérito complexo.'
+                },
+                3: {
+                    correct: 'a',
+                    explanation: 'O ternário lê-se: "É verdade? Então toma o primeiro valor (10). Senão, toma o segundo (20)". Como a condição é <code>true</code>, o resultado é 10.',
+                    analogy: 'É um atalho: (Condição) ? (Valor Sim) : (Valor Não).'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

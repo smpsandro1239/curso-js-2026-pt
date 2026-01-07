@@ -22,7 +22,7 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | Aula | Tópico | Estado | Foco |
 |------|--------|--------|------|
 | **06** | [Estruturas Condicionais Simples](aula-06-condicionais/README.md) | ✅ Disponível | `if`, `else` |
-| **07** | Condicionais Avançadas | 🚧 Planeado | `else if`, `switch`, Ternários |
+| **07** | [Condicionais Avançadas](aula-07-condicionais-avancadas/README.md) | ✅ Disponível | `else if`, `switch`, Ternários |
 | **08** | Introdução aos Loops (While) | 🚧 Planeado | Repetição básica |
 | **09** | O Loop For | 🚧 Planeado | Repetição controlada |
 
