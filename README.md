@@ -5,14 +5,37 @@ Este curso foi desenhado com princípios pedagógicos modernos: foco na prática
 
 ## 📚 Estrutura do Curso
 
-| Aula | Tópico | Estado | Links |
-|------|--------|--------|-------|
-| **01** | [Introdução ao JavaScript](aula-01-intro/README.md) | ✅ Disponível | [Ver Aula](aula-01-intro/README.md) • [Interativo](aula-01-intro/index.html) |
-| **02** | [Variáveis e Tipos de Dados](aula-02-variaveis/README.md) | ✅ Disponível | [Ver Aula](aula-02-variaveis/README.md) • [Interativo](aula-02-variaveis/index.html) |
-| **03** | Operadores e Lógica | 🚧 Em breve | - |
-| **04** | Estruturas de Decisão (If/Else) | 🚧 Em breve | - |
-| **05** | Loops e Repetições | 🚧 Em breve | - |
-| **06** | Funções (Introdução) | 🚧 Em breve | - |
+## 📚 Currículo do Curso (Estrutura Modular)
+
+O curso está dividido em módulos para garantir uma aprendizagem profunda e meticulosa. Não há pressa: o objetivo é o domínio dos conceitos.
+
+### 🟢 Módulo 1: Os Alicerces (Fundamentos)
+| Aula | Tópico | Estado | Foco |
+|------|--------|--------|------|
+| **01** | [Introdução ao JavaScript](aula-01-intro/README.md) | ✅ Disponível | O que é, Consola, Hello World |
+| **02** | [Variáveis e Tipos de Dados](aula-02-variaveis/README.md) | ✅ Disponível | `let`, `const`, String, Number |
+| **03** | [Operadores Matemáticos e Aritmética](aula-03-operadores/README.md) | ✅ Disponível | Somar, Subtrair, Resto da divisão (%) |
+| **04** | Comparadores e Booleanos | 🚧 Em breve | `true`, `false`, `>`, `<`, `===` |
+| **05** | Operadores Lógicos | 🚧 Em breve | `&&` (E), `||` (OU), `!` (NÃO) |
+
+### 🟡 Módulo 2: O Cérebro do Código (Controlo de Fluxo)
+| Aula | Tópico | Estado | Foco |
+|------|--------|--------|------|
+| **06** | Estruturas Condicionais Simples | 🚧 Planeado | `if`, `else` |
+| **07** | Condicionais Avançadas | 🚧 Planeado | `else if`, `switch`, Ternários |
+| **08** | Introdução aos Loops (While) | 🚧 Planeado | Repetição básica |
+| **09** | O Loop For | 🚧 Planeado | Repetição controlada |
+
+### 🔵 Módulo 3: Organização e Reutilização (Funções)
+*Planeado: Funções básicas, Parâmetros, Return, Scope, Arrow Functions.*
+
+### 🟣 Módulo 4: Estruturas de Dados (Arrays e Objetos)
+*Planeado: Arrays, Métodos de Arrays, Objetos Literais, Referências.*
+
+### 🟠 Módulo 5: JavaScript no Navegador (DOM)
+*Planeado: Selecionar elementos, Eventos (Click, Input), Criar HTML via JS.*
+
+_(O currículo continuará a crescer com módulos de Assincronismo, APIs e Projetos Reais)_
 
 ## 🚀 Como usar este repositório
 

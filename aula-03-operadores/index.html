@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 3: Operadores Matemáticos</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 1: Os Alicerces (Fundamentos)</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Operadores Matemáticos e Aritmética</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>Como fazer cálculos básicos (+, -, *, /)</li>
+                            <li>O conceito de Resto da Divisão (Módulo %)</li>
+                            <li>Incremento e Decremento (++ e --)</li>
+                            <li>A precedência das operações (o que acontece primeiro?)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Os operadores são os "verbos" da matemática no código. Permitem manipular números para obter novos resultados.</p>
+
+                    <div class="analogy-box">
+                        <h4>🍕 Analogia da Pizzaria</h4>
+                        <p>Imagina que estás a gerir uma pizzaria:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>Adição (+)</strong>: Somar o preço da pizza com a bebida.</li>
+                            <li><strong>Subtração (-)</strong>: Calcular o troco a devolver ao cliente.</li>
+                            <li><strong>Multiplicação (*)</strong>: Calcular o preço de 4 pizzas iguais.</li>
+                            <li><strong>Divisão (/)</strong>: Dividir a conta igualmente por 3 amigos.</li>
+                            <li><strong>Módulo (%)</strong>: Saber quantas fatias sobram se dividires uma pizza de 8 fatias por 3 pessoas.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Qualquer aplicação, desde uma loja online (cálculo de IVA) até um jogo (cálculo de vida do personagem), depende intensivamente de matemática básica.</p>
+
+                    <div class="blockquote-info">
+                        💡 <strong>Sabias que?</strong> Em programação, o sinal de igual <code>=</code> não é "igualdade matemática", é <strong>atribuição</strong>. Para perguntar se algo é igual, usamos <code>===</code> (que veremos na próxima aula)!
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Experimenta estes cálculos na consola:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: As 4 Operações Básicas</h4>
+                            <pre><code>let preco = 10;
+let quantidade = 2;
+
+let total = preco * quantidade; // Multiplicação
+console.log(total); // 20
+
+let desconto = 5;
+let precoFinal = total - desconto; // Subtração
+console.log(precoFinal); // 15</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: O Operador Módulo (%)</h4>
+                            <p>O operador <code>%</code> dá-nos o <strong>resto</strong> da divisão inteira. É muito útil para saber se um número é par ou ímpar.</p>
+                            <pre><code>console.log(10 % 3);
+// Resultado é 1 (porque 10 a dividir por 3 dá 3, e sobra 1)
+
+console.log(12 % 2);
+// Resultado é 0 (porque 12 é par, não sobra nada)</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Incremento (++)</h4>
+                            <p>Um atalho muito comum para fazer "somar mais um".</p>
+                            <pre><code>let vidas = 3;
+vidas++; // É igual a fazer: vidas = vidas + 1
+console.log(vidas); // 4
+
+vidas--; // Perdeu uma vida
+console.log(vidas); // 3</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Cuidado com a Ordem:</strong> A regra é igual à da escola: Multiplicação e Divisão acontecem primeiro que a Soma e Subtração.
+                            <br><code>2 + 3 * 4</code> é <strong>14</strong>, e não 20.
+                            <br>Para mudar a ordem, usa parênteses: <code>(2 + 3) * 4</code> é <strong>20</strong>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual é o resultado de <code>10 % 4</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">2.5</div>
+                                <div class="option" data-value="b">2</div>
+                                <div class="option" data-value="c">0</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Como se escreve "aumentar o valor de x em 1" de forma abreviada?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a"><code>x+1</code></div>
+                                <div class="option" data-value="b"><code>x++</code></div>
+                                <div class="option" data-value="c"><code>x == x + 1</code></div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Qual o resultado de <code>5 + 2 * 3</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">21</div>
+                                <div class="option" data-value="b">11</div>
+                                <div class="option" data-value="c">10</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>A Calculadora de Gorjeta</strong></p>
+
+                        <p>Foste jantar com amigos. A conta foi <strong>40€</strong> e querem deixar <strong>10%</strong> de gorjeta.</p>
+                        <p>Calcula o valor da gorjeta e o valor total a pagar usando variáveis.</p>
+
+                        <p><strong>Restrições:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Usa uma variável para o <code>valorConta</code></li>
+                            <li>Usa uma variável para a <code>percentagemGorjeta</code> (dica: 10% é 0.10)</li>
+                            <li>Calcula o total final.</li>
+                        </ul>
+
+                        <pre><code>// O teu código aqui</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let valorConta = 40;
+let percentagemGorjeta = 0.10; // 10%
+
+let valorGorjeta = valorConta * percentagemGorjeta; // 40 * 0.10 = 4
+let totalPagar = valorConta + valorGorjeta; // 40 + 4 = 44
+
+console.log("Gorjeta: " + valorGorjeta + "€");
+console.log("Total: " + totalPagar + "€");</code></pre>
+                                <p><strong>📌 Explicação:</strong> Dividimos o problema em passos pequenos. Primeiro calculámos quanto é a gorjeta em euros, e depois somámos esse valor à conta original.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-02-variaveis/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Aula 4 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>3</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 1)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>55 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Iniciante</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>O operador <code>%</code> (Módulo) é frequentemente perguntado em entrevistas! "Como sabes se um número é Par?" Resposta: "Se o número % 2 for igual a zero".</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 4: Comparadores e Booleanos</strong></p>
+                    <p>Vamos aprender a perguntar coisas ao computador: "5 é maior que 3?" ou "A password está correta?".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: '10 a dividir por 4 dá 2 (2x4=8), e sobram <strong>2</strong>. O operador % devolve o que sobra.',
+                    analogy: 'Se tiveres 10 cartas e as deres a 4 pessoas, cada uma recebe 2 e sobram 2 na tua mão.'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: '<code>x++</code> é o operador de incremento. É a forma mais curta e elegante de escrever <code>x = x + 1</code>.',
+                    analogy: 'É como um contador manual que usas à porta de um evento.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'A multiplicação tem prioridade sobre a soma. Primeiro faz-se 2 * 3 (que dá 6) e só depois se soma 5. Total: 11.',
+                    analogy: 'Os "produtos" primeiro, os "pacotes" (somas) depois.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
