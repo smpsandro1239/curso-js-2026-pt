@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 15: Introdução a Objetos</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 4: Estruturas de Dados</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Objetos: O Mundo Real no Código</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O que é um Objeto Literal: <code>{}</code></li>
+                            <li>Pares Chave: Valor (Propriedades)</li>
+                            <li>Aceder a dados com ponto <code>.</code> e colchetes <code>[]</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Arrays são bons para listas simples, mas e se quisermos descrever uma pessoa? Uma pessoa não é uma lista numerada [0, 1]. Uma pessoa tem nome, idade, morada...</p>
+
+                    <div class="analogy-box">
+                        <h4>📇 Analogia do Cartão de Cidadão</h4>
+                        <p>Um <strong>Objeto</strong> é como o teu Cartão de Cidadão.</p>
+                        <p>Não procuras o "dado número 2". Procuras pelo <strong>Nome</strong>, ou pela <strong>Data de Nascimento</strong>.</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>Chave (Key)</strong>: O rótulo (ex: "Nome").</li>
+                            <li><strong>Valor (Value)</strong>: O conteúdo (ex: "Sandro").</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos criar o nosso boneco virtual:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Criar um Objeto</h4>
+                            <pre><code>let jogador = {
+    nome: "Cristiano",
+    equipa: "Portugal",
+    golos: 800,
+    ativo: true
+};</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Ler Dados (Dot Notation)</h4>
+                            <p>A forma mais comum de ler é com o ponto final.</p>
+                            <pre><code>console.log(jogador.nome);   // "Cristiano"
+console.log(jogador.golos);  // 800</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Alterar Dados</h4>
+                            <pre><code>// Ele marcou mais um golo!
+jogador.golos = 801;
+
+// Mudou de equipa
+jogador.equipa = "Al-Nassr";
+
+console.log(jogador);
+// { nome: "Cristiano", equipa: "Al-Nassr", golos: 801, ativo: true }</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual o símbolo usado para criar um Objeto?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Colchetes <code>[]</code></div>
+                                <div class="option" data-value="b">Chaves <code>{}</code></div>
+                                <div class="option" data-value="c">Parênteses <code>()</code></div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Num objeto `carro = { cor: "azul" }`, o que é "cor"?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">O Valor.</div>
+                                <div class="option" data-value="b">A Chave (ou Propriedade).</div>
+                                <div class="option" data-value="c">O índice.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Posso guardar um Array dentro de um Objeto?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sim, claro! (ex: lista de amigos).</div>
+                                <div class="option" data-value="b">Não, é proibido misturar.</div>
+                                <div class="option" data-value="c">Sim, mas só se o array estiver vazio.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Perfil de Utilizador</strong></p>
+
+                        <p>1. Cria um objeto chamado <code>eu</code> com: <code>nome</code> (teu nome) e <code>idade</code>.</p>
+                        <p>2. Mostra na consola uma frase completa usando essas propriedades.</p>
+                        <p>Exemplo: "Olá, sou o Sandro e tenho 30 anos."</p>
+
+                        <pre><code>let eu = {
+    // ...
+};
+
+console.log("Olá, sou o " + ...);</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let eu = {
+    nome: "Sandro",
+    idade: 36
+};
+
+console.log("Olá, sou o " + eu.nome + " e tenho " + eu.idade + " anos.");</code></pre>
+                                <p><strong>📌 Explicação:</strong> Acedemos a cada "gaveta" do objeto usando o ponto.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-14-arrays-metodos/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-16-objetos-metodos/index.html" class="nav-btn next">
+                        Aula 16: Métodos e This <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>15</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 4)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>45 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Fácil</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>O formato <strong>JSON</strong> (JavaScript Object Notation) que é usado para enviar dados na internet é baseado nisto! Aprender objetos é aprender como a internet comunica.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 16: Objetos com Superpoderes</strong></p>
+                    <p>E se um objeto pudesse fazer coisas, não apenas guardar dados? Vamos aprender Métodos e a palavra misteriosa <code>this</code>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Arrays usam [], Objetos usam {}. É a regra básica da sintaxe JS.',
+                    analogy: 'Caixa quadrada (Array) vs Saco redondo (Objeto).'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: 'A "cor" é a Chave (Key). O "azul" é o Valor. Juntos formam um par Chave-Valor.',
+                    analogy: 'Chave: "Morada", Valor: "Rua do Ouro, Nº 2".'
+                },
+                3: {
+                    correct: 'a',
+                    explanation: 'Podes ter tudo! Strings, Números, Arrays, e até outros Objetos dentro de Objetos. A estrutura de dados pode ser tão complexa quanto quiseres.',
+                    analogy: 'Podes ter uma mochila (Objeto) que tem lá dentro um estojo (outro Objeto) com vários, lápis (Array).'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
