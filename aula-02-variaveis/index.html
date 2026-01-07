@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 2: Variáveis e Tipos de Dados</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Aprende JavaScript do zero com aulas práticas e progressivas em português europeu</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Variáveis e Tipos de Dados</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O que são variáveis e para que servem</li>
+                            <li>A diferença entre <code>let</code>, <code>const</code> e <code>var</code></li>
+                            <li>Os tipos de dados primitivos: String, Number, Boolean</li>
+                            <li>Boas práticas de nomeação em Português</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Uma variável é um espaço na memória do computador onde guardamos informação para usar mais tarde.</p>
+
+                    <div class="analogy-box">
+                        <h4>📦 Analogia das Caixas de Muesli</h4>
+                        <p>Imagina que estás a organizar a cozinha:</p>
+                        <p>Uma <strong>variável</strong> é como um tupperware ou uma caixa com uma etiqueta.</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>A <strong>etiqueta</strong> é o nome da variável (ex: <code>arroz</code>).</li>
+                            <li>O <strong>conteúdo</strong> é o valor (ex: o arroz em si).</li>
+                            <li>Podes trocar o conteúdo da caixa (se for arroz basmati por arroz carolino), mas a etiqueta mantém-se.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Sem variáveis, teríamos de repetir os mesmos dados vezes sem conta. Se quiséssemos mudar o preço de um produto numa loja online, teríamos de alterar em 1000 sítios diferentes. Com variáveis, mudamos apenas num sítio!</p>
+
+                    <div class="blockquote-info">
+                        💡 <strong>Sabias que?</strong> No início do JavaScript existia apenas <code>var</code>. O <code>let</code> e o <code>const</code> só surgiram em 2015 (ES6) para resolver problemas de confusão no código. Hoje em dia, evita-se usar <code>var</code>!
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Experimenta estes códigos na consola:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Declarar e Atribuir (let)</h4>
+                            <p>Usamos <code>let</code> quando o valor pode mudar no futuro.</p>
+                            <pre><code>let idade = 25;
+console.log(idade); // 25
+
+idade = 26; // Fizeste anos!
+console.log(idade); // 26</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Constantes (const)</h4>
+                            <p>Usamos <code>const</code> para valores que <strong>nunca</strong> devem mudar.</p>
+                            <pre><code>const nome = "Sandro";
+console.log(nome);
+
+// Se tentares isto, vai dar erro:
+// nome = "Pedro"; // Uncaught TypeError: Assignment to constant variable.</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Tipos de Dados</h4>
+                            <p>O JavaScript descobre automaticamente o tipo do dado (Tipagem Dinâmica).</p>
+                            <pre><code>let produto = "Computador"; // String (texto)
+let preco = 999.99;         // Number (número)
+let emStock = true;         // Boolean (verdadeiro/falso)
+
+console.log(typeof produto); // "string"
+console.log(typeof preco);   // "number"</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Erro Comum:</strong> Não uses aspas para números! <code>"5"</code> é texto, <code>5</code> é número. Se somares <code>"5" + 5</code> o resultado será <code>"55"</code> (texto) e não <code>10</code>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual é a melhor forma de declarar uma variável para armazenar a tua Data de Nascimento (que nunca muda)?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a"><code>var dataNascimento = "1990-01-01";</code></div>
+                                <div class="option" data-value="b"><code>let dataNascimento = "1990-01-01";</code></div>
+                                <div class="option" data-value="c"><code>const dataNascimento = "1990-01-01";</code></div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que acontece se tentares alterar o valor de uma variável <code>const</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">O valor muda normalmente.</div>
+                                <div class="option" data-value="b">O JavaScript dá um erro e o código para.</div>
+                                <div class="option" data-value="c">O computador explode (brincadeira... nada acontece).</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Qual destes nomes de variável segue as boas práticas (camelCase)?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a"><code>NomeDoUtilizador</code></div>
+                                <div class="option" data-value="b"><code>nome_do_utilizador</code></div>
+                                <div class="option" data-value="c"><code>nomeDoUtilizador</code></div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>A Troca de Valores (Swap)</strong></p>
+
+                        <p>Tens dois copos (variáveis): um com sumo de laranja e outro com leite. Queres trocar o conteúdo dos copos.</p>
+
+                        <p><strong>Objetivo:</strong> Trocar os valores das variáveis <code>copoA</code> e <code>copoB</code>.</p>
+                        <p><strong>Dica:</strong> Vais precisar de um terceiro copo (uma variável temporária) para não entornar nada!</p>
+
+                        <pre><code>let copoA = "Laranja";
+let copoB = "Leite";
+
+// Escreve o teu código aqui para trocar os valores
+// No final, copoA deve ser "Leite" e copoB deve ser "Laranja"
+
+console.log("Copo A:", copoA);
+console.log("Copo B:", copoB);</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let copoA = "Laranja";
+let copoB = "Leite";
+
+// Criamos uma variável temporária (Copo C)
+let temporario = copoA; // Guardamos "Laranja" no temporário
+
+copoA = copoB; // Colocamos "Leite" no copoA (que agora perdeu a Laranja)
+copoB = temporario; // Colocamos o que estava guardado ("Laranja") no copoB
+
+console.log("Copo A:", copoA); // Leite
+console.log("Copo B:", copoB); // Laranja</code></pre>
+                                <p><strong>📌 Explicação:</strong> Este é um padrão clássico de programação. Sem a variável <code>temporario</code>, se fizéssemos logo <code>copoA = copoB</code>, perderíamos o valor original de <code>copoA</code> para sempre!</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-01-intro/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Em Breve <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>2 de 6</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>65 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Iniciante</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 33.3%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>O <code>const</code> é o favorito dos programadores modernos. Usa <code>const</code> por defeito e muda para <code>let</code> apenas se souberes que o valor <strong>tem</strong> de mudar. Evita surpresas!</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 3: Operadores e Cálculos</strong></p>
+                    <p>Vamos aprender a somar, subtrair e comparar valores para tomar decisões lógicas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu | Aula 2 de 6</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'c',
+                    explanation: 'Devemos usar <code>const</code> para valores que não vão mudar durante a execução do programa, como uma data de nascimento. <code>let</code> seria para valores variáveis e <code>var</code> é obsoleto.',
+                    analogy: 'É como escrever em pedra (const) versus escrever a lápis (let).'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: 'O navegador protege as variáveis <code>const</code>. Se tentares reatribuir um valor, ele lança um <code>TypeError</code>, impedindo bugs acidentais onde mudarias algo que não devia mudar.',
+                    analogy: 'É como tentar abrir uma porta trancada à chave sem a chave.'
+                },
+                3: {
+                    correct: 'c',
+                    explanation: 'A convenção em JavaScript é <strong>camelCase</strong>: a primeira palavra é minúscula e as seguintes começam com maiúscula. <code>NomeDoUtilizador</code> é PascalCase (usado para Classes) e <code>nome_do_utilizador</code> é snake_case (comum em Python).',
+                    analogy: 'CamelCase imita as corcovas de um camelo: baixoNoInicio, altoNoMeio.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

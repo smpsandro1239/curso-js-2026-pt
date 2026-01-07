@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 1: O que é JavaScript?</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Aprende JavaScript do zero com aulas práticas e progressivas em português europeu</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>O que é JavaScript?</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>A diferença entre HTML, CSS e JavaScript</li>
+                            <li>O papel do JavaScript na web moderna</li>
+                            <li>Como usar a consola do navegador para programar</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Imagina que estás a construir uma casa:</p>
+
+                    <div class="analogy-box">
+                        <h4>🏠 Analogia da Casa</h4>
+                        <p><strong>HTML</strong> é a estrutura da casa - as paredes, portas e janelas (conteúdo estático).</p>
+                        <p><strong>CSS</strong> é a decoração - as cores das paredes, o tipo de soalho, os móveis (aparência).</p>
+                        <p><strong>JavaScript</strong> é a eletricidade e a canalização - permite que as luzes se acendam, as portas se abram automaticamente e a água flua (comportamento interativo).</p>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Sem JavaScript, os websites seriam estáticos como folhetos de papel. Com JavaScript, podes criar:</p>
+                    <ul style="margin: 1rem 0 1.5rem 1.5rem;">
+                        <li>Aplicações que respondem aos cliques do utilizador</li>
+                        <li>Formulários que validam dados em tempo real</li>
+                        <li>Conteúdo que se atualiza sem recarregar a página</li>
+                        <li>Jogos, animações e experiências interativas</li>
+                    </ul>
+
+                    <div class="blockquote-info">
+                        💡 <strong>Sabias que?</strong> JavaScript foi criado em apenas 10 dias por Brendan Eich em 1995. Originalmente chamava-se "Mocha", depois "LiveScript", e finalmente "JavaScript" para capitalizar a popularidade do Java na altura!
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Abre a consola do teu navegador (F12 ou Ctrl+Shift+J) e experimenta os seguintes exemplos:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: O teu primeiro comando</h4>
+                            <p>Mostra uma mensagem simples na consola - o "Hello World" do JavaScript.</p>
+                            <pre><code>console.log("Olá, mundo!");</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Fazer cálculos matemáticos</h4>
+                            <p>JavaScript pode fazer cálculos como uma calculadora.</p>
+                            <pre><code>console.log(25 + 17); // 42
+console.log(100 / 4);  // 25</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Trabalhar com texto</h4>
+                            <p>Concatenação (junção) de strings para criar mensagens dinâmicas.</p>
+                            <pre><code>let saudacao = "Bom dia";
+let nome = "Maria";
+console.log(saudacao + ", " + nome + "!"); // "Bom dia, Maria!"</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Dica de Depuração:</strong> Se vires mensagens de erro vermelhas na consola, leia-as atentamente! Elas indicam exatamente onde está o problema (linha do código) e o tipo de erro.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+                        <p><strong>Testa o que aprendeste com as seguintes questões de escolha múltipla.</strong></p>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual é a principal diferença entre HTML/CSS e JavaScript?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">HTML e CSS criam conteúdo estático, enquanto JavaScript adiciona comportamento interativo às páginas web.</div>
+                                <div class="option" data-value="b">HTML é para mobile, CSS é para desktop e JavaScript é para tablets.</div>
+                                <div class="option" data-value="c">HTML e CSS são linguagens de programação, enquanto JavaScript é apenas para estilização.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que acontece se escreveres <code>console.log("Teste"</code> (sem o parêntese de fecho)?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">O código executa normalmente e mostra "Teste" na consola.</div>
+                                <div class="option" data-value="b">O navegador ignora a linha e continua a executar o resto do código.</div>
+                                <div class="option" data-value="c">O JavaScript lança um erro de sintaxe e o código não executa.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Porque é que a consola do navegador é uma ferramenta essencial para programadores JavaScript?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Porque permite ver erros, testar código rapidamente e depurar aplicações em tempo real.</div>
+                                <div class="option" data-value="b">Porque é o único lugar onde o JavaScript pode ser executado na web.</div>
+                                <div class="option" data-value="c">Porque todos os websites precisam de mostrar mensagens na consola para funcionar corretamente.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Cria um programa que apresente informações sobre ti na consola.</strong></p>
+
+                        <p><strong>Restrições:</strong></p>
+                        <ul style="margin: 1rem 0 1.5rem 1.5rem;">
+                            <li>Usa pelo menos 3 comandos <code>console.log()</code></li>
+                            <li>Inclui o teu nome, idade e uma frase sobre o que esperas aprender</li>
+                            <li>Usa variáveis para armazenar os teus dados</li>
+                        </ul>
+
+                        <p><strong>Exemplo de output esperado:</strong></p>
+                        <pre><code>// Meu nome é João
+// Tenho 25 anos
+// Espero aprender a criar aplicações web incríveis!</code></pre>
+
+                        <pre><code>// Escreve o teu código aqui
+let meuNome = "João";
+let minhaIdade = 25;
+let objetivo = "Espero aprender a criar aplicações web incríveis!";
+
+console.log("Meu nome é " + meuNome);
+console.log("Tenho " + minhaIdade + " anos");
+console.log(objetivo);</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let meuNome = "João";
+let minhaIdade = 25;
+let objetivo = "Espero aprender a criar aplicações web incríveis!";
+
+console.log("Meu nome é " + meuNome);
+console.log("Tenho " + minhaIdade + " anos");
+console.log(objetivo);</code></pre>
+                                <p><strong>📌 Explicação da Solução:</strong> Esta solução usa variáveis para armazenar dados pessoais, tornando o código mais legível e fácil de atualizar. A concatenação de strings com o operador <code>+</code> permite criar mensagens dinâmicas. Esta abordagem é mais sustentável do que repetir os valores diretamente nos <code>console.log()</code>.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span> Voltar ao Início
+                    </a>
+                    <a href="../aula-02-variaveis/index.html" class="nav-btn next">
+                        Próxima Aula <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>1 de 6</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Iniciante</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Pré-requisitos:</span>
+                        <strong>Nenhum</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 16.6%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Em entrevistas técnicas, é comum pedirem para explicares a diferença entre HTML, CSS e JavaScript. A melhor resposta: "HTML é a estrutura, CSS é o estilo, e JavaScript é o comportamento."</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 2: Variáveis e Tipos de Dados</strong></p>
+                    <p>Vais aprender a declarar variáveis, entender os diferentes tipos de dados e aplicar boas práticas de nomeação em português europeu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu | Aula 1 de 6</p>
+    </footer>
+
+    <script>
+        // Data for this specific lesson
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'a',
+                    explanation: 'HTML e CSS são responsáveis pela estrutura e estilo de uma página web, criando conteúdo estático. JavaScript é a linguagem que adiciona interatividade e comportamento dinâmico, permitindo que as páginas respondam às ações do utilizador.',
+                    analogy: 'É como a diferença entre um carro parado (HTML/CSS) e um carro em movimento com todas as suas funcionalidades (JavaScript).'
+                },
+                2: {
+                    correct: 'c',
+                    explanation: 'Quando falta um parêntese de fecho, o JavaScript não consegue interpretar corretamente a sintaxe do código, resultando num erro de sintaxe (SyntaxError). Isto impede a execução do código e mostra uma mensagem de erro na consola.',
+                    analogy: 'É como escrever uma frase em português sem ponto final - a frase fica incompleta e difícil de entender.'
+                },
+                3: {
+                    correct: 'a',
+                    explanation: 'A consola do navegador é uma ferramenta de desenvolvimento essencial porque permite aos programadores ver mensagens de erro, testar código JavaScript em tempo real, inspecionar variáveis e depurar problemas nas suas aplicações web.',
+                    analogy: 'É como o painel de instrumentos de um carro - mostra o estado atual do motor (código), alerta para problemas (erros) e permite testar diferentes configurações.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
