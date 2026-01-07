@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Completo de JavaScript 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a202c;
+            --card-bg: #2d3748;
+            --text-main: #f7fafc;
+            --text-sec: #a0aec0;
+            --accent: #F7DF1E; /* JS Yellow */
+            --accent-hover: #e6ce17;
+            --success: #48bb78;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 1px solid #4a5568;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-sec);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .module-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .module-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #4a5568;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--accent);
+        }
+
+        .module-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: white;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-tag {
+            font-size: 0.7em;
+            background: rgba(247, 223, 30, 0.1);
+            color: var(--accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .lesson-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px;
+        }
+
+        .lesson-link {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-sec);
+            transition: 0.2s;
+        }
+
+        .lesson-link:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding-left: 15px;
+        }
+
+        .lesson-number {
+            font-weight: bold;
+            color: var(--accent);
+            margin-right: 10px;
+            min-width: 25px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-sec);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid #4a5568;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .module-card { padding: 15px; }
+            .lesson-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Curso JavaScript 2026</h1>
+            <p>Do zero ao profissional. Domina a linguagem mais importante da web com exercícios práticos e projetos reais.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="module-grid">
+
+            <!-- Módulo 1 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 1: Fundamentos
+                    <span class="module-tag">Iniciante</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-01-intro/index.html" class="lesson-link">
+                        <span class="lesson-number">01</span> Introdução e "Olá Mundo"
+                    </a>
+                    <a href="aula-02-variaveis/index.html" class="lesson-link">
+                        <span class="lesson-number">02</span> Variáveis (let, const)
+                    </a>
+                    <a href="aula-03-operadores/index.html" class="lesson-link">
+                        <span class="lesson-number">03</span> Operadores Aritméticos
+                    </a>
+                </div>
+            </div>
+
+            <!-- Módulo 2 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 2: Lógica
+                    <span class="module-tag">Lógica</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-04-comparadores/index.html" class="lesson-link"><span class="lesson-number">04</span> Comparadores</a>
+                    <a href="aula-05-logicos/index.html" class="lesson-link"><span class="lesson-number">05</span> Operadores Lógicos</a>
+                    <a href="aula-06-condicionais/index.html" class="lesson-link"><span class="lesson-number">06</span> Condicionais (if/else)</a>
+                    <a href="aula-07-condicionais-avancadas/index.html" class="lesson-link"><span class="lesson-number">07</span> Switch / Ternário</a>
+                </div>
+            </div>
+
+            <!-- Módulo 3 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 3: Loops
+                    <span class="module-tag">Estruturas</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-08-loops-while/index.html" class="lesson-link"><span class="lesson-number">08</span> While e Do...While</a>
+                    <a href="aula-09-loop-for/index.html" class="lesson-link"><span class="lesson-number">09</span> Loop For Clássico</a>
+                </div>
+            </div>
+
+            <!-- Módulo 4 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 4: Funções
+                    <span class="module-tag">Essencial</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-10-funcoes-intro/index.html" class="lesson-link"><span class="lesson-number">10</span> Introdução a Funções</a>
+                    <a href="aula-11-func-return/index.html" class="lesson-link"><span class="lesson-number">11</span> Parâmetros e Return</a>
+                    <a href="aula-12-arrow-functions/index.html" class="lesson-link"><span class="lesson-number">12</span> Arrow Functions</a>
+                </div>
+            </div>
+
+            <!-- Módulo 5 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 5: Estruturas de Dados
+                    <span class="module-tag">Importante</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-13-arrays-intro/index.html" class="lesson-link"><span class="lesson-number">13</span> Intro a Arrays</a>
+                    <a href="aula-14-arrays-metodos/index.html" class="lesson-link"><span class="lesson-number">14</span> Métodos de Arrays</a>
+                    <a href="aula-15-objetos-intro/index.html" class="lesson-link"><span class="lesson-number">15</span> Intro a Objetos</a>
+                    <a href="aula-16-objetos-metodos/index.html" class="lesson-link"><span class="lesson-number">16</span> Métodos de Objetos</a>
+                </div>
+            </div>
+
+            <!-- Módulo 6 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 6: DOM e Eventos
+                    <span class="module-tag">Web</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-17-dom-intro/index.html" class="lesson-link"><span class="lesson-number">17</span> O que é o DOM?</a>
+                    <a href="aula-18-eventos-click/index.html" class="lesson-link"><span class="lesson-number">18</span> Eventos de Clique</a>
+                    <a href="aula-19-dom-manipulacao/index.html" class="lesson-link"><span class="lesson-number">19</span> Manipular Inputs</a>
+                    <a href="aula-20-dom-criar/index.html" class="lesson-link"><span class="lesson-number">20</span> Criar Elementos</a>
+                </div>
+            </div>
+
+            <!-- Módulo 7 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 7: Assincronismo
+                    <span class="module-tag">Avançado</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-21-assincronismo-intro/index.html" class="lesson-link"><span class="lesson-number">21</span> Intro Assincronismo</a>
+                    <a href="aula-22-promises/index.html" class="lesson-link"><span class="lesson-number">22</span> Promises</a>
+                    <a href="aula-23-fetch-api/index.html" class="lesson-link"><span class="lesson-number">23</span> Fetch API</a>
+                    <a href="aula-24-async-await/index.html" class="lesson-link"><span class="lesson-number">24</span> Async / Await</a>
+                </div>
+            </div>
+
+            <!-- Módulo 8 -->
+            <div class="module-card">
+                <div class="module-title">
+                    Módulo 8: Moderno (ES6+)
+                    <span class="module-tag">Profissional</span>
+                </div>
+                <div class="lesson-list">
+                    <a href="aula-25-es6-intro/index.html" class="lesson-link"><span class="lesson-number">25</span> Spread e Desestruturação</a>
+                    <a href="aula-26-modulos/index.html" class="lesson-link"><span class="lesson-number">26</span> Módulos (Import/Export)</a>
+                    <a href="aula-27-classes/index.html" class="lesson-link"><span class="lesson-number">27</span> Classes e POO</a>
+                    <a href="aula-28-projeto-final/index.html" class="lesson-link" style="border: 1px solid var(--accent); color: var(--accent);">
+                        <span class="lesson-number">🏆</span> <strong>Projeto Final</strong>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <p>Desenvolvido por Sandro Pereira | Curso JS 2026</p>
+            <p><a href="https://github.com/smpsandro1239" style="color: var(--accent); text-decoration: none;">GitHub @smpsandro1239</a></p>
+        </div>
+    </div>
+
+</body>
+</html>
