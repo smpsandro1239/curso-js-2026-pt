@@ -27,7 +27,11 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | **09** | [O Loop For](aula-09-loop-for/README.md) | ✅ Disponível | Repetição controlada |
 
 ### 🔵 Módulo 3: Organização e Reutilização (Funções)
-*Planeado: Funções básicas, Parâmetros, Return, Scope, Arrow Functions.*
+| Aula | Tópico | Estado | Foco |
+|------|--------|--------|------|
+| **10** | [Introdução às Funções](aula-10-funcoes-intro/README.md) | ✅ Disponível | `function`, `call()`, Parâmetros |
+| **11** | Retorno e Escopo (Return/Scope) | 🚧 Planeado | `return`, Variáveis locais/globais |
+| **12** | Arrow Functions (Moderno) | 🚧 Planeado | `() => {}`, Sintaxe curta |
 
 ### 🟣 Módulo 4: Estruturas de Dados (Arrays e Objetos)
 *Planeado: Arrays, Métodos de Arrays, Objetos Literais, Referências.*

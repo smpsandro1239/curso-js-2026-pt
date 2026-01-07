@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 10: Introdução às Funções</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 3: Organização e Reutilização</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Introdução às Funções</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O conceito de Função (Bloco de código reutilizável)</li>
+                            <li>Como declarar uma função: <code>function nome() { }</code></li>
+                            <li>Como executar (chamar) uma função: <code>nome()</code></li>
+                            <li>Passar informações para dentro da função (Parâmetros)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Até agora, o nosso código corria de cima para baixo. Mas repetir o mesmo código várias vezes é cansativo e propenso a erros. As funções resolvem isso.</p>
+
+                    <div class="analogy-box">
+                        <h4>📜 Analogia da Receita de Bolo</h4>
+                        <p>Imagina que tinhas de explicar a alguém como fazer um bolo sempre que quisessem um. Era chato, certo?</p>
+                        <p>Em vez disso, escreves a <strong>Receita (Função)</strong> num papel.</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>Declarar a Função</strong>: É escrever a receita no papel e dar-lhe um nome ("Bolo de Chocolate"). Isto não faz o bolo, apenas define como se faz.</li>
+                            <li><strong>Chamar a Função</strong>: É gritar "Faz um Bolo de Chocolate!". A pessoa vai à receita e segue os passos.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> As funções permitem-nos ensinar "novas palavras" ao JavaScript. Podemos criar um comando <code>calcularImposto()</code> e usá-lo 1000 vezes sem ter de reescrever a fórmula matemática.</p>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos criar as nossas próprias ferramentas:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: A Função Simples</h4>
+                            <p>Primeiro definimos (ensinamos), depois chamamos (usamos).</p>
+                            <pre><code>// 1. Definição (Não acontece nada aqui)
+function dizerOla() {
+    console.log("Olá! Bem-vindo ao curso.");
+}
+
+// 2. Chamada (Aqui o código executa)
+dizerOla();
+dizerOla(); // Posso chamar quantas vezes quiser!</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Função com Parâmetros</h4>
+                            <p>E se quisermos que a função seja dinâmica? Usamos parâmetros (variáveis especiais que entram na função).</p>
+                            <pre><code>// 'nome' é um parâmetro. É como um buraco por preencher na receita.
+function saudar(nome) {
+    console.log("Olá, " + nome + "!");
+}
+
+saudar("Ana");   // Imprime: Olá, Ana!
+saudar("Pedro"); // Imprime: Olá, Pedro!</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Erro Comum:</strong> Esquecer os parênteses <code>()</code> ao chamar a função.
+                            <br><code>saudar;</code> (O computador olha para a função mas não faz nada).
+                            <br><code>saudar();</code> (O computador EXECUTA a função).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Para que serve declarar uma função?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Para executar código imediatamente.</div>
+                                <div class="option" data-value="b">Para agrupar um bloco de código e dar-lhe um nome para usar mais tarde.</div>
+                                <div class="option" data-value="c">Para criar um loop infinito.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que são parâmetros numa função?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">São erros de código.</div>
+                                <div class="option" data-value="b">São o resultado final da função.</div>
+                                <div class="option" data-value="c">São dados que passamos para dentro da função para ela trabalhar (como ingredientes).</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Qual a sintaxe correta para executar a função `saltar`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a"><code>saltar</code></div>
+                                <div class="option" data-value="b"><code>function saltar</code></div>
+                                <div class="option" data-value="c"><code>saltar()</code></div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Calculadora de Área de Retângulo</strong></p>
+
+                        <p>Cria uma função chamada <code>calcularArea</code> que receba dois números (largura e altura) e mostre a área na consola.</p>
+
+                        <p><strong>Requisitos:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Declara a função <code>calcularArea(largura, altura)</code>.</li>
+                            <li>Dentro dela, faz a conta (largura * altura).</li>
+                            <li>Chama a função duas vezes com valores diferentes.</li>
+                        </ul>
+
+                        <pre><code>// 1. Cria a função aqui...
+
+// 2. Chama a função com valores (ex: 5 e 10)</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>function calcularArea(largura, altura) {
+    let area = largura * altura;
+    console.log("A área é: " + area);
+}
+
+calcularArea(5, 10);  // 50
+calcularArea(2, 3);   // 6</code></pre>
+                                <p><strong>📌 Explicação:</strong> Criámos uma "máquina" de calcular áreas. Ela aceita quaisquer dois números que lhe dermos e faz o trabalho sujo. Isso é reutilização!</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-09-loop-for/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Aula 11 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>10</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 3)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Funções pequenas são melhores! Uma regra de ouro: uma função deve fazer <strong>apenas uma coisa</strong> e fazê-la bem. Se a tua função tem 50 linhas e faz café, calcula impostos e envia emails, divide-a em 3 funções mais pequenas.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 11: Return e Scope</strong></p>
+                    <p>Vamos aprender como fazer a função devolver um valor para o usarmos noutros sítios, e onde é que as variáveis "vivem".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Declarar uma função é como escrever uma receita num livro. Estás a definir o plano, mas ainda não estás a cozinhar nada. O código só executa quando a chamas.',
+                    analogy: 'Escrever a partitura vs Tocar a música.'
+                },
+                2: {
+                    correct: 'c',
+                    explanation: 'Os parâmetros são variáveis temporárias que recebem os valores que envias ao chamar a função. Tornam a função flexível.',
+                    analogy: 'São como as ranhuras de uma torradeira onde inseres o pão. A torradeira (função) funciona com qualquer tipo de pão (parâmetro) que lá ponhas.'
+                },
+                3: {
+                    correct: 'c',
+                    explanation: 'Os parênteses <code>()</code> são o "gatilho". São eles que dizem ao JavaScript: "Executa isto agora!". Sem eles, estás apenas a referir-te à função, mas não a corres.',
+                    analogy: 'Olhar para o botão de disparo vs Carregar no botão de disparo.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
