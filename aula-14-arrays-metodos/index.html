@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 14: Métodos de Arrays</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 4: Estruturas de Dados</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Métodos de Arrays: Ferramentas de Edição</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>Adicionar itens ao fim (<code>push</code>) e ao início (<code>unshift</code>)</li>
+                            <li>Remover do fim (<code>pop</code>) e do início (<code>shift</code>)</li>
+                            <li>Como funcionam os métodos em JavaScript</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Um array não é estático. Podemos adicionar e remover itens dinamicamente.</p>
+
+                    <div class="analogy-box">
+                        <h4>🥞 Analogia da Pilha de Panquecas</h4>
+                        <p>Imagina um prato com uma pilha de panquecas:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>push()</strong>: Pões uma nova panqueca quente no topo.</li>
+                            <li><strong>pop()</strong>: Tiras (e comes) a panqueca do topo.</li>
+                        </ul>
+                        <p>Estas operações são muito rápidas e comuns.</p>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Um "carrinho de compras" é um array. Quando clicas em "adicionar", fazes um <code>push()</code>. Quando removes algo, podes fazer um <code>pop()</code> (se for o último) ou outros métodos que veremos mais à frente.</p>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos manipular a nossa lista:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Adicionar (Push & Unshift)</h4>
+                            <pre><code>let equipa = ["Rui", "Ana"];
+
+// Adicionar ao FIM (Recomendado, é rápido)
+equipa.push("Carlos"); // ["Rui", "Ana", "Carlos"]
+
+// Adicionar ao INÍCIO (Mais lento, empurra todos)
+equipa.unshift("Marta"); // ["Marta", "Rui", "Ana", "Carlos"]</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Remover (Pop & Shift)</h4>
+                            <pre><code>let numeros = [10, 20, 30, 40];
+
+// Remover do FIM e guardar o que saiu
+let removido = numeros.pop();
+console.log(removido); // 40
+console.log(numeros);  // [10, 20, 30]
+
+// Remover do INÍCIO
+numeros.shift(); // Remove o 10
+console.log(numeros); // [20, 30]</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">💡</span>
+                        <div>
+                            <strong>Dica Pro:</strong> <code>push</code> e <code>pop</code> são pares perfeitos. <code>unshift</code> e <code>shift</code> também. Tenta memorizar assim: "Push empurra para dentro, Pop puxa para fora".
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual o método para adicionar um elemento ao final do array?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a"><code>add()</code></div>
+                                <div class="option" data-value="b"><code>push()</code></div>
+                                <div class="option" data-value="c"><code>insert()</code></div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que retorna o método `pop()`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">O novo tamanho do array.</div>
+                                <div class="option" data-value="b">O elemento que foi removido.</div>
+                                <div class="option" data-value="c">Nada (undefined).</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Qual é mais eficiente (mais rápido) para o computador?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Mexer no início do array (shift/unshift).</div>
+                                <div class="option" data-value="b">Mexer no fim do array (push/pop).</div>
+                                <div class="option" data-value="c">É igual.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Gestão de Fila de Espera</strong></p>
+
+                        <p>tens um array vazio chamado <code>fila</code>.</p>
+                        <p>1. Chega a "Ana" (adiciona).</p>
+                        <p>2. Chega o "João" (adiciona).</p>
+                        <p>3. A "Ana" é atendida e sai da fila (remove o primeiro).</p>
+                        <p>Mostra como ficou a fila.</p>
+
+                        <pre><code>let fila = [];
+// Teus comandos aqui...
+console.log(fila);</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let fila = [];
+
+fila.push("Ana");   // ["Ana"]
+fila.push("João");  // ["Ana", "João"] (João ficou atrás da Ana)
+fila.shift();       // O primeiro a entrar ("Ana") é o primeiro a sair
+
+console.log(fila); // Saída: ["João"]</code></pre>
+                                <p><strong>📌 Explicação:</strong> Isto simula uma estrutura chamada "Queue" (Fila) - FIFA (First In, First Out).</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-13-arrays-intro/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-15-objetos-intro/index.html" class="nav-btn next">
+                        Aula 15: Objetos (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>14</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 4)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>50 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Adicionar e remover dados de arrays é 50% do trabalho de um Frontend Developer. "Filtra esta lista", "Adiciona este produto", "Remove este utilizador". Pratica muito estes 4 métodos!</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 15: Objetos</strong></p>
+                    <p>Arrays guardam listas. Objetos guardam "coisas" com nome e características. É o par perfeito.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: '<code>push()</code> empurra para o fim. É o método mais usado de todos.',
+                    analogy: 'Como empurrar alguém para dentro de um autocarro cheio.'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: 'O <code>pop()</code> não só remove, como te "dá" o item removido para a mão, caso queiras usá-lo.',
+                    analogy: 'É como tirar uma carta do baralho. A carta sai do baralho e fica na tua mão.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'Adicionar no fim é fácil (é só pôr lá). Adicionar no início (<code>unshift</code>) obriga o computador a re-numerar (mover) TODOS os outros itens para a frente (o 0 passa a 1, o 1 passa a 2...). Em listas grandes, é lento.',
+                    analogy: 'Entrar para o fim da fila é rápido. Furar a fila no início obriga toda a gente a chegar-se para trás.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
