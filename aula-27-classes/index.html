@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 27: Classes e POO</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .arena {
+            background: #222;
+            border: 2px solid #444;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 200px;
+            margin-top: 20px;
+        }
+        .character {
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .character img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #666;
+            padding: 5px;
+            background: #333;
+        }
+        .character.active {
+            transform: scale(1.1);
+        }
+        .character.active img {
+            border-color: #4CAF50;
+            box-shadow: 0 0 15px #4CAF50;
+        }
+        .stats {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        .hp-bar {
+            width: 100px;
+            height: 10px;
+            background: #555;
+            margin: 5px auto;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .hp-fill {
+            height: 100%;
+            background: #F44336;
+            transition: width 0.3s;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .log {
+            background: #111;
+            padding: 10px;
+            height: 100px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 0.85em;
+            border-top: 1px solid #333;
+            margin-top: 20px;
+        }
+        .log p { margin: 2px 0; color: #aaa; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 7: JavaScript Moderno (ES6+)</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">50:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Classes: Fábricas de Objetos 🏭</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>Criar moldes de objetos com <code>class</code>.</li>
+                            <li>Método <code>constructor()</code>.</li>
+                            <li>Herança com <code>extends</code> e <code>super()</code>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia)</h2>
+
+                    <div class="analogy-box">
+                        <h4>🍪 Analogia da Forma de Bolachas</h4>
+                        <p><strong>Classe</strong>: É a forma de metal (o molde). Não se come, serve para criar.</p>
+                        <p><strong>Objeto (Instância)</strong>: É a bolacha que sai da forma. Podes criar 1000 bolachas iguais a partir de 1 forma.</p>
+                        <p><strong>extends</strong>: É pegares na forma de "Estrela" e adicionares um detalhe para ser "Estrela Cadente". É uma versão especializada.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🎮 Playground: Arena de Combate</h2>
+                    <p>Vamos usar classes para criar personagens de um jogo.</p>
+
+                    <div class="arena" id="arena">
+                        <!-- Personagens injetados via JS -->
+                    </div>
+
+                    <div class="controls">
+                        <button class="action-btn" onclick="heroi.atacar(monstro)">⚔️ Guerreiro Ataca</button>
+                        <button class="action-btn" onclick="monstro.atacar(heroi)" style="background: #F44336">🔥 Monstro Ataca</button>
+                        <button class="action-btn" onclick="heroi.curar()" style="background: #2196F3">❤️ Curar</button>
+                    </div>
+
+                    <div class="log" id="battle-log">
+                        <p>A batalha começou!</p>
+                    </div>
+
+                    <script>
+                        const logEl = document.getElementById('battle-log');
+
+                        function log(msg, color = '#aaa') {
+                            const p = document.createElement('p');
+                            p.innerHTML = msg;
+                            p.style.color = color;
+                            logEl.prepend(p);
+                        }
+
+                        // 1. Classe Base
+                        class Personagem {
+                            constructor(nome, vida, forca, imagem) {
+                                this.nome = nome;
+                                this.vida = vida;
+                                this.vidaMax = vida;
+                                this.forca = forca;
+                                this.imagem = imagem;
+                            }
+
+                            atacar(alvo) {
+                                const dano = this.forca + Math.floor(Math.random() * 5);
+                                alvo.receberDano(dano);
+                                log(`${this.nome} atacou ${alvo.nome} causando <strong>${dano}</strong> de dano!`, '#fff');
+                                this.animar();
+                            }
+
+                            receberDano(dano) {
+                                this.vida -= dano;
+                                if (this.vida < 0) this.vida = 0;
+                                this.atualizarUI();
+                                if (this.vida === 0) log(`☠️ ${this.nome} desmaiou!`, 'red');
+                            }
+
+                            curar() {
+                                const cura = 15;
+                                this.vida += cura;
+                                if (this.vida > this.vidaMax) this.vida = this.vidaMax;
+                                log(`✨ ${this.nome} curou ${cura} HP!`, '#4CAF50');
+                                this.atualizarUI();
+                            }
+
+                            animar() {
+                                const el = document.getElementById(this.nome);
+                                el.classList.add('active');
+                                setTimeout(() => el.classList.remove('active'), 200);
+                            }
+
+                            atualizarUI() {
+                                const bar = document.getElementById(`hp-${this.nome}`);
+                                const pct = (this.vida / this.vidaMax) * 100;
+                                bar.style.width = pct + '%';
+                            }
+
+                            render() {
+                                return `
+                                    <div class="character" id="${this.nome}">
+                                        <h3>${this.nome}</h3>
+                                        <img src="${this.imagem}" alt="${this.nome}">
+                                        <div class="stats">
+                                            <div class="hp-bar"><div class="hp-fill" id="hp-${this.nome}" style="width: 100%"></div></div>
+                                            HP: ${this.vida}/${this.vidaMax}
+                                        </div>
+                                    </div>
+                                `;
+                            }
+                        }
+
+                        // 2. Classes Derivadas (Herança)
+                        class Guerreiro extends Personagem {
+                            constructor(nome) {
+                                super(nome, 100, 15, "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix");
+                            }
+                        }
+
+                        class Monstro extends Personagem {
+                            constructor(nome) {
+                                super(nome, 80, 12, "https://api.dicebear.com/7.x/bottts/svg?seed=Zork");
+                            }
+                        }
+
+                        // 3. Instanciação
+                        const heroi = new Guerreiro("Heroi");
+                        const monstro = new Monstro("Zork");
+
+                        // Render Inicial
+                        document.getElementById('arena').innerHTML = heroi.render() + monstro.render();
+
+                    </script>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. O método `constructor` é obrigatório?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sim, sempre.</div>
+                                <div class="option" data-value="b">Não, se não o definirmos, o JS usa um padrão vazio.</div>
+                                <div class="option" data-value="c">Só se a classe tiver métodos.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que faz o comando `super()`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Dá super poderes à variável.</div>
+                                <div class="option" data-value="b">Chama o construtor da classe "Pai" (a que estamos a estender).</div>
+                                <div class="option" data-value="c">Termina a execução da classe.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lesson-navigation">
+                    <a href="../aula-26-modulos/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-28-projeto-final/index.html" class="nav-btn next">
+                        Aula 28: PROJETO FINAL <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>27</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 7)</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%;"></div>
+                </div>
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Frameworks como React costumavam usar Classes para tudo. Hoje usam Funções. Mas no Backend (Node.js, C#, Java), Classes ainda são a regra nº 1. Saber os dois é essencial.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: { correct: 'b', explanation: 'O constructor só é obrigatório se precisares de inicializar dados (como o nome ou vida) quando crias o objeto.' },
+                2: { correct: 'b', explanation: 'É obrigatório chamar super() antes de usar "this" numa classe filha.' }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
