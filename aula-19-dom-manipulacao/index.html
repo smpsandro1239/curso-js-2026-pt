@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 19: Obter e Manipular Dados</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .input-group {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #444;
+            background: #222;
+            color: white;
+            font-size: 1rem;
+        }
+        #mensagem-final {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            min-height: 1.5em;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 5: JavaScript no Navegador (DOM)</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Entrada e Saída: Conversar com o Utilizador</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>Ler texto de caixas de entrada (<code>input.value</code>)</li>
+                            <li>Escrever texto no ecrã (<code>innerText</code> vs <code>innerHTML</code>)</li>
+                            <li>Mudar estilos CSS via JavaScript (<code>style</code>)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Já sabemos "ouvir" o clique. Agora precisamos de saber "ler" o que foi escrito.</p>
+
+                    <div class="analogy-box">
+                        <h4>📝 Analogia do Formulário em Papel</h4>
+                        <p>O <strong>HTML</strong> é a folha de papel com os espaços em branco.</p>
+                        <p>O <strong>Utilizador</strong> escreve nesses espaços.</p>
+                        <p>O <strong>JavaScript</strong> é o funcionário que pega na folha e lê o que está escrito no campo "Nome" para processar o pedido.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos criar um saudador automático:</p>
+
+                        <div class="example">
+                            <h4>1. Ler o Valor (Input)</h4>
+                            <pre><code>const caixaNome = document.querySelector("#nome");
+let nomeEscrito = caixaNome.value; // .value é o segredo!</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>2. Escrever a Resposta (Output)</h4>
+                            <pre><code>const sitioDaResposta = document.querySelector("#resposta");
+sitioDaResposta.innerText = "Olá " + nomeEscrito;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-area" style="text-align: center; border: 1px solid #333; padding: 20px; border-radius: 10px;">
+                        <h3>🧪 Área de Testes</h3>
+                        <p>Escreve o teu nome e clica no botão:</p>
+
+                        <div class="input-group">
+                            <input type="text" id="input-nome" placeholder="Teu nome aqui...">
+                            <button id="btn-saudar">Saudar</button>
+                        </div>
+
+                        <div id="mensagem-final">...</div>
+
+                        <script>
+                            const btn = document.querySelector("#btn-saudar");
+                            const input = document.querySelector("#input-nome");
+                            const msg = document.querySelector("#mensagem-final");
+
+                            btn.addEventListener("click", () => {
+                                // 1. Ler (IMPORTANTÍSSIMO: Ler SÓ quando o clique acontece)
+                                const nome = input.value;
+
+                                if (nome === "") {
+                                    alert("Escreve alguma coisa!");
+                                    return;
+                                }
+
+                                // 2. Processar
+                                const saudacao = "Bem-vindo ao Clube, " + nome + "!";
+
+                                // 3. Escrever (Saída)
+                                msg.innerText = saudacao;
+
+                                // Bónus: Mudar CSS
+                                msg.style.color = "cyan";
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Para ler texto de um &lt;p&gt; uso `innerText`. E para ler de um &lt;input&gt;?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Também uso <code>innerText</code>.</div>
+                                <div class="option" data-value="b">Uso <code>value</code>.</div>
+                                <div class="option" data-value="c">Uso <code>text()</code>.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Qual a diferença entre `innerText` e `innerHTML`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">São iguais.</div>
+                                <div class="option" data-value="b">O <code>innerHTML</code> permite colocar tags HTML (como &lt;b&gt;), o <code>innerText</code> coloca tudo como texto simples.</div>
+                                <div class="option" data-value="c">O <code>innerHTML</code> é mais lento.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-18-eventos-click/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-20-dom-criar/index.html" class="nav-btn next">
+                        Aula 20: Criar Elementos <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>19</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 5)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>50 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Sempre que pegas em dados do utilizador com <code>innerHTML</code>, cuidado! Se não limpares os dados, hackers podem injetar código malicioso (XSS). Por segurança, usa sempre que possível <code>innerText</code>.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 20: Criar Elementos</strong></p>
+                    <p>E se quisermos adicionar coisas à página que não estavam lá antes? Como uma lista de tarefas?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Inputs de formulário (text, password, number) guardam o seu conteúdo na propriedade <code>value</code>. Elementos de texto normal (p, div, span) guardam em <code>innerText</code>.',
+                    analogy: 'Caixa fechada tem Valor. Papel aberto tem Texto.'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: 'O <code>innerHTML</code> interpreta o HTML. Se Escreveres "<b>Ola</b>", ele mete a negrito. O <code>innerText</code> escreve literalmente "&lt;b&gt;Ola&lt;/b&gt;" no ecrã.',
+                    analogy: 'Word (com formatação) vs Bloco de Notas (texto puro).'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

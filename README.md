@@ -46,7 +46,7 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 |------|--------|--------|------|
 | **17** | [O que é o DOM? (Seletores)](aula-17-dom-intro/README.md) | ✅ Disponível | `getElementById`, `querySelector` |
 | **18** | [Eventos (Clicks e Interação)](aula-18-eventos-click/README.md) | ✅ Disponível | `addEventListener`, `click` |
-| **19** | Obter e Manipular Dados | 🚧 Planeado | `value`, `innerHTML`, Style |
+| **19** | [Obter e Manipular Dados](aula-19-dom-manipulacao/README.md) | ✅ Disponível | `value`, `innerHTML`, Style |
 | **20** | Criar Elementos (Dinâmico) | 🚧 Planeado | `createElement`, `appendChild` |
 
 _(O currículo continuará a crescer com módulos de Assincronismo, APIs e Projetos Reais)_
