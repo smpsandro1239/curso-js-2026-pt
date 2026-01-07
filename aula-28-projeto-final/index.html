@@ -233,15 +233,19 @@
 
         <div class="section">
             <div class="verification">
-                <h2>🧠 Blueprint do Pensamento Lógico</h2>
-                <p style="text-align: center; margin-bottom: 20px;">Antes de escreveres código, tens de saber <strong>COMO</strong> construir este projeto. Vamos testar o teu plano de ataque.</p>
+                <h2>🧠 Blueprint do Arquiteto de Software</h2>
+                <p style="text-align: center; margin-bottom: 20px;">
+                    Um programador sénior não escreve código aleatoriamente. Ele <strong>planeia</strong>.
+                    <br>Vamos construir a lógica mental deste projeto, do zero ao fim. Se conseguires responder a tudo, estás pronto para programar qualquer coisa!
+                </p>
 
+                <!-- STEP 1: PLANNING -->
                 <div class="question" data-question="1">
-                    <h3>1. Qual deve ser o primeiro passo lógico ao criar esta App?</h3>
+                    <h3>1. Fase de Planeamento: O que precisamos antes de sequer abrir o VS Code?</h3>
                     <div class="options">
-                        <div class="option" data-value="a">Começar a escrever CSS para a janela ficar bonita.</div>
-                        <div class="option" data-value="b">Definir as variáveis e selecionar os elementos HTML (DOM) que vou precisar de manipular.</div>
-                        <div class="option" data-value="c">Copiar e colar código da internet.</div>
+                        <div class="option" data-value="a">Ir ao Google copiar um projeto de meteorologia feito.</div>
+                        <div class="option" data-value="b">Identificar as funcionalidades essenciais (Requisitos) e desenhar um esboço da interface (Wireframe).</div>
+                        <div class="option" data-value="c">Começar logo a escrever funções aleatórias.</div>
                     </div>
                     <div class="feedback">
                         <div class="explanation"></div>
@@ -249,12 +253,13 @@
                     </div>
                 </div>
 
+                <!-- STEP 2: HTML STRUCTURE -->
                 <div class="question" data-question="2">
-                    <h3>2. Quando o utilizador pesquisa uma cidade, a resposta da API não é instantânea. O que devemos fazer?</h3>
+                    <h3>2. Estrutura (HTML): Como organizarias o layout desta app?</h3>
                     <div class="options">
-                        <div class="option" data-value="a">Bloquear o site até chegar a resposta.</div>
-                        <div class="option" data-value="b">Usar <code>async/await</code> e mostrar um aviso de "Loading" para o utilizador saber que algo está a acontecer.</div>
-                        <div class="option" data-value="c">Tentar adivinhar a temperatura.</div>
+                        <div class="option" data-value="a">Tudo dentro de uma única `div`, misturado.</div>
+                        <div class="option" data-value="b">Uma secção para a "Sidebar" (pesquisa) e outra para o "Conteúdo Principal" (dados do tempo), ambas dentro de um contentor pai.</div>
+                        <div class="option" data-value="c">Usar uma tabela HTML gigante para alinhar tudo.</div>
                     </div>
                     <div class="feedback">
                         <div class="explanation"></div>
@@ -262,12 +267,13 @@
                     </div>
                 </div>
 
+                <!-- STEP 3: DOM SELECTION -->
                 <div class="question" data-question="3">
-                    <h3>3. Como é que mantemos o código organizado num projeto grande como este?</h3>
+                    <h3>3. Seleção (JS): O HTML está pronto. Qual é o primeiro passo no JavaScript?</h3>
                     <div class="options">
-                        <div class="option" data-value="a">Escrever tudo dentro de uma única função gigante.</div>
-                        <div class="option" data-value="b">Usar Classes ou Módulos para separar responsabilidades (uma parte trata da API, outra da UI, outra dos Eventos).</div>
-                        <div class="option" data-value="c">Criar 10 ficheiros HTML diferentes.</div>
+                        <div class="option" data-value="a">Adicionar animações CSS.</div>
+                        <div class="option" data-value="b">Começar a fazer pedidos à API.</div>
+                        <div class="option" data-value="c">Criar variáveis que guardam referências para os elementos do ecrã (Inputs, Botões, Texto de Saída) usando `document.querySelector`.</div>
                     </div>
                     <div class="feedback">
                         <div class="explanation"></div>
@@ -275,7 +281,77 @@
                     </div>
                 </div>
 
-                <button class="submit-btn" id="submitBtn" disabled>Verificar Meu Plano</button>
+                <!-- STEP 4: EVENT LISTENERS -->
+                <div class="question" data-question="4">
+                    <h3>4. Interação: Queremos que algo aconteça quando o utilizador carrega "Enter" no input. O que usamos?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Um loop `while` que verifica a toda a hora se alguém escreveu.</div>
+                        <div class="option" data-value="b">Um `addEventListener` para escutar o evento 'keypress' ou 'submit'.</div>
+                        <div class="option" data-value="c">A propriedade HTML `onclick`.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 5: ASYNC LOGIC -->
+                <div class="question" data-question="5">
+                    <h3>5. API: Agora precisamos dos dados da cidade. A chamada à API é instantânea?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Não. Devemos usar `async/await` para esperar pela resposta sem bloquear o site (promessas).</div>
+                        <div class="option" data-value="b">Sim, é imediato, funciona como uma variável normal.</div>
+                        <div class="option" data-value="c">Não sei, uso `setTimeout` de 5 segundos para garantir.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 6: UX (User Experience) -->
+                <div class="question" data-question="6">
+                    <h3>6. UX: Enquanto o `await` espera pelos dados, o que deve ver o utilizador?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Um ecrã branco.</div>
+                        <div class="option" data-value="b">O site congelado e inamovível.</div>
+                        <div class="option" data-value="c">Um indicador visual de "Carregando..." (Loader/Spinner) para dar feedback imediato.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 7: ERROR HANDLING -->
+                <div class="question" data-question="7">
+                    <h3>7. Robustez: E se o utilizador escrever "Cidade Imaginária"?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">O site deve crashar e mostrar erros na consola.</div>
+                        <div class="option" data-value="b">Devemos usar um bloco `try...catch` para apanhar o erro e mostrar um alerta amigável: "Cidade não encontrada".</div>
+                        <div class="option" data-value="c">Ignoramos e mostramos dados de Lisboa por defeito.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 8: ARCHITECTURE -->
+                <div class="question" data-question="8">
+                    <h3>8. Organização: O código está a ficar grande. Como organizamos a lógica da App?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Deixamos tudo numa "tripa" de 500 linhas.</div>
+                        <div class="option" data-value="b">Usamos Classes (POO) ou Módulos para agrupar funções relacionadas (ex: uma Classe `WeatherApp` que gere o estado).</div>
+                        <div class="option" data-value="c">Escrevemos o JS dentro das tags HTML.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <button class="submit-btn" id="submitBtn" disabled>Validar Blueprint do Projeto</button>
 
                 <div class="results" id="results">
                     <h3 id="resultsText"></h3>
@@ -313,18 +389,43 @@
             questions: {
                 1: {
                     correct: 'b',
-                    explanation: 'Exato! Antes de cozinhar, preparas os ingredientes. Antes de programar lógica, preparas as referências para os elementos do ecrã (Inputs, Botões, Divs) que vais alterar.',
-                    analogy: 'Mise en place: Primeiro organizas a bancada, depois começas a cozinhar.'
+                    explanation: '<strong>1º Passo: Requisitos.</strong> Antes de tocar em código, tens de saber O QUE vais fazer. Desenhar um esboço e listar funcionalidades poupa horas de reescrita depois.',
+                    analogy: 'Um arquiteto faz a planta da casa (blueprint) antes de o empreiteiro colocar o primeiro tijolo.'
                 },
                 2: {
                     correct: 'b',
-                    explanation: 'A internet é imprevisível. O site nunca deve "congelar". O Async/Await permite que o código espere pelos dados sem bloquear o resto da página, e o Loading melhora a experiência (UX).',
-                    analogy: 'Quando pedes um café, o empregado diz "so um momento" (Loading) enquanto a máquina trabalha, em vez de ficar paralisado e mudo.'
+                    explanation: '<strong>2º Passo: Layout.</strong> Pensar em "Blocos". Um bloco para pesquisa, um bloco para mostrar resultados atual. Isso dita a estrutura HTML que vais criar.',
+                    analogy: 'É como arrumar uma estante: decides onde ficam os livros (conteúdo) e onde ficam as decorações (sidebar) antes de lá pôr as coisas.'
                 },
                 3: {
+                    correct: 'c',
+                    explanation: '<strong>3º Passo: "Mise en Place".</strong> O JS precisa de saber onde vai mexer. Criamos variáveis (const input, const botao) logo no início para não termos `document.querySelector` espalhado por todo o lado.',
+                    analogy: 'O chefe de cozinha prepara a faca, a tábua e os ingredientes na bancada antes de começar a picar.'
+                },
+                4: {
                     correct: 'b',
-                    explanation: 'Dividir para conquistar! Separar a lógica (API) da visualização (UI) torna o código mais fácil de ler, corrigir e expandir. É o princípio da "Separação de Responsabilidades".',
-                    analogy: 'Num restaurante, o cozinheiro (API) não serve às mesas (UI). Cada um tem a sua função especializada.'
+                    explanation: '<strong>4º Passo: Ouvir o Utilizador.</strong> O computador é passivo. Ele precisa de um "Trigger" (Gatilho) para agir. O `addEventListener` é esse gatilho que liga a ação do humano à lógica da máquina.',
+                    analogy: 'É como colocar uma campainha na porta. Se não houver campainha, ninguém sabe que chegaste.'
+                },
+                5: {
+                    correct: 'a',
+                    explanation: '<strong>5º Passo: Assincronismo.</strong> Pedir dados a um servidor na Alemanha demora tempo (ms). O JavaScript não pode parar. `async/await` permite pausar apenas aquela função sem congelar o site.',
+                    analogy: 'Enquanto a pizza está no forno (await), tu podes pôr a mesa ou ver TV. Não ficas especado a olhar para o forno.'
+                },
+                6: {
+                    correct: 'c',
+                    explanation: '<strong>6º Passo: Feedback Visual.</strong> O utilizador é impaciente. Se clica e nada acontece por 1 segundo, ele acha que estragou o site. Um Spinner diz: "Calma, estou a trabalhar".',
+                    analogy: 'É como o som de chamada quando telefonas a alguém. Se fosse silêncio absoluto, achavas que a chamada tinha caído.'
+                },
+                7: {
+                    correct: 'b',
+                    explanation: '<strong>7º Passo: Tratamento de Erros.</strong> O mundo real é imperfeito. A internet falha, as cidades não existem. `try...catch` impede que o site "morra" e permite mostrar uma mensagem educada.',
+                    analogy: 'O airbag do carro. Esperamos não o usar, mas se batermos (erro), ele salva-nos de consequências piores.'
+                },
+                8: {
+                    correct: 'b',
+                    explanation: '<strong>8º Passo: Refatorização.</strong> Código limpo é código que se lê como um livro. Agrupar lógicas em Classes ou Funções torna o projeto fácil de manter no futuro.',
+                    analogy: 'É a diferença entre ter a roupa toda atirada para uma cadeira (código desorganizado) ou dobrada em gavetas etiquetadas (Classes).'
                 }
             }
         };
