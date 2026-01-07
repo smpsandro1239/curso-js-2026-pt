@@ -3,6 +3,9 @@
 Bem-vindo ao repositório do **Melhor Curso de JavaScript em Português Europeu**.
 Este curso foi desenhado com princípios pedagógicos modernos: foco na prática, analogias claras e progressão lógica.
 
+## 🌟 Acesse o Curso Online
+**[👉 Clique aqui para ver o Curso Completo Online](https://smpsandro1239.github.io/curso-js-2026-pt/)**
+
 ## 📚 Estrutura do Curso
 
 ## 📚 Currículo do Curso (Estrutura Modular)
