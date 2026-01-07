@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 5: Operadores Lógicos</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 1: Os Alicerces (Fundamentos)</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Operadores Lógicos: E, OU, NÃO</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O operador <strong>E</strong> (<code>&&</code>) - Tudo tem de ser verdade</li>
+                            <li>O operador <strong>OU</strong> (<code>||</code>) - Basta um ser verdade</li>
+                            <li>O operador <strong>NÃO</strong> (<code>!</code>) - Inverte o valor</li>
+                            <li>Como tomar decisões complexas combinando várias regras</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Na vida real, raramente tomamos decisões baseadas numa única coisa. Geralmente, há várias condições envolvidas.</p>
+
+                    <div class="analogy-box">
+                        <h4>✈️ Analogia do Aeroporto</h4>
+                        <p>Imagina que vais apanhar um avião:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>Operador E (&&)</strong>: Para embarcar, precisas de Bilhete <strong>E</strong> Cartão de Cidadão. Se faltar um deles, não embarcas.</li>
+                            <li><strong>Operador OU (||)</strong>: Para te identificares, podes mostrar o Cartão de Cidadão <strong>OU</strong> o Passaporte. Basta ter um deles para funcionar.</li>
+                            <li><strong>Operador NÃO (!)</strong>: É o detetor de metais. Se <strong>NÃO</strong> tiveres metal, passas. Se tiveres, apita.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> É a base de toda a lógica de negócio. "Se o utilizador for Premium <strong>E</strong> tiver saldo, aplica desconto". "Se o campo email estiver vazio <strong>OU</strong> a password for curta, mostra erro".</p>
+
+                    <div class="blockquote-info">
+                        💡 <strong>Sabias que?</strong> O operador <code>!</code> (NÃO) é muitas vezes chamado de "Bang". Podes usá-lo duas vezes (<code>!!</code>) para converter qualquer valor num booleano verdadeiro ou falso puro.
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos testar a lógica do computador:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Operador E (&&)</h4>
+                            <p>Só devolve <code>true</code> se <strong>ambos</strong> forem verdadeiros.</p>
+                            <pre><code>let tenhoBilhete = true;
+let tenhoCC = true;
+let possoEmbarcar = tenhoBilhete && tenhoCC;
+
+console.log(possoEmbarcar); // true
+
+// Se perder o CC...
+tenhoCC = false;
+console.log(tenhoBilhete && tenhoCC); // false</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Operador OU (||)</h4>
+                            <p>Devolve <code>true</code> se <strong>pelo menos um</strong> for verdadeiro.</p>
+                            <pre><code>let souSocio = false;
+let tenhoConvite = true;
+
+// Entra se for sócio OU se tiver convite
+let podeEntrar = souSocio || tenhoConvite;
+
+console.log(podeEntrar); // true</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Operador NÃO (!)</h4>
+                            <p>Inverte o valor booleano.</p>
+                            <pre><code>let estaChovendo = true;
+
+let vouAPraia = !estaChovendo;
+
+console.log(vouAPraia); // false (porque está a chover)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Ordem Importante:</strong> Tal como na matemática o <code>*</code> ganha ao <code>+</code>, na lógica o <code>&&</code> (E) tem prioridade sobre o <code>||</code> (OU).
+                            <br>Usa parênteses para garantir que a lógica está correta: <code>(A || B) && C</code>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. O resultado de <code>true && false</code> é?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">true</div>
+                                <div class="option" data-value="b">false</div>
+                                <div class="option" data-value="c">undefined</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O resultado de <code>false || true</code> é?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">true</div>
+                                <div class="option" data-value="b">false</div>
+                                <div class="option" data-value="c">null</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. O que faz o operador <code>!</code> (Ex: <code>!true</code>)?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Confirma que é verdadeiro.</div>
+                                <div class="option" data-value="b">Apaga a variável.</div>
+                                <div class="option" data-value="c">Inverte o valor (torna-se false).</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Sistema de Aprovação Escolar</strong></p>
+
+                        <p>Um aluno passa de ano se:</p>
+                        <ol style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>A média for igual ou superior a 10 (<code>media >= 10</code>)</li>
+                            <li><strong>E</strong> tiver menos de 10 faltas (<code>faltas < 10</code>)</li>
+                        </ol>
+
+                        <p>Cria um programa que diga se o aluno passou ou não.</p>
+
+                        <pre><code>// Testa com media=12 e faltas=5 (Deve passar)
+// Testa com media=15 e faltas=15 (Não deve passar)</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let media = 12;
+let faltas = 5;
+
+// Regra: Média >= 10 E Faltas < 10
+let passouDeAno = media >= 10 && faltas < 10;
+
+console.log("O aluno passou? " + passouDeAno);</code></pre>
+                                <p><strong>📌 Explicação:</strong> Usámos o operador <code>&&</code> porque AMBAS as condições são obrigatórias. Se o aluno tiver boas notas mas muitas faltas, chumba. Se tiver poucas faltas mas más notas, chumba também.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-04-comparadores/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Módulo 2 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>5</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 1)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Dominar lógica Booleana é essencial não só para programar, mas para bases de dados (SQL). Muitas vezes escrevemos queries como: "Dá-me os utilizadores ativos E que pagaram este mês".</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>🎉 Parabéns!</h4>
+                    <p>Completaste o <strong>Módulo 1: Os Alicerces</strong>!</p>
+                    <p>No próximo módulo, vamos aprender a criar programas inteligentes com <strong>If</strong> e <strong>Else</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'No operador E (<code>&&</code>), <strong>todas</strong> as condições precisam de ser verdadeiras. Como uma delas é falsa, o resultado final é falso.',
+                    analogy: 'Se pedires um café com leite E açúcar, e não houver açúcar, o pedido não está completo.'
+                },
+                2: {
+                    correct: 'a',
+                    explanation: 'No operador OU (<code>||</code>), basta <strong>uma</strong> condição ser verdadeira para o resultado final ser verdadeiro.',
+                    analogy: 'Se pedires para pagar com dinheiro OU cartão, e tiveres cartão, a compra é aceite.'
+                },
+                3: {
+                    correct: 'c',
+                    explanation: 'O operador de negação <code>!</code> simplesmente inverte o valor booleano. O que é verdadeiro passa a falso, e o que é falso passa a verdadeiro.',
+                    analogy: 'É como o interruptor da luz: se está ON, passas para OFF.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

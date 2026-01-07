@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 4: Comparadores e Booleanos</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 1: Os Alicerces (Fundamentos)</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Comparadores e Booleanos</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O tipo de dado <code>Boolean</code> (Verdadeiro ou Falso)</li>
+                            <li>Comparar valores (Maior que, Menor que)</li>
+                            <li>A diferença crucial entre <code>==</code> e <code>===</code></li>
+                            <li>Como o computador toma decisões baseadas em comparações</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Até agora, lidámos com números e texto. Mas para o computador tomar decisões, ele precisa de respostas simples: <strong>Sim</strong> ou <strong>Não</strong>.</p>
+
+                    <div class="analogy-box">
+                        <h4>🛑 Analogia do Porteiro da Discoteca</h4>
+                        <p>Imagina um segurança à entrada de uma discoteca. Ele faz perguntas e compara a resposta com as regras:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>"A tua idade é <strong>maior ou igual</strong> a 18?" (<code>idade >= 18</code>)</li>
+                            <li>"O teu nome está <strong>igual</strong> ao da lista?" (<code>nome === "João"</code>)</li>
+                            <li>"O teus ténis são <strong>diferentes</strong> de 'chinelos de praia'?" (<code>calcado !== "chinelos"</code>)</li>
+                        </ul>
+                        <p>O segurança só tem duas respostas possíveis: <strong>true</strong> (Entra) ou <strong>false</strong> (Não entra).</p>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Sem comparações, o software não teria inteligência. É assim que o login verifica a password, que o jogo sabe se bateste na parede, ou que o banco verifica se tens saldo suficiente.</p>
+
+                    <div class="blockquote-info">
+                        💡 <strong>Sabias que?</strong> O JavaScript tem dois tipos de igualdade. O <code>==</code> (comparação solta) e o <code>===</code> (comparação estrita). A regra de ouro dos profissionais é: <strong>Usa sempre <code>===</code></strong> para evitar surpresas!
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos fazer perguntas ao JavaScript. Experimenta na consola:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Maior e Menor</h4>
+                            <pre><code>let idade = 20;
+
+console.log(idade > 18);  // true (20 é maior que 18)
+console.log(idade < 10);  // false (20 não é menor que 10)
+console.log(idade >= 20); // true (20 é maior ou igual a 20)</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Igualdade Estrita (===)</h4>
+                            <p>Verifica se o valor E o tipo são iguais.</p>
+                            <pre><code>let numeroSecreto = 5;
+
+console.log(numeroSecreto === 5);   // true (É igual)
+console.log(numeroSecreto === 10);  // false (Não é igual)
+console.log(numeroSecreto !== 5);   // false (Não é diferente, ou seja, é igual)</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: O Perigo do <code>==</code> (Apenas para conhecimento)</h4>
+                            <p>O <code>==</code> ignora o tipo de dado. Isto pode causar bugs!</p>
+                            <pre><code>console.log(5 == "5");  // true (O quê!? Um número igual a texto?)
+console.log(5 === "5"); // false (Muito mais seguro. Número não é texto.)</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Dica Profissional:</strong> Nunca confundas <code>=</code> (atribuir valor) com <code>===</code> (comparar valor).
+                            <br><code>let x = 10;</code> (Coloca 10 dentro de x)
+                            <br><code>x === 10</code> (Pergunta: x é igual a 10?)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual é o resultado de <code>10 >= 10</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">true</div>
+                                <div class="option" data-value="b">false</div>
+                                <div class="option" data-value="c">undefined</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Porque devemos preferir <code>===</code> em vez de <code>==</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Porque é mais bonito no código.</div>
+                                <div class="option" data-value="b">Porque verifica o Valor e o Tipo, evitando erros estranhos.</div>
+                                <div class="option" data-value="c">Porque o <code>==</code> já não existe no JavaScript moderno.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. O que devolve a expressão <code>"Ana" !== "ana"</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">false (são iguais)</div>
+                                <div class="option" data-value="b">true (são diferentes)</div>
+                                <div class="option" data-value="c">erro</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Verificador de Elegibilidade para Votar</strong></p>
+
+                        <p>Cria um programa que verifica se uma pessoa pode votar.</p>
+                        <p>No nosso sistema fictício, para votar é preciso ter <strong>18 anos ou mais</strong>.</p>
+
+                        <p><strong>Objetivo:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Define uma variável <code>idadeEleitor</code>.</li>
+                            <li>Define uma variável <code>idadeMinima</code> com valor 18.</li>
+                            <li>Cria uma variável <code>podeVotar</code> que guarde o resultado da comparação (true ou false).</li>
+                            <li>Mostra o resultado na consola.</li>
+                        </ul>
+
+                        <pre><code>// Testa com idadeEleitor = 16 e depois com 20</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let idadeMinima = 18;
+let idadeEleitor = 20;
+
+// A comparação devolve true ou false
+let podeVotar = idadeEleitor >= idadeMinima;
+
+console.log("Pode votar? " + podeVotar); // Pode votar? true</code></pre>
+                                <p><strong>📌 Explicação:</strong> A variável <code>podeVotar</code> é do tipo <strong>Boolean</strong>. Ela não guarda número nem texto, guarda o estado da verdade daquela condição. Isto será fundamental quando aprendermos os <code>if</code> e <code>else</code>.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-03-operadores/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Aula 5 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>4</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 1)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>45 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Fácil</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 66%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>O conceito de "Case Sensitive" é vital. <code>"A"</code> é diferente de <code>"a"</code> para o computador. Muitos bugs de login acontecem porque comparamos strings sem ter isso em conta.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 5: Operadores Lógicos</strong></p>
+                    <p>Vamos aprender a combinar múltiplas comparações: "Tem bilhete E tem idade?"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'a',
+                    explanation: 'A expressão verifica se 10 é maior <strong>ou igual</strong> a 10. Como é igual, a condição é Verdadeira (true).',
+                    analogy: 'Se precisas ter no mínimo 10 euros e tens exatamente 10, consegues comprar? Sim (true).'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: 'O <code>===</code> é chamado de "Strict Equality" (Igualdade Estrita). Ele garante que <code>5 === "5"</code> seja falso, o que previne comportamentos inesperados no código.',
+                    analogy: 'O <code>==</code> aceita uma nota fotocopiada como dinheiro. O <code>===</code> verifica a marca de água e o papel.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'Em JavaScript, as letras maiúsculas e minúsculas têm códigos diferentes. Portanto, "Ana" não é estritamente igual a "ana". O operador <code>!==</code> pergunta "são diferentes?", logo a resposta é True (Sim, são diferentes).',
+                    analogy: 'É como comparar duas chaves quase iguais, mas num dente é diferente. Elas não abrem a mesma porta.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

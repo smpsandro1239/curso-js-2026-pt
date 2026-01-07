@@ -15,13 +15,13 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | **01** | [Introdução ao JavaScript](aula-01-intro/README.md) | ✅ Disponível | O que é, Consola, Hello World |
 | **02** | [Variáveis e Tipos de Dados](aula-02-variaveis/README.md) | ✅ Disponível | `let`, `const`, String, Number |
 | **03** | [Operadores Matemáticos e Aritmética](aula-03-operadores/README.md) | ✅ Disponível | Somar, Subtrair, Resto da divisão (%) |
-| **04** | Comparadores e Booleanos | 🚧 Em breve | `true`, `false`, `>`, `<`, `===` |
-| **05** | Operadores Lógicos | 🚧 Em breve | `&&` (E), `||` (OU), `!` (NÃO) |
+| **04** | [Comparadores e Booleanos](aula-04-comparadores/README.md) | ✅ Disponível | `true`, `false`, `>`, `<`, `===` |
+| **05** | [Operadores Lógicos](aula-05-logicos/README.md) | ✅ Disponível | `&&` (E), `||` (OU), `!` (NÃO) |
 
 ### 🟡 Módulo 2: O Cérebro do Código (Controlo de Fluxo)
 | Aula | Tópico | Estado | Foco |
 |------|--------|--------|------|
-| **06** | Estruturas Condicionais Simples | 🚧 Planeado | `if`, `else` |
+| **06** | [Estruturas Condicionais Simples](aula-06-condicionais/README.md) | ✅ Disponível | `if`, `else` |
 | **07** | Condicionais Avançadas | 🚧 Planeado | `else if`, `switch`, Ternários |
 | **08** | Introdução aos Loops (While) | 🚧 Planeado | Repetição básica |
 | **09** | O Loop For | 🚧 Planeado | Repetição controlada |

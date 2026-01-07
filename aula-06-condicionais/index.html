@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 6: Estruturas Condicionais (If/Else)</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 2: O Cérebro do Código</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Estruturas Condicionais: If e Else</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>Como fazer o código tomar decisões com <code>if</code> (Se)</li>
+                            <li>Como criar uma alternativa com <code>else</code> (Senão)</li>
+                            <li>A importância dos blocos de código <code>{ }</code></li>
+                            <li>Criar fluxos de lógica bifurcada</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Até agora, o nosso código corria sempre em linha reta, do início ao fim. Mas a vida real é feita de escolhas.</p>
+
+                    <div class="analogy-box">
+                        <h4>🛤️ Analogia da Bifurcação na Estrada</h4>
+                        <p>Imagina que estás a conduzir e chegas a uma bifurcação:</p>
+                        <p><strong>SE (if)</strong> a placa disser "Lisboa", viras à direita.</p>
+                        <p><strong>SENÃO (else)</strong> (se não for Lisboa), segues em frente ou viras à esquerda.</p>
+                        <p>O código nunca percorre os dois caminhos ao mesmo tempo. Ele escolhe <strong>um</strong> e ignora o outro.</p>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> É assim que o software reage ao utilizador. "Se a password estiver certa, entra. Senão, mostra erro". "Se o saldo for maior que o preço, compra. Senão, recusa".</p>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos criar as primeiras "decisões" do nosso código:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: O `if` simples</h4>
+                            <p>O código dentro das chavetas <code>{ }</code> só corre se a condição for verdadeira.</p>
+                            <pre><code>let estaChovendo = true;
+
+if (estaChovendo) {
+    console.log("Leva o guarda-chuva! ☔");
+}
+console.log("Fim do programa.");</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: O par `if / else`</h4>
+                            <p>Aqui temos duas opções. O código vai executar UMA ou OUTRA, nunca as duas.</p>
+                            <pre><code>let idade = 15;
+
+if (idade >= 18) {
+    console.log("Podes entrar na discoteca. 💃");
+} else {
+    console.log("És menor de idade. Fica à porta. 🚫");
+}</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Decisões com Lógica (Revisão da Aula 5)</h4>
+                            <p>Podemos usar operadores lógicos dentro do `if`.</p>
+                            <pre><code>let saldo = 50;
+let precoJogo = 60;
+
+if (saldo >= precoJogo) {
+    console.log("Compra efetuada com sucesso! 🎮");
+} else {
+    // Calculamos quanto falta
+    let falta = precoJogo - saldo;
+    console.log("Dinheiro insuficiente. Faltam " + falta + "€.");
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Sintaxe:</strong> Nunca te esqueças das chavetas <code>{ }</code>. Elas definem onde começa e acaba o bloco de código que pertence ao <code>if</code> ou ao <code>else</code>. A indentação (espaços à esquerda) é essencial para ler bem o código!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Se a condição do <code>if</code> for falsa, o que acontece?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">O programa encerra imediatamente com erro.</div>
+                                <div class="option" data-value="b">O código dentro do bloco <code>if</code> é saltado e ignorado.</div>
+                                <div class="option" data-value="c">O computador tenta tornar a condição verdadeira.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Quando é que o código dentro do <code>else</code> é executado?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sempre, aconteça o que acontecer.</div>
+                                <div class="option" data-value="b">Apenas quando a condição do <code>if</code> for verdadeira.</div>
+                                <div class="option" data-value="c">Apenas quando a condição do <code>if</code> for falsa.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Posso ter um <code>if</code> sem um <code>else</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sim, o <code>else</code> é opcional.</div>
+                                <div class="option" data-value="b">Não, dá erro de sintaxe.</div>
+                                <div class="option" data-value="c">Sim, mas o programa fica mais lento.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>Verificador de Números Par ou Ímpar</strong></p>
+
+                        <p>Cria um programa que verifica se um número é Par ou Ímpar.</p>
+                        <p><strong>Dica:</strong> Lembras-te do operador Módulo <code>%</code> da Aula 3? Se o resto da divisão por 2 for zero, é par.</p>
+
+                        <pre><code>let numero = 7;
+
+// Escreve aqui o teu if/else
+// Se for par, mostra "O número 7 é Par"
+// Senão, mostra "O número 7 é Ímpar"</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let numero = 7;
+
+if (numero % 2 === 0) {
+    console.log("O número " + numero + " é Par");
+} else {
+    console.log("O número " + numero + " é Ímpar");
+}</code></pre>
+                                <p><strong>📌 Explicação:</strong> A condição <code>numero % 2 === 0</code> é a forma padrão universal em programação para detetar números pares. Se o resto for 0, é par. Caso contrário (se for 1), cai no <code>else</code> e é ímpar.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-05-logicos/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Aula 7 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>6</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 2)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 15%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Escrever código limpo é fundamental. Tenta manter os teus blocos <code>if/else</code> curtos. Se tiveres muitos <code>if</code> dentro de outros <code>if</code> (chamado de "Nest"), o código torna-se difícil de ler.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 7: Condicionais Avançadas</strong></p>
+                    <p>Vamos aprender a lidar com múltiplas opções usando <code>else if</code> e <code>switch</code>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'O <code>if</code> funciona como um portão. Se a condição (a chave) for falsa, o portão não abre e o código lá de dentro é simplesmente ignorado pelo computador.',
+                    analogy: 'É como passar por uma loja fechada: continuas o teu caminho sem entrar.'
+                },
+                2: {
+                    correct: 'c',
+                    explanation: 'O <code>else</code> é a alternativa. Ele traduz-se como "Se não...". Portanto, só é ativado quando a condição principal do <code>if</code> falha.',
+                    analogy: 'Se houver coca-cola, pede coca-cola. SENÃO (else), pede água.'
+                },
+                3: {
+                    correct: 'a',
+                    explanation: 'O <code>else</code> é totalmente opcional. Muitas vezes só queremos fazer algo se uma condição for verdadeira e não fazer nada caso contrário.',
+                    analogy: 'Se estiver a chover, levo guarda-chuva. (Não preciso de fazer nada específico se não estiver a chover, apenas saio de casa normalmente).'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
