@@ -34,7 +34,12 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | **12** | [Arrow Functions (Moderno)](aula-12-arrow-functions/README.md) | ✅ Disponível | `() => {}`, Sintaxe curta |
 
 ### 🟣 Módulo 4: Estruturas de Dados (Arrays e Objetos)
-*Planeado: Arrays, Métodos de Arrays, Objetos Literais, Referências.*
+| Aula | Tópico | Estado | Foco |
+|------|--------|--------|------|
+| **13** | [Introdução a Arrays (Listas)](aula-13-arrays-intro/README.md) | ✅ Disponível | `[]`, Índices, `length` |
+| **14** | Métodos de Arrays | 🚧 Planeado | `push`, `pop`, `shift`, `unshift` |
+| **15** | Objetos (O mundo real) | 🚧 Planeado | `{ chave: valor }`, Propriedades |
+| **16** | Objetos + Métodos (this) | 🚧 Planeado | Funções dentro de objetos |
 
 ### 🟠 Módulo 5: JavaScript no Navegador (DOM)
 *Planeado: Selecionar elementos, Eventos (Click, Input), Criar HTML via JS.*

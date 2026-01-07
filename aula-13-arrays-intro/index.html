@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 13: Introdução a Arrays</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 4: Estruturas de Dados</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Arrays: Listas de Coisas</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O que é um Array (Lista)</li>
+                            <li>Como criar uma lista: <code>let lista = []</code></li>
+                            <li>Aceder a elementos pelo índice (0, 1, 2...)</li>
+                            <li>Alterar e saber o tamanho da lista (<code>length</code>)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Até agora, guardávamos um valor por cada variável. Mas e se tivermos uma lista de compras com 50 itens? Vamos criar 50 variáveis?</p>
+
+                    <div class="analogy-box">
+                        <h4>💊 Analogia da Caixa de Comprimidos</h4>
+                        <p>Um <strong>Array</strong> é como aquelas caixas de comprimidos semanais:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>É <strong>UM objeto</strong> físico (uma variável).</li>
+                            <li>Tem <strong>vários compartimentos</strong>.</li>
+                            <li>Cada compartimento tem um número (índice) para saberes onde está o quê.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Redes sociais = Lista de posts. Loja online = Lista de produtos. Música = Lista de canções. Quase tudo na web são listas!</p>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos organizar a nossa informação:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Criar e Aceder</h4>
+                            <p>Os índices começam SEMPRE em ZERO. O primeiro item é o 0.</p>
+                            <pre><code>let frutas = ["Maçã", "Banana", "Laranja"];
+
+console.log(frutas[0]); // Maçã
+console.log(frutas[1]); // Banana
+console.log(frutas[2]); // Laranja
+console.log(frutas[3]); // undefined (não existe)</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Alterar e Contar</h4>
+                            <pre><code>let cores = ["Azul", "Verde"];
+
+// Mudar o valor
+cores[1] = "Amarelo"; // Agora é ["Azul", "Amarelo"]
+
+// Saber o tamanho
+console.log(cores.length); // 2</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">💡</span>
+                        <div>
+                            <strong>Dica Pro:</strong> Para pegares sempre o <strong>último item</strong> de uma lista (sem saberes o tamanho), usa: <code>lista[lista.length - 1]</code>.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Qual é o índice do PRIMEIRO elemento de um array?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">1</div>
+                                <div class="option" data-value="b">0</div>
+                                <div class="option" data-value="c">-1</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Se eu tiver `let x = [10, 20, 30]`, o que devolve `x.length`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">3</div>
+                                <div class="option" data-value="b">2 (porque começa no 0)</div>
+                                <div class="option" data-value="c">30</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Posso misturar tipos de dados num array (ex: números e texto)?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Não, dá erro e o computador explode.</div>
+                                <div class="option" data-value="b">Sim, o JavaScript permite tudo! (ex: `[1, "Olá", true]`)</div>
+                                <div class="option" data-value="c">Só se for numa sexta-feira.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>A Lista de Convidados VIP</strong></p>
+
+                        <p>Cria um array com 3 nomes de amigos.</p>
+                        <p>Depois, substitui o segundo nome (índice 1) por "Batman".</p>
+                        <p>Mostra a lista final na consola.</p>
+
+                        <pre><code>let convidados = ["Ana", "Rui", "Hugo"];
+// O teu código aqui...</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let convidados = ["Ana", "Rui", "Hugo"];
+
+// Substituir o Rui (índice 1)
+convidados[1] = "Batman";
+
+console.log(convidados);
+// Resultado: ["Ana", "Batman", "Hugo"]</code></pre>
+                                <p><strong>📌 Explicação:</strong> Acedemos à posição 1 e atribuímos um novo valor, apagando o que lá estava antes.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-12-arrow-functions/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-14-arrays-metodos/index.html" class="nav-btn next">
+                        Aula 14: Métodos de Arrays <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>13</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 4)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>45 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Fácil</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Arrays são a estrutura de dados mais usada no mundo. Se trabalhares com dados (Excel, Bases de Dados), estás a trabalhar com arrays. Domina isto!</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 14: Métodos de Arrays</strong></p>
+                    <p>Adicionar, remover e manipular itens da lista com comandos mágicos como <code>push</code> e <code>pop</code>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Em programação, começamos a contar do Zero. O primeiro elemento é o índice 0, o segundo é o índice 1, etc.',
+                    analogy: 'É como o Rés-do-Chão num prédio. É o piso 0.'
+                },
+                2: {
+                    correct: 'a',
+                    explanation: 'O <code>length</code> conta a <strong>quantidade</strong> de itens. Se tens 3 coisas na lista, length é 3. (Mas o último índice é 2!).',
+                    analogy: 'Se tens 3 dedos levantados, a quantidade é 3.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'O JavaScript é flexível (dinamicamente tipado). Podes ter uma lista mista, embora na prática profissional tentemos manter as listas consistentes (só números ou só textos).',
+                    analogy: 'É um saco onde podes meter laranjas, chaves e telemóveis tudo misturado.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
