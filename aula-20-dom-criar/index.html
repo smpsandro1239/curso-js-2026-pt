@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 20: Criar Elementos</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .todo-container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #lista-tarefas {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+        #lista-tarefas li {
+            background: #444;
+            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            animation: fadeIn 0.3s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 5: JavaScript no Navegador (DOM)</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Criar HTML do Zero (Dinamicamente)</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>Criar elementos: <code>document.createElement("tag")</code></li>
+                            <li>Definir conteúdo: <code>elemento.innerText</code></li>
+                            <li>Colocar na página: <code>pai.appendChild(filho)</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Muitas vezes, a página começa vazia (ex: Feed do Instagram). Os posts são criados pelo JavaScript à medida que chegam.</p>
+
+                    <div class="analogy-box">
+                        <h4>🧱 Analogia do LEGO</h4>
+                        <p>1. <strong>createElement</strong>: Pegas numa peça nova da caixa (ainda está na tua mão, não na construção).</p>
+                        <p>2. <strong>innerText</strong>: Escreves ou colas um autocolante na peça.</p>
+                        <p>3. <strong>appendChild</strong>: Encaixas a peça na construção principal (aí sim, ela aparece).</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>A "Santa Trindade" da criação de elementos:</p>
+
+                        <div class="example">
+                            <h4>Passo a Passo</h4>
+                            <pre><code>// 1. Criar (Na memória)
+const novoParagrafo = document.createElement("p");
+
+// 2. Personalizar
+novoParagrafo.innerText = "Este texto foi criado com JS!";
+novoParagrafo.style.color = "lime";
+
+// 3. Inserir (No HTML)
+document.body.appendChild(novoParagrafo);</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-area">
+                        <h3>🧪 Mini-Aplicação: Lista de Tarefas</h3>
+
+                        <div class="todo-container">
+                            <div style="display: flex; gap: 5px;">
+                                <input type="text" id="input-tarefa" placeholder="Nova tarefa..." style="flex: 1; padding: 10px;">
+                                <button id="btn-add">Adicionar</button>
+                            </div>
+
+                            <ul id="lista-tarefas">
+                                <!-- As tarefas vão aparecer aqui -->
+                            </ul>
+                        </div>
+
+                        <script>
+                            const btnAdd = document.querySelector("#btn-add");
+                            const inputTarefa = document.querySelector("#input-tarefa");
+                            const lista = document.querySelector("#lista-tarefas");
+
+                            btnAdd.addEventListener("click", () => {
+                                const texto = inputTarefa.value;
+
+                                if (texto === "") return; // Não criar vazios
+
+                                // 1. Criar o <li>
+                                const novoLi = document.createElement("li");
+
+                                // 2. Dar conteúdo
+                                novoLi.innerText = "👉 " + texto;
+
+                                // 3. Adicionar à lista (<ul>)
+                                lista.appendChild(novoLi);
+
+                                // Limpar o input
+                                inputTarefa.value = "";
+                                inputTarefa.focus();
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. O método `createElement("div")` coloca logo a div no ecrã?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Sim, no final da página.</div>
+                                <div class="option" data-value="b">Sim, no início da página.</div>
+                                <div class="option" data-value="c">Não, cria-a na memória. Tens de usar `appendChild` depois.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Quem é o "pai" no comando `lista.appendChild(item)`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">A variável `lista`.</div>
+                                <div class="option" data-value="b">A variável `item`.</div>
+                                <div class="option" data-value="c">O documento inteiro.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-19-dom-manipulacao/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Módulo 6 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>20</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 5)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Difícil</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Parabéns! Acabaste de fazer uma "SPA" (Single Page Application) primitiva. Adicionar conteúdo sem recarregar a página é a base do desenvolvimento web moderno (React, Angular, Vue).</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>🎉 Completaste o Módulo 5!</h4>
+                    <p>Já sabes manipular a página toda!</p>
+                    <p>Próximo passo: <strong>Projeto Real</strong> ou <strong>APIs e Assincronismo</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'c',
+                    explanation: 'Criar é o primeiro passo. Anexar (append) é o segundo. Se esqueceres o segundo, o elemento fica "no limbo" da memória e nunca aparece.',
+                    analogy: 'Comprar um móvel (create) não o monta na sala automaticamente. Tens de o levar para lá (append).'
+                },
+                2: {
+                    correct: 'a',
+                    explanation: 'A sintaxe é sempre `PAI.appendChild(FILHO)`. O pai é quem "adota" e recebe o elemento novo.',
+                    analogy: 'MãeCanguru.appendChild(BebéCanguru).'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
