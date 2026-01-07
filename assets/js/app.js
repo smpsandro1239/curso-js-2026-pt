@@ -2,7 +2,23 @@ document.addEventListener('DOMContentLoaded', () => {
     initClock();
     initQuiz();
     initNavigation();
+    initFooter();
 });
+
+function initFooter() {
+    const footer = document.querySelector('footer');
+    if (footer && !document.querySelector('.hero')) { // Apply only to lesson pages (landing page has .hero)
+        footer.innerHTML = `
+            <p>Curso Completo de JavaScript - 2026 | Feito com ❤️ por <strong>Sandro Pereira</strong></p>
+            <p style="font-size: 0.85rem; margin-top: 10px; opacity: 0.8;">
+                <a href="https://github.com/smpsandro1239" target="_blank" style="color: inherit; text-decoration: none;">GitHub</a> •
+                <a href="mailto:smpsandro1239@gmail.com?subject=D%C3%BAvida%20ou%20Bug%20-%20Curso%20JS%202026&body=Ol%C3%A1%20Sandro!%0A%0AEstou%20na%20aula%20..." style="color: inherit; text-decoration: none;">
+                    🐛 Reportar Erro / Tirar Dúvida
+                </a>
+            </p>
+        `;
+    }
+}
 
 function initClock() {
     let totalSeconds = 60 * 60; // 60 minutes default
