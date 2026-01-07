@@ -54,7 +54,7 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 |------|--------|--------|------|
 | **21** | [Callbacks e Temporizadores](aula-21-assincronismo-intro/README.md) | ✅ Disponível | `setTimeout`, `setInterval` |
 | **22** | [Promises (Promessas)](aula-22-promises/README.md) | ✅ Disponível | `new Promise`, `then`, `catch` |
-| **23** | Fetch API e JSON (Consumir Dados) | 🚧 Planeado | `fetch`, `JSON` |
+| **23** | [Fetch API e JSON (Consumir Dados)](aula-23-fetch-api/README.md) | ✅ Disponível | `fetch`, `JSON` |
 | **24** | Async / Await (Sintaxe Moderna) | 🚧 Planeado | `async`, `await` |
 
 _(O currículo continuará a crescer com módulos de Projetos Reais e ES6+)_

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 23: Fetch API</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .user-card {
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #555;
+        }
+        .user-info h3 {
+            margin: 0 0 5px 0;
+            color: #4CAF50;
+        }
+        .user-info p {
+            margin: 0;
+            color: #bbb;
+            font-size: 0.9em;
+        }
+        #btn-carregar {
+            background: #2196F3;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        pre {
+            background: #222;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #444;
+            color: #dcdcea;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 6: Assincronismo e APIs</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Fetch API: O Carteiro da Internet</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O que é uma API e JSON</li>
+                            <li>Fazer pedidos HTTP com <code>fetch()</code></li>
+                            <li>Tratar a resposta e convertê-la em dados úteis</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>O teu site vive no browser, mas os dados vivem no servidor. Precisamos de ir buscá-los.</p>
+
+                    <div class="analogy-box">
+                        <h4>🐶 Analogia do Cão e o Jornal</h4>
+                        <p>1. <strong>Tu (O Site)</strong> dás ordem ao cão: "Vai buscar!".</p>
+                        <p>2. <strong>O Cão (Fetch)</strong> corre até à caixa de correio (Servidor/API).</p>
+                        <p>3. <strong>O Jornal (JSON)</strong> é o que ele traz na boca. Mas vem enrolado dentro de um saco plástico!</p>
+                        <p>4. <strong>.json()</strong> é o ato de tirar o saco plástico para poderes ler as notícias.</p>
+                    </div>
+
+                    <h3>O que é JSON?</h3>
+                    <p><strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation. É basicamente texto formatado como objetos JS. É a língua universal da internet.</p>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>O `fetch` devolve uma Promise!</p>
+
+                        <div class="example">
+                            <h4>A Dança dos dois .then()</h4>
+                            <pre><code>fetch("https://api.exemplo.com/dados")
+    .then(resposta => resposta.json()) // 1. Tirar o plástico (Converte para JS)
+    .then(dados => {
+        console.log(dados); // 2. Usar os dados (Objeto/Array real)
+    })
+    .catch(erro => console.error("Falhou tudo!"));</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-area">
+                        <h3>🧪 Consumir API Real (JSONPlaceholder)</h3>
+                        <p>Vamos buscar utilizadores falsos a uma API pública.</p>
+
+                        <button id="btn-carregar">📥 Carregar Utilizadores</button>
+
+                        <div id="lista-usuarios">
+                            <!-- Os cartões vão aparecer aqui -->
+                            <div style="text-align: center; color: #666; font-style: italic;">
+                                (A lista está vazia...)
+                            </div>
+                        </div>
+
+                        <script>
+                            const btn = document.querySelector("#btn-carregar");
+                            const lista = document.querySelector("#lista-usuarios");
+
+                            btn.addEventListener("click", () => {
+                                lista.innerHTML = '<p style="text-align:center">⏳ A carregar...</p>';
+                                btn.disabled = true;
+
+                                // 1. Fazer o pedido
+                                fetch("https://jsonplaceholder.typicode.com/users")
+                                    .then(resposta => {
+                                        // 2. Verificar se está tudo bem (Status 200)
+                                        if (!resposta.ok) throw new Error("Erro na rede");
+                                        return resposta.json(); // Converter corpo
+                                    })
+                                    .then(usuarios => {
+                                        // 3. Usar os dados
+                                        lista.innerHTML = ""; // Limpar "A carregar..."
+
+                                        // A API devolve um Array de 10 objetos
+                                        usuarios.forEach(user => {
+                                            criarCartao(user);
+                                        });
+                                    })
+                                    .catch(erro => {
+                                        lista.innerHTML = `<p style="color:red; text-align:center">❌ Erro: ${erro.message}</p>`;
+                                    })
+                                    .finally(() => {
+                                        btn.disabled = false;
+                                    });
+                            });
+
+                            function criarCartao(user) {
+                                const card = document.createElement("div");
+                                card.className = "user-card";
+
+                                // Random Avatar URL (robohash)
+                                const avatarUrl = `https://robohash.org/${user.id}?set=set4&bgset=bg1&size=60x60`;
+
+                                card.innerHTML = `
+                                    <img src="${avatarUrl}" class="user-avatar" alt="Avatar">
+                                    <div class="user-info">
+                                        <h3>${user.name}</h3>
+                                        <p>📧 ${user.email}</p>
+                                        <p>🏢 ${user.company.name}</p>
+                                    </div>
+                                `;
+
+                                lista.appendChild(card);
+                            }
+                        </script>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Porque precisamos de dois `.then()`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Porque o fetch falha sempre na primeira vez.</div>
+                                <div class="option" data-value="b">O primeiro lê os cabeçalhos e prepara o corpo (Stream), o segundo recebe os dados prontos.</div>
+                                <div class="option" data-value="c">É apenas uma regra de estilo, podia ser tudo num.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que é o formato JSON?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Um programa para abrir ficheiros de texto.</div>
+                                <div class="option" data-value="b">Java Security Object Network.</div>
+                                <div class="option" data-value="c">Um formato de texto leve para troca de dados, baseado em objetos JS.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-22-promises/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-24-async-await/index.html" class="nav-btn next">
+                        Aula 24: Async / Await <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>23</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 6)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>65 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 55%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>90% do trabalho de um Frontend Developer é: 1. Fetch de dados; 2. Transformar dados; 3. Mostrar dados no ecrã. Dominares esta aula é dominares a profissão.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 24: Async / Await</strong></p>
+                    <p>Cansado de tantos `.then()`? Vamos aprender a syntax moderna que faz o código assíncrono parecer síncrono!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'O fetch é eficiente. Ele não descarrega o conteúdo (body) imediatamente se for muito grande (ex: video). O primeiro `.then` apenas confirma que o servidor respondeu "OK". Tens de pedir explicitamente `.json()` para ler o resto.',
+                    analogy: 'Primeiro atendes o telefone (conexão), depois ouves a mensagem (conteúdo).'
+                },
+                2: {
+                    correct: 'c',
+                    explanation: 'JSON (JavaScript Object Notation) é o padrão mundial. É legível por humanos e fácil de processar por máquinas.',
+                    analogy: 'É o "Inglês" do mundo da programação. Todos os sistemas o entendem.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
