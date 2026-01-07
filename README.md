@@ -49,7 +49,15 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | **19** | [Obter e Manipular Dados](aula-19-dom-manipulacao/README.md) | ✅ Disponível | `value`, `innerHTML`, Style |
 | **20** | [Criar Elementos (Dinâmico)](aula-20-dom-criar/README.md) | ✅ Disponível | `createElement`, `appendChild` |
 
-_(O currículo continuará a crescer com módulos de Assincronismo, APIs e Projetos Reais)_
+### 🟤 Módulo 6: Assincronismo e APIs (O Mundo Exterior)
+| Aula | Tópico | Estado | Foco |
+|------|--------|--------|------|
+| **21** | [Callbacks e Temporizadores](aula-21-assincronismo-intro/README.md) | ✅ Disponível | `setTimeout`, `setInterval` |
+| **22** | Promises (Promessas) | 🚧 Planeado | `new Promise`, `then`, `catch` |
+| **23** | Fetch API e JSON (Consumir Dados) | 🚧 Planeado | `fetch`, `JSON` |
+| **24** | Async / Await (Sintaxe Moderna) | 🚧 Planeado | `async`, `await` |
+
+_(O currículo continuará a crescer com módulos de Projetos Reais e ES6+)_
 
 ## 🚀 Como usar este repositório
 

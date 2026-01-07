@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 21: Assincronismo Intro</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .progress-container {
+            width: 100%;
+            background-color: #333;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+            border: 1px solid #555;
+        }
+        #barra-progresso {
+            width: 0%;
+            height: 30px;
+            background-color: #4CAF50;
+            transition: width 0.1s linear;
+        }
+        .bomb-container {
+            font-size: 3rem;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 6: Assincronismo e APIs</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>tempo é Relativo: Callbacks e Timers</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>JavaScript Síncrono vs Assíncrono</li>
+                            <li>Executar código "daqui a pouco": <code>setTimeout</code></li>
+                            <li>Executar código "repetidamente": <code>setInterval</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Por defeito, o JavaScript lê uma linha de cada vez. Mas se uma linha demorar muito (ex: carregar um vídeo), não queremos bloquear o site todo!</p>
+
+                    <div class="analogy-box">
+                        <h4>🍕 Analogia da Pizzaria</h4>
+                        <p><strong>Síncrono (Bloqueante)</strong>: O funcionário recebe o pedido, vai para a cozinha, faz a pizza, entrega, e SÓ DEPOIS atende o próximo cliente. (A fila pára!).</p>
+                        <p><strong>Assíncrono (Non-Blocking)</strong>: O funcionário anota o pedido e diz "Eu chamo quando estiver pronta!". Enquanto a pizza coze, ele atende outras pessoas.</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Controlar o tempo é um superpoder no JS.</p>
+
+                        <div class="example">
+                            <h4>1. setTimeout (Alarme)</h4>
+                            <p>Executa UMA VEZ após X milissegundos.</p>
+                            <pre><code>console.log("1. Começou");
+
+setTimeout(function() {
+    console.log("2. Passaram 3 segundos!");
+}, 3000);
+
+console.log("3. Fim (Isto aparece antes do 2!)");</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>2. setInterval (Metrónomo)</h4>
+                            <p>Executa REPETIDAMENTE a cada X milissegundos.</p>
+                            <pre><code>let contador = 0;
+const intervalo = setInterval(() => {
+    contador++;
+    console.log("Contagem: " + contador);
+
+    if (contador === 5) {
+        clearInterval(intervalo); // Pára o relógio
+        console.log("Stop!");
+    }
+}, 1000); // 1 segundo</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-area">
+                        <h3>🧪 Experiência: A Bomba Relógio</h3>
+                        <p>Clica em "Armar Bomba". Tens 5 segundos para clicar em "Desarmar" antes que rebente!</p>
+
+                        <div class="bomb-container" id="display-bomba">💣 5</div>
+                        <div style="text-align: center; gap: 10px; display: flex; justify-content: center;">
+                            <button id="btn-armar" style="background: #d32f2f;">Armar</button>
+                            <button id="btn-desarmar" style="background: #388E3C;" disabled>Desarmar</button>
+                        </div>
+                        <h4 id="status-bomba" style="text-align: center; height: 1.5em; margin-top: 10px;"></h4>
+
+                        <script>
+                            const display = document.querySelector("#display-bomba");
+                            const btnArmar = document.querySelector("#btn-armar");
+                            const btnDesarmar = document.querySelector("#btn-desarmar");
+                            const status = document.querySelector("#status-bomba");
+
+                            let contagem; // Para guardar o ID do intervalo
+                            let tempoRestante = 5;
+
+                            btnArmar.addEventListener("click", () => {
+                                tempoRestante = 5;
+                                display.innerText = "💣 " + tempoRestante;
+                                status.innerText = "TIC TAC...";
+                                btnArmar.disabled = true;
+                                btnDesarmar.disabled = false;
+
+                                // Começa a contar
+                                contagem = setInterval(() => {
+                                    tempoRestante--;
+                                    display.innerText = "💣 " + tempoRestante;
+
+                                    if (tempoRestante <= 0) {
+                                        clearInterval(contagem); // Pára a contagem
+                                        display.innerText = "💥 BOOM!";
+                                        status.innerText = "Perdeste!";
+                                        btnArmar.disabled = false;
+                                        btnDesarmar.disabled = true;
+                                    }
+                                }, 1000);
+                            });
+
+                            btnDesarmar.addEventListener("click", () => {
+                                clearInterval(contagem); // O segredo é parar o intervalo
+                                display.innerText = "😌 UFA!";
+                                status.innerText = "Bomba Desarmada!";
+                                btnArmar.disabled = false;
+                                btnDesarmar.disabled = true;
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. O Javascript é, por natureza...</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Multi-tarefa (faz tudo ao mesmo tempo).</div>
+                                <div class="option" data-value="b">Single-threaded (faz uma coisa de cada vez).</div>
+                                <div class="option" data-value="c">Totalmente aleatório.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Como paro um `setInterval`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Com `break`.</div>
+                                <div class="option" data-value="b">Não é possível parar, roda para sempre.</div>
+                                <div class="option" data-value="c">Guardando o ID numa variável e usando `clearInterval(ID)`.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Qual destes tempos é igual a 2 segundos e meio?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">2.5</div>
+                                <div class="option" data-value="b">250</div>
+                                <div class="option" data-value="c">2500</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-20-dom-criar/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-22-promises/index.html" class="nav-btn next">
+                        Aula 22: Promises (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>21</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 6)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>45 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>O conceito de "non-blocking" (síncrono vs assíncrono) é o que torna o Node.js tão rápido nos servidores. Compreender isto distingue os Juniors dos Seniors.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 22: Promises</strong></p>
+                    <p>E se não soubermos QUANDO a tarefa acaba? Vamos aprender a fazer Promessas em código.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'O JS tem apenas UMA call stack (fio de execução). O assincronismo (como o setTimeout) funciona através de uma "fila de espera" (Event Loop) que roda quando a thread principal está livre.',
+                    analogy: 'Um empregado de mesa com apenas duas mãos, mas muito organizado.'
+                },
+                2: {
+                    correct: 'c',
+                    explanation: 'Sempre que crias um intervalo, o JS devolve num número (ID). Precisas desse cartão de identificação para mais tarde dizer "Pára o intervalo número 45".',
+                    analogy: 'Guardar o talão para poder devolver o produto.'
+                },
+                3: {
+                    correct: 'c',
+                    explanation: 'O Javascript conta o tempo em milissegundos. 1 segundo = 1000 milissegundos.',
+                    analogy: 'É preciso ser preciso!'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
