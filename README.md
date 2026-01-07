@@ -57,7 +57,14 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | **23** | [Fetch API e JSON (Consumir Dados)](aula-23-fetch-api/README.md) | ✅ Disponível | `fetch`, `JSON` |
 | **24** | [Async / Await (Sintaxe Moderna)](aula-24-async-await/README.md) | ✅ Disponível | `async`, `await` |
 
-_(O currículo continuará a crescer com módulos de Projetos Reais e ES6+)_
+### 🚀 Módulo 7: JavaScript Moderno (ES6+) e Ferramentas
+
+| Aula | Tópico | Status | Conceitos Chave |
+|------|--------|--------|------|
+| **25** | [Desestruturação e Spread/Rest](aula-25-es6-intro/README.md) | ✅ Disponível | `...`, `{ key }`, `[0]` |
+| **26** | Módulos (Import/Export) | 🚧 Planeado | `import`, `export`, `type="module"` |
+| **27** | Classes e POO (Opcional) | 🚧 Planeado | `class`, `constructor`, `extends` |
+| **28** | 🏆 PROJETO FINAL | 🚧 Planeado | App Completa |
 
 ## 🚀 Como usar este repositório
 
