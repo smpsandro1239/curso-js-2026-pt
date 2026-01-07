@@ -3,276 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Completo de JavaScript 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Curso JavaScript 2026 | Do Zero ao Profissional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css"> <!-- Fallback basic styles -->
     <style>
+        /* --- ESTILOS MODERNOS ESPECÍFICOS DA LANDING PAGE --- */
         :root {
-            --bg-color: #1a202c;
-            --card-bg: #2d3748;
-            --text-main: #f7fafc;
-            --text-sec: #a0aec0;
-            --accent: #F7DF1E; /* JS Yellow */
-            --accent-hover: #e6ce17;
-            --success: #48bb78;
+            --bg-dark: #0f1115;
+            --bg-card: rgba(30, 34, 42, 0.6);
+            --primary: #F7DF1E;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --gradient-hero: linear-gradient(135deg, rgba(247, 223, 30, 0.1) 0%, rgba(0,0,0,0) 100%);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-main);
-            line-height: 1.6;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 20%);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        header {
+        /* HERO SECTION */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 60px 20px;
-            border-bottom: 1px solid #4a5568;
-            margin-bottom: 40px;
+            position: relative;
+            padding: 100px 20px;
         }
 
-        header h1 {
-            font-size: 3rem;
-            color: var(--accent);
-            margin-bottom: 10px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(247, 223, 30, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(50px);
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: var(--text-sec);
+        .hero-badge {
+            display: inline-block;
+            background: rgba(247, 223, 30, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(247, 223, 30, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            -webkit-text-fill-color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--primary);
+            color: #000;
+            padding: 18px 40px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 25px rgba(247, 223, 30, 0.3);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 35px rgba(247, 223, 30, 0.4);
+        }
+
+        /* PEDAGOGY SECTION */
+        .pedagogy {
+            padding: 100px 0;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .module-grid {
+        .feature-grid {
             display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
+        .feature-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(247, 223, 30, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* MODULES GRID */
+        .curriculum {
+            padding: 100px 0;
+        }
+
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
         .module-card {
-            background: var(--card-bg);
-            border-radius: 12px;
+            background: linear-gradient(145deg, #1A1D23, #15171C);
+            border-radius: 16px;
             padding: 25px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            border: 1px solid #4a5568;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .module-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            border-color: var(--accent);
+            border-color: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
-        .module-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: white;
-            border-left: 4px solid var(--accent);
-            padding-left: 10px;
+        .module-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
-        .module-tag {
-            font-size: 0.7em;
+        .module-title-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .module-number {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-family: 'Fira Code', monospace;
             background: rgba(247, 223, 30, 0.1);
-            color: var(--accent);
             padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-            font-weight: bold;
+            border-radius: 6px;
         }
 
         .lesson-list {
             list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 10px;
+            padding: 0;
+        }
+
+        .lesson-item {
+            display: block;
         }
 
         .lesson-link {
             display: flex;
             align-items: center;
-            padding: 12px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
+            padding: 10px 12px;
+            color: var(--text-muted);
             text-decoration: none;
-            color: var(--text-sec);
+            border-radius: 8px;
             transition: 0.2s;
+            font-size: 0.95rem;
         }
 
         .lesson-link:hover {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            padding-left: 15px;
+            background: rgba(255,255,255,0.05);
+            color: #fff;
         }
 
-        .lesson-number {
-            font-weight: bold;
-            color: var(--accent);
-            margin-right: 10px;
-            min-width: 25px;
+        .lesson-link span {
+            margin-right: 12px;
+            opacity: 0.5;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
         }
 
-        .footer {
+        /* PROJECT HIGHLIGHT */
+        .project-highlight {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 60px auto;
+            border: 1px solid rgba(255,255,255,0.1);
             text-align: center;
-            padding: 40px;
-            color: var(--text-sec);
-            font-size: 0.9rem;
-            margin-top: 40px;
-            border-top: 1px solid #4a5568;
         }
 
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
-            .module-card { padding: 15px; }
-            .lesson-list { grid-template-columns: 1fr; }
+        .project-highlight h2 { margin-bottom: 20px; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .hero { padding-top: 60px; }
+            .project-highlight { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- HERO -->
+    <section class="hero">
         <div class="container">
-            <h1>Curso JavaScript 2026</h1>
-            <p>Do zero ao profissional. Domina a linguagem mais importante da web com exercícios práticos e projetos reais.</p>
+            <span class="hero-badge">Curso Completo 2026</span>
+            <h1>Aprende JavaScript com <br><span>Código que Funciona</span></h1>
+            <p>
+                Diz adeus à teoria aborrecida. Aqui aprendes com analogias reais, desafios interativos e projetos que podes mostrar no teu portfólio.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#curriculum" class="btn-cta">Começar Agora 🚀</a>
+                <a href="aula-28-projeto-final/index.html" class="btn-cta" style="background: rgba(255,255,255,0.1); color: white; backdrop-filter: blur(5px);">Ver Projeto Final 🌤️</a>
+            </div>
         </div>
-    </header>
+    </section>
+
+    <!-- PEDAGOGY -->
+    <section class="pedagogy">
+        <div class="container">
+            <div class="section-header">
+                <h2>Porquê este Curso?</h2>
+                <p>Uma metodologia diferente focada em reter conhecimento.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <h3>Analogias Memoráveis</h3>
+                    <p>Explicamos conceitos complexos como Promises e Async/Await usando exemplos do dia-a-dia (como pedir uma pizza ou levantar dinheiro).</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎮</span>
+                    <h3>Prática Interativa</h3>
+                    <p>Cada aula tem uma "Mini-Aplicação" ou playground interativo diretamente no navegador para testares o que aprendeste.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Moderno (2026 Ready)</h3>
+                    <p>Focado em ES6+ e boas práticas modernas. Sem jQuery, sem código legado. Apenas o que as empresas procuram hoje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section class="curriculum" id="curriculum">
+        <div class="container">
+            <div class="section-header">
+                <h2>O Currículo</h2>
+                <p>Do "Olá Mundo" até à tua primeira aplicação profissional.</p>
+            </div>
+
+            <div class="module-grid">
+
+                <!-- M1 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-title-text">Fundamentos</div>
+                        <div class="module-number">M01</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-01-intro/index.html" class="lesson-link"><span>01</span> Introdução</a></li>
+                        <li><a href="aula-02-variaveis/index.html" class="lesson-link"><span>02</span> Variáveis</a></li>
+                        <li><a href="aula-03-operadores/index.html" class="lesson-link"><span>03</span> Operadores</a></li>
+                    </ul>
+                </div>
+
+                <!-- M2 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-title-text">Lógica de Programação</div>
+                        <div class="module-number">M02</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-04-comparadores/index.html" class="lesson-link"><span>04</span> Comparadores</a></li>
+                        <li><a href="aula-05-logicos/index.html" class="lesson-link"><span>05</span> Lógica Booleana</a></li>
+                        <li><a href="aula-06-condicionais/index.html" class="lesson-link"><span>06</span> If / Else</a></li>
+                        <li><a href="aula-07-condicionais-avancadas/index.html" class="lesson-link"><span>07</span> Switch & Ternário</a></li>
+                    </ul>
+                </div>
+
+                <!-- M3 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-title-text">Repetição (Loops)</div>
+                        <div class="module-number">M03</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-08-loops-while/index.html" class="lesson-link"><span>08</span> While Loops</a></li>
+                        <li><a href="aula-09-loop-for/index.html" class="lesson-link"><span>09</span> For Loops</a></li>
+                    </ul>
+                </div>
+
+                <!-- M4 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-title-text">Funções</div>
+                        <div class="module-number">M04</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-10-funcoes-intro/index.html" class="lesson-link"><span>10</span> Introdução</a></li>
+                        <li><a href="aula-11-func-return/index.html" class="lesson-link"><span>11</span> Parâmetros</a></li>
+                        <li><a href="aula-12-arrow-functions/index.html" class="lesson-link"><span>12</span> Arrow Functions</a></li>
+                    </ul>
+                </div>
+
+                <!-- M5 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-title-text">Estruturas de Dados</div>
+                        <div class="module-number">M05</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-13-arrays-intro/index.html" class="lesson-link"><span>13</span> Arrays</a></li>
+                        <li><a href="aula-14-arrays-metodos/index.html" class="lesson-link"><span>14</span> Métodos de Array</a></li>
+                        <li><a href="aula-15-objetos-intro/index.html" class="lesson-link"><span>15</span> Objetos</a></li>
+                        <li><a href="aula-16-objetos-metodos/index.html" class="lesson-link"><span>16</span> Métodos de Objetos</a></li>
+                    </ul>
+                </div>
+
+                <!-- M6 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-title-text">DOM & Interatividade</div>
+                        <div class="module-number">M06</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-17-dom-intro/index.html" class="lesson-link"><span>17</span> O que é o DOM?</a></li>
+                        <li><a href="aula-18-eventos-click/index.html" class="lesson-link"><span>18</span> Eventos de Clique</a></li>
+                        <li><a href="aula-19-dom-manipulacao/index.html" class="lesson-link"><span>19</span> Inputs e Valores</a></li>
+                        <li><a href="aula-20-dom-criar/index.html" class="lesson-link"><span>20</span> Criar HTML via JS</a></li>
+                    </ul>
+                </div>
+
+                <!-- M7 -->
+                <div class="module-card">
+                    <div class="module-header">
+                        <div class="module-title-text">Assincronismo & APIs</div>
+                        <div class="module-number">M07</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-21-assincronismo-intro/index.html" class="lesson-link"><span>21</span> Timers</a></li>
+                        <li><a href="aula-22-promises/index.html" class="lesson-link"><span>22</span> Promises</a></li>
+                        <li><a href="aula-23-fetch-api/index.html" class="lesson-link"><span>23</span> Fetch API (HTTP)</a></li>
+                        <li><a href="aula-24-async-await/index.html" class="lesson-link"><span>24</span> Async / Await</a></li>
+                    </ul>
+                </div>
+
+                <!-- M8 -->
+                <div class="module-card" style="border-color: var(--primary);">
+                    <div class="module-header">
+                        <div class="module-title-text" style="color: var(--primary);">JavaScript Moderno & Final</div>
+                        <div class="module-number">M08</div>
+                    </div>
+                    <ul class="lesson-list">
+                        <li><a href="aula-25-es6-intro/index.html" class="lesson-link"><span>25</span> Spread/Rest</a></li>
+                        <li><a href="aula-26-modulos/index.html" class="lesson-link"><span>26</span> Módulos</a></li>
+                        <li><a href="aula-27-classes/index.html" class="lesson-link"><span>27</span> Classes (POO)</a></li>
+                        <li style="margin-top: 10px;">
+                            <a href="aula-28-projeto-final/index.html" class="lesson-link" style="background: rgba(247, 223, 30, 0.1); color: var(--primary); font-weight: bold;">
+                                <span>🏆</span> PROJETO FINAL
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div class="container">
-        <div class="module-grid">
-
-            <!-- Módulo 1 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 1: Fundamentos
-                    <span class="module-tag">Iniciante</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-01-intro/index.html" class="lesson-link">
-                        <span class="lesson-number">01</span> Introdução e "Olá Mundo"
-                    </a>
-                    <a href="aula-02-variaveis/index.html" class="lesson-link">
-                        <span class="lesson-number">02</span> Variáveis (let, const)
-                    </a>
-                    <a href="aula-03-operadores/index.html" class="lesson-link">
-                        <span class="lesson-number">03</span> Operadores Aritméticos
-                    </a>
-                </div>
-            </div>
-
-            <!-- Módulo 2 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 2: Lógica
-                    <span class="module-tag">Lógica</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-04-comparadores/index.html" class="lesson-link"><span class="lesson-number">04</span> Comparadores</a>
-                    <a href="aula-05-logicos/index.html" class="lesson-link"><span class="lesson-number">05</span> Operadores Lógicos</a>
-                    <a href="aula-06-condicionais/index.html" class="lesson-link"><span class="lesson-number">06</span> Condicionais (if/else)</a>
-                    <a href="aula-07-condicionais-avancadas/index.html" class="lesson-link"><span class="lesson-number">07</span> Switch / Ternário</a>
-                </div>
-            </div>
-
-            <!-- Módulo 3 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 3: Loops
-                    <span class="module-tag">Estruturas</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-08-loops-while/index.html" class="lesson-link"><span class="lesson-number">08</span> While e Do...While</a>
-                    <a href="aula-09-loop-for/index.html" class="lesson-link"><span class="lesson-number">09</span> Loop For Clássico</a>
-                </div>
-            </div>
-
-            <!-- Módulo 4 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 4: Funções
-                    <span class="module-tag">Essencial</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-10-funcoes-intro/index.html" class="lesson-link"><span class="lesson-number">10</span> Introdução a Funções</a>
-                    <a href="aula-11-func-return/index.html" class="lesson-link"><span class="lesson-number">11</span> Parâmetros e Return</a>
-                    <a href="aula-12-arrow-functions/index.html" class="lesson-link"><span class="lesson-number">12</span> Arrow Functions</a>
-                </div>
-            </div>
-
-            <!-- Módulo 5 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 5: Estruturas de Dados
-                    <span class="module-tag">Importante</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-13-arrays-intro/index.html" class="lesson-link"><span class="lesson-number">13</span> Intro a Arrays</a>
-                    <a href="aula-14-arrays-metodos/index.html" class="lesson-link"><span class="lesson-number">14</span> Métodos de Arrays</a>
-                    <a href="aula-15-objetos-intro/index.html" class="lesson-link"><span class="lesson-number">15</span> Intro a Objetos</a>
-                    <a href="aula-16-objetos-metodos/index.html" class="lesson-link"><span class="lesson-number">16</span> Métodos de Objetos</a>
-                </div>
-            </div>
-
-            <!-- Módulo 6 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 6: DOM e Eventos
-                    <span class="module-tag">Web</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-17-dom-intro/index.html" class="lesson-link"><span class="lesson-number">17</span> O que é o DOM?</a>
-                    <a href="aula-18-eventos-click/index.html" class="lesson-link"><span class="lesson-number">18</span> Eventos de Clique</a>
-                    <a href="aula-19-dom-manipulacao/index.html" class="lesson-link"><span class="lesson-number">19</span> Manipular Inputs</a>
-                    <a href="aula-20-dom-criar/index.html" class="lesson-link"><span class="lesson-number">20</span> Criar Elementos</a>
-                </div>
-            </div>
-
-            <!-- Módulo 7 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 7: Assincronismo
-                    <span class="module-tag">Avançado</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-21-assincronismo-intro/index.html" class="lesson-link"><span class="lesson-number">21</span> Intro Assincronismo</a>
-                    <a href="aula-22-promises/index.html" class="lesson-link"><span class="lesson-number">22</span> Promises</a>
-                    <a href="aula-23-fetch-api/index.html" class="lesson-link"><span class="lesson-number">23</span> Fetch API</a>
-                    <a href="aula-24-async-await/index.html" class="lesson-link"><span class="lesson-number">24</span> Async / Await</a>
-                </div>
-            </div>
-
-            <!-- Módulo 8 -->
-            <div class="module-card">
-                <div class="module-title">
-                    Módulo 8: Moderno (ES6+)
-                    <span class="module-tag">Profissional</span>
-                </div>
-                <div class="lesson-list">
-                    <a href="aula-25-es6-intro/index.html" class="lesson-link"><span class="lesson-number">25</span> Spread e Desestruturação</a>
-                    <a href="aula-26-modulos/index.html" class="lesson-link"><span class="lesson-number">26</span> Módulos (Import/Export)</a>
-                    <a href="aula-27-classes/index.html" class="lesson-link"><span class="lesson-number">27</span> Classes e POO</a>
-                    <a href="aula-28-projeto-final/index.html" class="lesson-link" style="border: 1px solid var(--accent); color: var(--accent);">
-                        <span class="lesson-number">🏆</span> <strong>Projeto Final</strong>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="footer">
-            <p>Desenvolvido por Sandro Pereira | Curso JS 2026</p>
-            <p><a href="https://github.com/smpsandro1239" style="color: var(--accent); text-decoration: none;">GitHub @smpsandro1239</a></p>
+        <div class="project-highlight">
+            <h2>Pronto para o Desafio Final?</h2>
+            <p style="color: #94a3b8; max-width: 600px; margin: 0 auto 30px;">
+                No final do curso, vais construir uma aplicação de meteorologia completa, consumindo APIs reais, usando geolocalização e mostrando dados em tempo real.
+            </p>
+            <a href="aula-28-projeto-final/index.html" class="btn-cta">Ver Demo do Projeto</a>
         </div>
     </div>
+
+    <footer>
+        <div class="container">
+            <p>Feito com ❤️ para ensinar. © 2026 Curso JS.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">
+                <a href="https://github.com/smpsandro1239">GitHub</a> •
+                <a href="#">Reportar Erro</a>
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>
