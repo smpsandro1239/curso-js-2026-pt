@@ -351,11 +351,92 @@
                     </div>
                 </div>
 
+                <!-- STEP 9: DATA FLOW -->
+                <div class="question" data-question="9">
+                    <h3>9. Fluxo de Dados: A API do tempo pede Lat/Lon, mas o utilizador escreve "Lisboa". Como resolvemos?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">O JavaScript adivinha as coordenadas.</div>
+                        <div class="option" data-value="b">Obrigamos o utilizador a saber a latitude de Lisboa.</div>
+                        <div class="option" data-value="c">Encadeamento de APIs: Primeiro chamamos uma API de "Geocoding" (Nome -> Lat/Lon) e passamos esse resultado para a API de Meteorologia.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 10: DYNAMIC LISTS -->
+                <div class="question" data-question="10">
+                    <h3>10. Conteúdo Dinâmico: Como criamos a lista de "Cidades Populares" sem repetir HTML?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Copiamos e colamos `li` 10 vezes no HTML.</div>
+                        <div class="option" data-value="b">Criamos um Array de objetos com as cidades e usamos um loop (forEach) para criar o HTML automaticamente.</div>
+                        <div class="option" data-value="c">Não é possível fazer isso em JS.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
                 <button class="submit-btn" id="submitBtn" disabled>Validar Blueprint do Projeto</button>
 
                 <div class="results" id="results">
                     <h3 id="resultsText"></h3>
                     <p id="resultsScore"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PASSWORD PROTECTED SOLUTION -->
+        <div class="section" style="margin-top: 50px;">
+            <div class="challenge" style="background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);">
+                <h2 style="border-color: var(--warning);">🔓 Código Fonte da Solução Profissional</h2>
+
+                <div id="lock-screen" style="text-align: center; padding: 20px;">
+                    <p>Queres ver como um profissional resolve este problema?</p>
+                    <p style="margin-bottom: 20px;">Insere a password de acesso (exclusiva para alunos).</p>
+
+                    <div style="display: flex; gap: 10px; justify-content: center; max-width: 400px; margin: 0 auto;">
+                        <input type="password" id="solution-pass" placeholder="Password..." style="padding: 10px; border-radius: 5px; border: none; flex: 1;">
+                        <button onclick="unlockSolution()" style="padding: 10px 20px; background: var(--warning); border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Desbloquear</button>
+                    </div>
+                    <p id="pass-error" style="color: var(--danger); margin-top: 10px; display: none;">Password Incorreta!</p>
+                </div>
+
+                <div id="solution-concept" style="display: none; text-align: left;">
+                    <div style="background: rgba(239, 68, 68, 0.2); border: 1px solid var(--danger); padding: 15px; border-radius: 8px; margin-bottom: 20px; color: #fecaca;">
+                        <strong>⚠️ AVISO DE PLÁGIO:</strong><br>
+                        Se o teu projeto final for uma cópia integral deste código, <strong>será anulado</strong>.
+                        Este código serve apenas para consulta, correção de erros e aprendizagem. Escreve a tua própria versão.
+                    </div>
+
+                    <h3>Estrutura da Solução Class-Based:</h3>
+                    <pre><code id="code-display">
+// 1. CONFIGURAÇÃO (Dados estáticos)
+const CITIES = [...];
+
+// 2. CLASSE WEATHERAPP
+class WeatherApp {
+    constructor() {
+        // Selecionar elementos do DOM
+        this.dom = { ... };
+        this.init();
+    }
+
+    init() {
+        // Renderizar listas e listeners
+    }
+
+    // 3. LOGICA ASSINCRONA (Data Fetching)
+    async searchCity(query) {}
+    async loadWeather(city) {}
+
+    // 4. LOGICA DE UI (DOM Manipulation)
+    updateUI(data) {}
+    renderList(cities) {}
+}
+                    </code></pre>
                 </div>
             </div>
         </div>
@@ -426,9 +507,112 @@
                     correct: 'b',
                     explanation: '<strong>8º Passo: Refatorização.</strong> Código limpo é código que se lê como um livro. Agrupar lógicas em Classes ou Funções torna o projeto fácil de manter no futuro.',
                     analogy: 'É a diferença entre ter a roupa toda atirada para uma cadeira (código desorganizado) ou dobrada em gavetas etiquetadas (Classes).'
+                },
+                9: {
+                    correct: 'c',
+                    explanation: '<strong>9º Passo: Encadeamento (Chaining).</strong> Muitas vezes uma API não chega. Precisamos de traduzir "Texto" para "Coordenadas" (Geocoding) e só depois pedir o "Tempo" para essas coordenadas. Uma Promise chama a outra.',
+                    analogy: 'É como pedir o contacto de um médico (Geocoding) antes de ligar para marcar a consulta (Weather).'
+                },
+                10: {
+                    correct: 'b',
+                    explanation: '<strong>10º Passo: Automação.</strong> Escrever HTML à mão é para estáticos. Se tens um Array de cidades, o JS deve criar os botões (`li`) por ti. Se adicionares uma cidade ao Array, ela aparece no site automaticamente.',
+                    analogy: 'Uma impressora (Loop) que imprime 100 convites iguais apenas mudando o nome, em vez de tu escreveres 100 convites à mão.'
                 }
             }
         };
+
+        function unlockSolution() {
+            const pass = document.getElementById('solution-pass').value;
+            // Password simples para demonstração. Num sistema real seria validado no servidor.
+            if (pass === 'JS2026Master') {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('solution-concept').style.display = 'block';
+
+                // Fetch do próprio código da página para mostrar no bloco de código
+                const codeBlock = document.getElementById('code-display');
+                // Mostramos a parte relevante do script
+                codeBlock.textContent = `
+// --- CLASSE COMPLETA DO PROJETO ---
+
+class WeatherApp {
+    constructor() {
+        this.dom = {
+            input: document.getElementById('city-input'),
+            list: document.getElementById('city-list'),
+            loader: document.getElementById('loader'),
+            city: document.getElementById('city-name'),
+            desc: document.getElementById('weather-desc'),
+            temp: document.getElementById('temp-val'),
+            wind: document.getElementById('wind-val'),
+            hum: document.getElementById('hum-val'),
+            feels: document.getElementById('feels-val'),
+        };
+        this.init();
+    }
+
+    init() {
+        this.renderCityList(DEFAULT_CITIES);
+        this.loadWeather(DEFAULT_CITIES[0]);
+        this.dom.input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.searchCity(this.dom.input.value);
+        });
+    }
+
+    async searchCity(query) {
+        if (!query) return;
+        this.toggleLoading(true);
+        try {
+            const url = "https://geocoding-api.open-meteo.com/v1/search?name=" + query + "&count=1&language=pt&format=json";
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if (!data.results || data.results.length === 0) throw new Error("Cidade não encontrada.");
+
+            const city = {
+                name: data.results[0].name,
+                lat: data.results[0].latitude,
+                lon: data.results[0].longitude
+            };
+            await this.loadWeather(city);
+            this.dom.input.value = "";
+        } catch (error) {
+            alert("Erro: " + error.message);
+        } finally {
+            this.toggleLoading(false);
+        }
+    }
+
+    async loadWeather(city) {
+        this.toggleLoading(true);
+        try {
+            const url = "https://api.open-meteo.com/v1/forecast?latitude=" + city.lat + "&longitude=" + city.lon + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m";
+            const res = await fetch(url);
+            const data = await res.json();
+            this.updateUI(city, data.current);
+        } catch (error) {
+            alert("Falha ao obter meteorologia.");
+        } finally {
+            this.toggleLoading(false);
+        }
+    }
+
+    updateUI(city, current) {
+        this.dom.city.textContent = city.name;
+        this.dom.temp.textContent = Math.round(current.temperature_2m);
+        this.dom.wind.textContent = current.wind_speed_10m;
+        this.dom.hum.textContent = current.relative_humidity_2m;
+        this.dom.feels.textContent = Math.round(current.apparent_temperature);
+        this.dom.desc.textContent = this.getWeatherString(current.weather_code);
+    }
+
+    // ... Resto dos métodos auxiliares ...
+}`;
+            } else {
+                const errorMsg = document.getElementById('pass-error');
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Password Incorreta! Tenta novamente.';
+            }
+        }
     </script>
 
     <script>
