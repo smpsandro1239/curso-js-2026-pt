@@ -232,6 +232,59 @@
         </div>
 
         <div class="section">
+            <div class="verification">
+                <h2>🧠 Blueprint do Pensamento Lógico</h2>
+                <p style="text-align: center; margin-bottom: 20px;">Antes de escreveres código, tens de saber <strong>COMO</strong> construir este projeto. Vamos testar o teu plano de ataque.</p>
+
+                <div class="question" data-question="1">
+                    <h3>1. Qual deve ser o primeiro passo lógico ao criar esta App?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Começar a escrever CSS para a janela ficar bonita.</div>
+                        <div class="option" data-value="b">Definir as variáveis e selecionar os elementos HTML (DOM) que vou precisar de manipular.</div>
+                        <div class="option" data-value="c">Copiar e colar código da internet.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <div class="question" data-question="2">
+                    <h3>2. Quando o utilizador pesquisa uma cidade, a resposta da API não é instantânea. O que devemos fazer?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Bloquear o site até chegar a resposta.</div>
+                        <div class="option" data-value="b">Usar <code>async/await</code> e mostrar um aviso de "Loading" para o utilizador saber que algo está a acontecer.</div>
+                        <div class="option" data-value="c">Tentar adivinhar a temperatura.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <div class="question" data-question="3">
+                    <h3>3. Como é que mantemos o código organizado num projeto grande como este?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Escrever tudo dentro de uma única função gigante.</div>
+                        <div class="option" data-value="b">Usar Classes ou Módulos para separar responsabilidades (uma parte trata da API, outra da UI, outra dos Eventos).</div>
+                        <div class="option" data-value="c">Criar 10 ficheiros HTML diferentes.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <button class="submit-btn" id="submitBtn" disabled>Verificar Meu Plano</button>
+
+                <div class="results" id="results">
+                    <h3 id="resultsText"></h3>
+                    <p id="resultsScore"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
             <h3>📝 Como funciona este código?</h3>
             <p>Usámos tudo o que aprendeste até agora:</p>
             <ul style="line-height: 1.8;">
@@ -254,6 +307,28 @@
             </a>
         </div>
     </div>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Exato! Antes de cozinhar, preparas os ingredientes. Antes de programar lógica, preparas as referências para os elementos do ecrã (Inputs, Botões, Divs) que vais alterar.',
+                    analogy: 'Mise en place: Primeiro organizas a bancada, depois começas a cozinhar.'
+                },
+                2: {
+                    correct: 'b',
+                    explanation: 'A internet é imprevisível. O site nunca deve "congelar". O Async/Await permite que o código espere pelos dados sem bloquear o resto da página, e o Loading melhora a experiência (UX).',
+                    analogy: 'Quando pedes um café, o empregado diz "so um momento" (Loading) enquanto a máquina trabalha, em vez de ficar paralisado e mudo.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'Dividir para conquistar! Separar a lógica (API) da visualização (UI) torna o código mais fácil de ler, corrigir e expandir. É o princípio da "Separação de Responsabilidades".',
+                    analogy: 'Num restaurante, o cozinheiro (API) não serve às mesas (UI). Cada um tem a sua função especializada.'
+                }
+            }
+        };
+    </script>
 
     <script>
         // --- 1. CONFIGURAÇÃO E DADOS ---
