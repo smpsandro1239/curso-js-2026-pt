@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 9: O Loop For</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 2: O Cérebro do Código</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>O Loop For: Repetição Controlada</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>A estrutura compacta do <code>for</code></li>
+                            <li>As 3 partes do loop: Inicialização, Condição, Incremento</li>
+                            <li>Diferença entre <code>while</code> e <code>for</code></li>
+                            <li>Como criar tabuadas e repetições fixas</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>O <code>while</code> é ótimo quando não sabemos quando acabar. Mas e quando queremos repetir exatamente 10 vezes?</p>
+
+                    <div class="analogy-box">
+                        <h4>🏃 Analogia da Pista de Atletismo</h4>
+                        <p>Um loop <code>for</code> é como uma corrida de 400 metros:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li><strong>Inicialização</strong>: Começas na linha de partida (Volta 1).</li>
+                            <li><strong>Condição</strong>: Corres enquanto não completares 4 voltas.</li>
+                            <li><strong>Incremento</strong>: Cada vez que passas a meta, contas +1 volta.</li>
+                        </ul>
+                        <p>No código, tudo isto fica numa só linha!</p>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> É a estrutura mais usada para processar listas. Se tiveres uma lista de 100 produtos e quiseres aplicar um desconto em cada um, usas um loop <code>for</code> que vai do produto 0 ao 100.</p>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos dissecar a anatomia do <code>for</code>:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Contar até 5</h4>
+                            <p>Tudo numa linha: variável, condição e incremento.</p>
+                            <pre><code>//   (Início ;  Condição ; Passo)
+for (let i = 1; i <= 5; i++) {
+    console.log("Número: " + i);
+}</code></pre>
+                            <p><em>Nota: Usamos muito a variável <code>i</code> (de "índice" ou "iterador") nos loops.</em></p>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Contagem de 2 em 2</h4>
+                            <p>O passo não precisa de ser sempre +1.</p>
+                            <pre><code>// i += 2 significa i = i + 2
+for (let i = 0; i <= 10; i += 2) {
+    console.log("Par: " + i);
+}
+// Resultado: 0, 2, 4, 6, 8, 10</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 3: Contagem Decrescente</h4>
+                            <pre><code>for (let i = 10; i >= 0; i--) {
+    console.log("Faltam " + i + " segundos");
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">💡</span>
+                        <div>
+                            <strong>Dica Pro:</strong> A grande vantagem do <code>for</code> é organização. Ao contrário do <code>while</code>, onde podes esquecer-te de incrementar a variável e bloquear o programa, no <code>for</code> és "obrigado" a definir tudo logo no início. É mais seguro!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. Quais são as 3 partes de um loop for?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Início, Meio e Fim.</div>
+                                <div class="option" data-value="b">Inicialização, Condição e Incremento.</div>
+                                <div class="option" data-value="c">Variável, Função e Objeto.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que faz o código <code>i++</code>?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Aumenta o valor de i em 1 unidade.</div>
+                                <div class="option" data-value="b">Aumenta o valor de i em 2 unidades.</div>
+                                <div class="option" data-value="c">Repete o loop mais uma vez.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Posso usar um loop for para contar para trás?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Não, os loops só andam para a frente.</div>
+                                <div class="option" data-value="b">Sim, se usarmos <code>i--</code> e ajustarmos a condição.</div>
+                                <div class="option" data-value="c">Sim, mas precisamos de dois loops.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>A Tabuada do 7</strong></p>
+
+                        <p>Cria um programa que mostre a tabuada do 7 (de 1 a 10) na consola.</p>
+                        <p>O resultado deve ser algo como: <code>7 x 1 = 7</code>, <code>7 x 2 = 14</code>...</p>
+
+                        <p><strong>Requisitos:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Usa um loop <code>for</code> que vá de 1 a 10.</li>
+                            <li>Dentro do loop, calcula o resultado (i * 7).</li>
+                            <li>Mostra a string formatada.</li>
+                        </ul>
+
+                        <pre><code>let tabuada = 7;
+
+// O teu loop for aqui</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let tabuada = 7;
+
+for (let i = 1; i <= 10; i++) {
+    let resultado = tabuada * i;
+    console.log(tabuada + " x " + i + " = " + resultado);
+}</code></pre>
+                                <p><strong>📌 Explicação:</strong> O loop corre 10 vezes. Em cada volta, o <code>i</code> vale 1, depois 2, depois 3... Multiplicamos esse valor por 7 e mostramos o resultado.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-08-loops-while/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Módulo 3 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>9</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 2)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>Habitua-te a usar <code>let</code> dentro do loop (<code>for (let i...)</code>). Assim, a variável <code>i</code> só existe dentro do loop e não polui o resto do teu código. Chama-se a isto "Scope" (Escopo) e vamos falar disso no Módulo 3!</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>🎉 Completaste o Módulo 2!</h4>
+                    <p>Dominas a lógica de controlo! Sabes tomar decisões e repetir tarefas.</p>
+                    <p>No próximo módulo, vamos organizar o código com <strong>Funções</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'A sintaxe é: <code>for (inicialização; condição; incremento)</code>. É o que o torna tão compacto e poderoso.',
+                    analogy: 'Prepara (vai para a partida); Verifica (ainda não cheguei ao fim?); Atualiza (dá mais um passo).'
+                },
+                2: {
+                    correct: 'a',
+                    explanation: 'O operador <code>++</code> incrementa o valor da variável em 1. É o mesmo que fazer <code>i = i + 1</code>.',
+                    analogy: 'É como o contador de pontuação num jogo de matraquilhos.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'Claro que sim! Basta inicializar com um valor alto, usar uma condição de "maior que" e decrementar (<code>i--</code>).',
+                    analogy: 'É como a contagem final para o lançamento de um foguetão: 10, 9, 8...'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

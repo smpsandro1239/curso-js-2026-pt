@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 8: Introdução aos Loops (While)</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 2: O Cérebro do Código</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Introdução aos Loops: O 'While'</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O conceito de Repetição (Loop) em programação</li>
+                            <li>A estrutura <code>while</code> (Enquanto...)</li>
+                            <li>Como evitar o perigoso "Loop Infinito"</li>
+                            <li>Criar contadores autimáticos</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>Imagina que tinhas de enviar "Bom dia" a 50 amigos. Ias escrever 50 linhas de código iguais? Não! Usamos loops para repetir tarefas.</p>
+
+                    <div class="analogy-box">
+                        <h4>🥣 Analogia do Prato de Sopa</h4>
+                        <p>Como é que sabes quando parar de comer sopa?</p>
+                        <p>A tua lógica é: <strong>ENQUANTO (while)</strong> houver sopa no prato, come uma colherada.</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Verificas a condição (Há sopa?).</li>
+                            <li>Executas a ação (Comer).</li>
+                            <li>Repetes até a condição ser falsa (Prato vazio).</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Porque é que isto importa?</strong> Os loops são o motor da automação. Servem para processar milhares de dados, mostrar feed de notícias (enquanto houver posts, mostra mais um), ou manter um jogo a correr (enquanto o jogador tiver vidas).</p>
+
+                    <div class="blockquote-info">
+                        💡 <strong>Cuidado!</strong> Se te esqueceres de fazer a condição mudar (ex: nunca tirares sopa do prato), entras num <strong>Loop Infinito</strong>. O programa nunca para e bloqueia o computador!
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>Vamos criar repetições controladas:</p>
+
+                        <div class="example">
+                            <h4>Exemplo 1: Contagem Crescente</h4>
+                            <p>Vamos contar de 1 até 5.</p>
+                            <pre><code>let contador = 1;
+
+while (contador <= 5) {
+    console.log("Número: " + contador);
+    contador++; // IMPORTANTE: Aumentar o contador para não ser infinito!
+}
+// Resultado: 1, 2, 3, 4, 5</code></pre>
+                        </div>
+
+                        <div class="example">
+                            <h4>Exemplo 2: Loop de Jogo (Lógica de Vidas)</h4>
+                            <p>Enquanto o jogador tiver vidas, o jogo continua.</p>
+                            <pre><code>let vidas = 3;
+
+while (vidas > 0) {
+    console.log("A jogar... Vidas restantes: " + vidas);
+    vidas--; // Perdeu uma vida
+}
+console.log("Game Over! 💀");</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <span class="icon">⚠️</span>
+                        <div>
+                            <strong>Segurança Primeiro:</strong> Sempre que escreveres um <code>while</code>, pergunta-te imediatamente: "O que é que vai fazer a condição tornar-se FALSA?". Se não tiveres resposta, vais bloquear o browser.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. O que acontece se te esqueceres de atualizar a variável de controlo (ex: <code>contador++</code>)?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">O loop para automaticamente após 10 voltas.</div>
+                                <div class="option" data-value="b">O computador cria um Loop Infinito e pode encravar.</div>
+                                <div class="option" data-value="c">Gera um erro de sintaxe.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. Quando é que o loop <code>while</code> termina?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Quando a condição se torna Falsa e não se cumpre mais.</div>
+                                <div class="option" data-value="b">Quando a condição é Verdadeira.</div>
+                                <div class="option" data-value="c">Quando carregamos na tecla Enter.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="3">
+                            <h3>3. Se a condição começar loga como Falsa (ex: <code>while(false)</code>), o que acontece?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">O código executa pelo menos uma vez.</div>
+                                <div class="option" data-value="b">O código dentro do loop nunca é executado.</div>
+                                <div class="option" data-value="c">Dá erro.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="challenge">
+                        <h2>🧩 Desafio Prático</h2>
+                        <p><strong>A Contagem Decrescente de Ano Novo</strong></p>
+
+                        <p>Cria um loop que faça uma contagem decrescente de 10 até 0.</p>
+                        <p>Quando chegar ao fim (depois do loop), deve mostrar "Feliz Ano Novo! 🎆".</p>
+
+                        <p><strong>Requisitos:</strong></p>
+                        <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                            <li>Começa com <code>let segundos = 10;</code></li>
+                            <li>Usa um <code>while</code>.</li>
+                            <li>Não te esqueças de diminuir os segundos (<code>segundos--</code>).</li>
+                        </ul>
+
+                        <pre><code>let segundos = 10;
+
+// O teu while aqui</code></pre>
+
+                        <details>
+                            <summary>Mostrar Solução</summary>
+                            <div class="solution-content">
+                                <pre><code>let segundos = 10;
+
+while (segundos >= 0) {
+    console.log(segundos);
+    segundos--;
+}
+
+console.log("Feliz Ano Novo! 🎆");</code></pre>
+                                <p><strong>📌 Explicação:</strong> Começamos em 10. Enquanto for maior ou igual a 0, mostramos o número e subtraímos 1. Quando chegar a -1, o loop para e o código segue para a mensagem de festa.</p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-07-condicionais-avancadas/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="#" class="nav-btn next" style="opacity: 0.5; cursor: not-allowed;">
+                        Aula 9 (Em breve) <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>8</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 2)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>50 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Média</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 50%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>O <code>while</code> é ótimo quando <strong>não sabes</strong> quantas vezes algo vai repetir (ex: "lê ficheiro até acabar"). Se souberes exatamente o número (ex: "repete 10 vezes"), geralmente usamos o <code>for</code>, que veremos na próxima aula.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 9: O Loop For</strong></p>
+                    <p>A ferramenta mais usada profissionalmente para repetições controladas e percorrer listas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'Isto é um erro clássico de iniciante (e de sénior também!). Se a condição nunca ficar falsa, o computador fica preso para sempre nesse bloco de código.',
+                    analogy: 'É como entrares numa rotunda e o GPS nunca te mandar sair. Ficas lá a andar às voltas até acabar a gasolina.'
+                },
+                2: {
+                    correct: 'a',
+                    explanation: 'O <code>while</code> significa "Enquanto". Portanto, ele continua <strong>Enquanto for verdade</strong>. Assim que a condição passa a <strong>Falso</strong>, ele para.',
+                    analogy: 'Enquanto houver música, dança. Quando a música parar (Falso), paras de dançar.'
+                },
+                3: {
+                    correct: 'b',
+                    explanation: 'O <code>while</code> verifica a condição no início. Se logo à entrada for mentira, ele nem sequer entra no bloco de código uma única vez.',
+                    analogy: 'É como um segurança à porta. Se não tiveres bilhete, nem entras no recinto.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>

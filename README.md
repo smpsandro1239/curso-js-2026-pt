@@ -23,8 +23,8 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 |------|--------|--------|------|
 | **06** | [Estruturas Condicionais Simples](aula-06-condicionais/README.md) | ✅ Disponível | `if`, `else` |
 | **07** | [Condicionais Avançadas](aula-07-condicionais-avancadas/README.md) | ✅ Disponível | `else if`, `switch`, Ternários |
-| **08** | Introdução aos Loops (While) | 🚧 Planeado | Repetição básica |
-| **09** | O Loop For | 🚧 Planeado | Repetição controlada |
+| **08** | [Introdução aos Loops (While)](aula-08-loops-while/README.md) | ✅ Disponível | Repetição básica |
+| **09** | [O Loop For](aula-09-loop-for/README.md) | ✅ Disponível | Repetição controlada |
 
 ### 🔵 Módulo 3: Organização e Reutilização (Funções)
 *Planeado: Funções básicas, Parâmetros, Return, Scope, Arrow Functions.*
