@@ -62,7 +62,7 @@ O curso está dividido em módulos para garantir uma aprendizagem profunda e met
 | Aula | Tópico | Status | Conceitos Chave |
 |------|--------|--------|------|
 | **25** | [Desestruturação e Spread/Rest](aula-25-es6-intro/README.md) | ✅ Disponível | `...`, `{ key }`, `[0]` |
-| **26** | Módulos (Import/Export) | 🚧 Planeado | `import`, `export`, `type="module"` |
+| **26** | [Módulos (Import/Export)](aula-26-modulos/README.md) | ✅ Disponível | `import`, `export`, `type="module"` |
 | **27** | Classes e POO (Opcional) | 🚧 Planeado | `class`, `constructor`, `extends` |
 | **28** | 🏆 PROJETO FINAL | 🚧 Planeado | App Completa |
 
