@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript 2026 - Aula 22: Promises</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        .promise-box {
+            border: 2px dashed #666;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.5s ease;
+        }
+        .promise-box.pending {
+            border-color: #ffd700;
+            background: #333300;
+        }
+        .promise-box.resolved {
+            border-color: #4CAF50;
+            background: #1b5e20;
+            color: white;
+        }
+        .promise-box.rejected {
+            border-color: #f44336;
+            background: #b71c1c;
+            color: white;
+        }
+        #btn-pedir {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="course-info">
+                    <h1>Curso Completo de JavaScript - 2026</h1>
+                    <p>Módulo 6: Assincronismo e APIs</p>
+                </div>
+                <div class="timer">
+                    <h3>Duração da Aula</h3>
+                    <div class="time-display" id="clock">60:00</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="content-grid">
+            <div class="main-content">
+                <div class="section">
+                    <h2>Promises: Promessas de Valor Futuro</h2>
+
+                    <div class="learning-objectives">
+                        <h3>O que vais aprender nesta aula:</h3>
+                        <ul>
+                            <li>O conceito de Promise (Pendente, Resolvida, Rejeitada)</li>
+                            <li>Como criar uma Promise: <code>new Promise(...)</code></li>
+                            <li>Como consumir uma Promise: <code>.then()</code> e <code>.catch()</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>🧠 Teoria (com Analogia e Contexto Real)</h2>
+
+                    <p>No código assíncrono, não sabemos SE nem QUANDO o resultado chega. A Promise é um objeto que representa esse "talvez".</p>
+
+                    <div class="analogy-box">
+                        <h4>🎁 Analogia da Encomenda Online</h4>
+                        <p>1. <strong>Pending (Pendente)</strong>: Acabaste de encomendar. Ainda não tens o produto, mas tens uma "promessa" de entrega.</p>
+                        <p>2. <strong>Resolved (Resolvida)</strong>: O estafeta tocou à campainha. A promessa foi cumprida (Sucesso!).</p>
+                        <p>3. <strong>Rejected (Rejeitada)</strong>: Recebes um email a dizer que houve um extravio. A promessa falhou (Erro).</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💻 Prática (Orientada e Progressiva)</h2>
+
+                    <div class="practice-examples">
+                        <p>A estrutura de uma Promessa:</p>
+
+                        <div class="example">
+                            <h4>Criar e Consumir</h4>
+                            <pre><code>// 1. A Promessa
+const minhaPromessa = new Promise((resolve, reject) => {
+    let sucesso = true; // Simulação
+
+    if (sucesso) {
+        resolve("Pizza entregue! 🍕");
+    } else {
+        reject("O estafeta perdeu-se. 😢");
+    }
+});
+
+// 2. O Consumo
+minhaPromessa
+    .then((mensagem) => {
+        console.log("Sucesso: " + mensagem);
+    })
+    .catch((erro) => {
+        console.log("Erro: " + erro);
+    });</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="demo-area">
+                        <h3>🧪 Simulador de Pedido Uber Eats</h3>
+                        <p>Clica para pedir. Pode demorar entre 1 a 3 segundos. Há 50% de hipótese de falhar!</p>
+
+                        <button id="btn-pedir">🍔 Fazer Pedido</button>
+
+                        <div id="status-box" class="promise-box" style="display:none;">
+                            Estado Atual: <span id="estado-texto">...</span>
+                        </div>
+                        <p id="msg-final"></p>
+
+                        <script>
+                            const btn = document.querySelector("#btn-pedir");
+                            const box = document.querySelector("#status-box");
+                            const textoEstado = document.querySelector("#estado-texto");
+                            const msg = document.querySelector("#msg-final");
+
+                            function fazerPedido() {
+                                return new Promise((resolve, reject) => {
+                                    // Simula tempo de espera aleatório (1s a 3s)
+                                    const tempo = Math.floor(Math.random() * 2000) + 1000;
+
+                                    setTimeout(() => {
+                                        const sucesso = Math.random() > 0.5; // 50% chance
+
+                                        if (sucesso) {
+                                            resolve("Hambúrguer chegou quentinho! 🍔");
+                                        } else {
+                                            reject("O restaurante cancelou o pedido. 🚫");
+                                        }
+                                    }, tempo);
+                                });
+                            }
+
+                            btn.addEventListener("click", () => {
+                                // Reset UI
+                                box.style.display = "block";
+                                box.className = "promise-box pending";
+                                textoEstado.innerText = "⏳ A preparar (Pending)...";
+                                msg.innerText = "";
+                                btn.disabled = true;
+
+                                fazerPedido()
+                                    .then((resultado) => {
+                                        // SUCESSO
+                                        box.className = "promise-box resolved";
+                                        textoEstado.innerText = "✅ Resolvida!";
+                                        msg.innerText = resultado;
+                                        msg.style.color = "lightgreen";
+                                    })
+                                    .catch((erro) => {
+                                        // ERRO
+                                        box.className = "promise-box rejected";
+                                        textoEstado.innerText = "❌ Rejeitada!";
+                                        msg.innerText = erro;
+                                        msg.style.color = "salmon";
+                                    })
+                                    .finally(() => {
+                                        // SEMPRE
+                                        btn.disabled = false;
+                                        console.log("Processo terminado.");
+                                    });
+                            });
+                        </script>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="verification">
+                        <h2>✅ Verificação de Conhecimento</h2>
+
+                        <div class="question" data-question="1">
+                            <h3>1. O método `.then()` é executado quando...?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">A promessa é rejeitada (Erro).</div>
+                                <div class="option" data-value="b">A promessa é resolvida com sucesso.</div>
+                                <div class="option" data-value="c">A promessa ainda está pendente.</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="question" data-question="2">
+                            <h3>2. O que faz o `.finally()`?</h3>
+                            <div class="options">
+                                <div class="option" data-value="a">Cancela a promessa.</div>
+                                <div class="option" data-value="b">Executa apenas se houver erro.</div>
+                                <div class="option" data-value="c">Executa sempre, independentemente do resultado (sucesso ou erro).</div>
+                            </div>
+                            <div class="feedback">
+                                <div class="explanation"></div>
+                                <div class="analogy-feedback"></div>
+                            </div>
+                        </div>
+
+                        <button class="submit-btn" id="submitBtn" disabled>Verificar Respostas</button>
+
+                        <div class="results" id="results">
+                            <h3 id="resultsText"></h3>
+                            <p id="resultsScore"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="lesson-navigation">
+                    <a href="../aula-21-assincronismo-intro/index.html" class="nav-btn prev">
+                        <span class="arrow">←</span> Aula Anterior
+                    </a>
+                    <a href="../index.html" class="nav-btn home">
+                        <span class="arrow">🏠</span>
+                    </a>
+                    <a href="../aula-23-fetch-api/index.html" class="nav-btn next">
+                        Aula 23: Fetch e JSON <span class="arrow">→</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="sidebar">
+                <h3>Informações da Aula</h3>
+
+                <div class="lesson-info">
+                    <div class="info-item">
+                        <span>Aula:</span>
+                        <strong>22</strong> <span style="font-size: 0.8em; opacity: 0.7">(Mód. 6)</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duração:</span>
+                        <strong>60 minutos</strong>
+                    </div>
+                    <div class="info-item">
+                        <span>Dificuldade:</span>
+                        <strong>Difícil</strong>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 30%;"></div>
+                </div>
+
+                <div class="career-tip">
+                    <h4>💼 Dica de Carreira</h4>
+                    <p>O "Callback Hell" (cascata de callbacks) era um pesadelo antigamente. As Promises (introduzidas no ES6) vieram salvar o dia, tornando o código assíncrono mais plano e legível.</p>
+                </div>
+
+                <div class="next-lesson">
+                    <h4>➡️ Próxima Aula</h4>
+                    <p><strong>Aula 23: Fetch API</strong></p>
+                    <p>Agora que sabemos usar Promises, vamos usá-las para ir buscar dados reais à internet (JSON)!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>Curso Completo de JavaScript - 2026 | Formação em Português Europeu</p>
+    </footer>
+
+    <script>
+        window.courseData = {
+            questions: {
+                1: {
+                    correct: 'b',
+                    explanation: 'O <code>resolve()</code> dentro da promessa dispara o <code>.then()</code>. O <code>reject()</code> dispara o <code>.catch()</code>.',
+                    analogy: 'Se a encomenda chegou (.then), abres a caixa. Se não chegou (.catch), reclamas.'
+                },
+                2: {
+                    correct: 'c',
+                    explanation: 'O <code>finally</code> é útil para limpeza, como esconder um ícone de carregamento ("spinner"), que deve desaparecer quer o pedido tenha corrido bem ou mal.',
+                    analogy: 'Independentemente de comeres pizza ou não, tens de lavar as mãos depois.'
+                }
+            }
+        };
+    </script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
