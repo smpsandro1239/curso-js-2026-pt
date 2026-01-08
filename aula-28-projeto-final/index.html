@@ -366,12 +366,139 @@
                 </div>
 
                 <!-- STEP 10: DYNAMIC LISTS -->
-                <div class="question" data-question="10">
-                    <h3>10. Conteúdo Dinâmico: Como criamos a lista de "Cidades Populares" sem repetir HTML?</h3>
+                <!-- STEP 11: CSS VARIABLES -->
+                <div class="question" data-question="11">
+                    <h3>11. Estilo Inteligente: Porquê usar Variáveis CSS (`:root`) em vez de cores fixas `hex`?</h3>
                     <div class="options">
-                        <div class="option" data-value="a">Copiamos e colamos `li` 10 vezes no HTML.</div>
-                        <div class="option" data-value="b">Criamos um Array de objetos com as cidades e usamos um loop (forEach) para criar o HTML automaticamente.</div>
-                        <div class="option" data-value="c">Não é possível fazer isso em JS.</div>
+                        <div class="option" data-value="a">Porque o navegador processa mais rápido.</div>
+                        <div class="option" data-value="b">Para facilitar a manutenção: se quisermos mudar o tema para "Dark Mode" ou outra cor, mudamos num só sítio e aplica-se a tudo.</div>
+                        <div class="option" data-value="c">Não serve para nada.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 12: LAYOUT STRATEGY -->
+                <div class="question" data-question="12">
+                    <h3>12. Layout: Grid vs Flexbox. Qual usar para a estrutura principal (Sidebar + Conteúdo)?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">CSS Grid é ideal para estruturas layouts bidimensionais (colunas e linhas) como o esqueleto da app.</div>
+                        <div class="option" data-value="b">Flexbox, porque funciona melhor com tabelas.</div>
+                        <div class="option" data-value="c">Float left e clear fix, com antigamente.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 13: INPUT VALIDATION -->
+                <div class="question" data-question="13">
+                    <h3>13. Validação: O que fazer se o utilizador escrever apenas espaços "   " no input?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Enviar os espaços para a API e esperar que funcione.</div>
+                        <div class="option" data-value="b">Usar `.trim()` para remover espaços extra e verificar se a string está vazia antes de fazer qualquer pedido.</div>
+                        <div class="option" data-value="c">Gritar com o utilizador.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 14: URL CONSTRUCTION -->
+                <div class="question" data-question="14">
+                    <h3>14. Strings Modernas: Como inserimos a variável `cidade` dentro do URL da API?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Concatenar com muitos "+" (ex: url + kota + ".com").</div>
+                        <div class="option" data-value="b">Usar Template Literals com backticks (`) e `${cidade}` para uma leitura limpa.</div>
+                        <div class="option" data-value="c">Escrever o URL à mão sempre.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 15: HTTP STATUS -->
+                <div class="question" data-question="15">
+                    <h3>15. A Internet Falha: O `fetch` pode completar-se mas a API devolver erro (ex: 404). Como detetamos?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">O `catch` apanha automaticamente erros 404.</div>
+                        <div class="option" data-value="b">Temos de verificar `response.ok` (se é true). Se não for, lançamos um erro manual `throw new Error()`.</div>
+                        <div class="option" data-value="c">Ignoramos e mostramos "undefined".</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 16: DATA PARSING -->
+                <div class="question" data-question="16">
+                    <h3>16. Dados: O `fetch` devolve um "Stream". Como obtemos o Objeto JavaScript real?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Usamos `JSON.parse()`.</div>
+                        <div class="option" data-value="b">Precisamos de um segundo `await response.json()` para ler o corpo da resposta e transformá-lo em objeto.</div>
+                        <div class="option" data-value="c">Lemos como texto simples.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 17: DATA FORMATTING -->
+                <div class="question" data-question="17">
+                    <h3>17. Apresentação: A API devolve 22.4124°C. O que mostramos ao utilizador?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">22.4124°C, precisão é tudo.</div>
+                        <div class="option" data-value="b">Usamos `Math.round()` para mostrar 22°C, que é o que as pessoas esperam ver numa previsão.</div>
+                        <div class="option" data-value="c">Cortamos a string nos primeiros 2 caracteres.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 18: CONTEXT (THIS) -->
+                <div class="question" data-question="18">
+                    <h3>18. Classes e Eventos: Porque usamos Arrow Functions `() => {}` nos event listeners dentro da classe?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Porque são mais curtas.</div>
+                        <div class="option" data-value="b">Para manter o contexto do `this` apontado para a Classe e não para o elemento HTML que foi clicado.</div>
+                        <div class="option" data-value="c">É a única maneira de escrever funções.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 19: SECURITY -->
+                <div class="question" data-question="19">
+                    <h3>19. Segurança: Se a API exigisse uma Chave Secreta (API Key), onde a deveríamos guardar num projeto real?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Diretamente no código JS visível a todos.</div>
+                        <div class="option" data-value="b">Num ficheiro `.env` no servidor (Backend), nunca exposta no Frontend.</div>
+                        <div class="option" data-value="c">Num comentário HTML.</div>
+                    </div>
+                    <div class="feedback">
+                        <div class="explanation"></div>
+                        <div class="analogy-feedback"></div>
+                    </div>
+                </div>
+
+                <!-- STEP 20: ACCESSIBILITY -->
+                <div class="question" data-question="20">
+                    <h3>20. Polimento Final: O que falta para o site ser acessível a invisuais?</h3>
+                    <div class="options">
+                        <div class="option" data-value="a">Nada, eles não usam computadores.</div>
+                        <div class="option" data-value="b">Garantir contraste de cores, usar HTML semântico e adicionar atributos `aria-label` ou `alt` em elementos visuais.</div>
+                        <div class="option" data-value="c">Aumentar a fonte.</div>
                     </div>
                     <div class="feedback">
                         <div class="explanation"></div>
@@ -517,6 +644,56 @@ class WeatherApp {
                     correct: 'b',
                     explanation: '<strong>10º Passo: Automação.</strong> Escrever HTML à mão é para estáticos. Se tens um Array de cidades, o JS deve criar os botões (`li`) por ti. Se adicionares uma cidade ao Array, ela aparece no site automaticamente.',
                     analogy: 'Uma impressora (Loop) que imprime 100 convites iguais apenas mudando o nome, em vez de tu escreveres 100 convites à mão.'
+                },
+                11: {
+                    correct: 'b',
+                    explanation: '<strong>11º Passo: CSS Variables.</strong> Definir cores num só sítio (`:root`) torna a manutenção trivial. Mudas `--primary` e o site todo muda.',
+                    analogy: 'Como "Estilos de Texto" no Word. Se mudas o estilo do Título, todos os títulos do documento atualizam.'
+                },
+                12: {
+                    correct: 'a',
+                    explanation: '<strong>12º Passo: CSS Grid.</strong> Para o esqueleto principal (Header, Sidebar, Main Area), Grid é rei. Flexbox brilha no alinhamento de itens pequenos dentro desses blocos.',
+                    analogy: 'Grid é a planta da cidade (ruas e quarteirões). Flexbox é como organizas a mobília dentro de cada casa.'
+                },
+                13: {
+                    correct: 'b',
+                    explanation: '<strong>13º Passo: Input Sanitization.</strong> Nunca confies no input do utilizador. `.trim()` limpa o lixo antes de processar.',
+                    analogy: 'Lavar a fruta antes de comer. Pode parecer limpa, mas é melhor garantir.'
+                },
+                14: {
+                    correct: 'b',
+                    explanation: '<strong>14º Passo: Template Literals.</strong> Adeus `+` confusos. `${variavel}` permite "injetar" valores diretamente na frase.',
+                    analogy: 'Como preencher lacunas num formulário impresso.'
+                },
+                15: {
+                    correct: 'b',
+                    explanation: '<strong>15º Passo: API Status.</strong> O `fetch` só falha na rede (sem internet). Se o servidor responder "404 Not Found", o fetch conta como sucesso. Tens de verificar `ok` manualmente.',
+                    analogy: 'O correio entregou a carta (fetch ok), mas a carta dizia "Recusado" (status 404). Tens de ler a carta para saber.'
+                },
+                16: {
+                    correct: 'b',
+                    explanation: '<strong>16º Passo: JSON Parsing.</strong> Os dados vêm brutos. `res.json()` é o tradutor que converte o texto da API em objetos que o JS entende.',
+                    analogy: 'Receber um livro em código Morse e traduzi-lo para Português para o poder ler.'
+                },
+                17: {
+                    correct: 'b',
+                    explanation: '<strong>17º Passo: UX Numbers.</strong> Ninguém quer saber se estão 22.4 graus. A simplicidade (22°) é melhor para o utilizador comum.',
+                    analogy: 'Quando perguntas as horas, dizem "são 3 e meia", não "são 15:30:42".'
+                },
+                18: {
+                    correct: 'b',
+                    explanation: '<strong>18º Passo: O Contexto `this`.</strong> Em Classes, funções normais perdem a noção de quem é "eu" (`this`) quando usadas em eventos. Arrow functions mantêm o elo à Classe.',
+                    analogy: 'Crachá de identificação. Com Arrow Function, o JS sabe que pertences à empresa (Classe), não importa onde estejas no edifício.'
+                },
+                19: {
+                    correct: 'b',
+                    explanation: '<strong>19º Passo: API Key Security.</strong> Tudo no Frontend é público. Inspecionar elemento revela tudo. Chaves privadas ficam no Backend.',
+                    analogy: 'Não deixas a chave de casa debaixo do tapete (Frontend). Guardas no bolso (Backend).'
+                },
+                20: {
+                    correct: 'b',
+                    explanation: '<strong>20º Passo: Acessibilidade (a11y).</strong> A Web é para todos. HTML Semântico e ARIA permitem que leitores de ecrã "vejam" o teu site.',
+                    analogy: 'Rampas de acesso num edifício. Essenciais para alguns, boas para todos.'
                 }
             }
         };
@@ -605,7 +782,39 @@ class WeatherApp {
         this.dom.desc.textContent = this.getWeatherString(current.weather_code);
     }
 
-    // ... Resto dos métodos auxiliares ...
+    renderCityList(cities) {
+        this.dom.list.innerHTML = "";
+        cities.forEach(city => {
+            const li = document.createElement('li');
+            li.className = 'city-item';
+            li.innerHTML = "<span>" + city.name + "</span> <small>➡️</small>";
+            li.addEventListener('click', () => this.loadWeather(city));
+            this.dom.list.appendChild(li);
+        });
+    }
+
+    toggleLoading(show) {
+        if (show) this.dom.loader.classList.add('show');
+        else this.dom.loader.classList.remove('show');
+    }
+
+    // Helper para traduzir códigos WMO da API
+    getWeatherString(code) {
+        const codes = {
+            0: "Céu Limpo ☀️",
+            1: "Pouco Nublado 🌤️",
+            2: "Nublado ☁️",
+            3: "Encoberto ☁️",
+            45: "Nevoeiro 🌫️",
+            51: "Chuvisco 🌧️",
+            61: "Chuva Fraca 🌧️",
+            63: "Chuva Moderada 🌧️",
+            65: "Chuva Forte ⛈️",
+            80: "Aguaceiros 🌦️",
+            95: "Trovoada ⚡"
+        };
+        return codes[code] || "Desconhecido";
+    }
 }`;
             } else {
                 const errorMsg = document.getElementById('pass-error');
